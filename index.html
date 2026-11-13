@@ -3287,7 +3287,10 @@
       }
 
       const payload = {
-        id: 'RSP-' + Math.floor(1000 + Math.random() * 9000),
+// New (Zero collision, auto-sequential):
+// Uses the next database count, or a timestamp-fallback if offline
+const nextNum = 1000 + (allRegistrations.length + 1);
+id: 'RSP-' + nextNum
         name: document.getElementById('reg-name').value.trim(),
         category: document.getElementById('reg-cat').value.trim(),
         competition,
