@@ -1,0 +1,3945 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RESPLENDENCE 2026 | Winter Carnival — Dwarka International School</title>
+
+  <!-- WhatsApp / Social Share Preview Tags -->
+  <meta name="description" content="Dwarka International School (Sector 12, Dwarka, New Delhi) organizes RESPLENDENCE Winter Carnival on December 19, 2026 (11:00 A.M - 7:00 P.M). Food, Rides, Games, Live Band, Flash Mob, Lucky Draw & Free Competitions!" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="RESPLENDENCE 2026 | Winter Carnival — Dwarka International School" />
+  <meta property="og:description" content="Dec 19, 2026 | 11:00 A.M - 7:00 P.M • Attractions, Entry Info & Free Competition Passes!" />
+  <!-- Optional: When hosting, place your poster file next to index.html and update the filename below -->
+  <meta property="og:image" content="resplendence-poster.jpg" />
+  <meta name="theme-color" content="#880d1e" />
+
+  <!-- Custom Christmas Carnival SVG Tab Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect x='2' y='2' width='60' height='60' rx='16' fill='%237d0c1c' stroke='%23ffd147' stroke-width='4'/%3E%3Cpolygon points='32,16 18,34 25,34 14,49 50,49 39,34 46,34' fill='%2315803d' stroke='%23ffd147' stroke-width='2.5' stroke-linejoin='round'/%3E%3Crect x='29' y='49' width='6' height='6' rx='1' fill='%23ffd147'/%3E%3Cpolygon points='32,6 34.2,11.2 39.8,11.4 35.4,14.8 36.8,20.2 32,17 27.2,20.2 28.6,14.8 24.2,11.4 29.8,11.2' fill='%23ffd147'/%3E%3C/svg%3E" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Mountains+of+Christmas:wght@700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Tiny Scannable QR Generator (with automatic offline fallback) -->
+  <script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.min.js"></script>
+
+  <style>
+    /* =========================================================
+       DESIGN TOKENS & BASE
+       ========================================================= */
+    :root {
+      --bg-deep: #070e17;
+      --crimson-dark: #42050d;
+      --crimson: #880d1e;
+      --crimson-bright: #c81e37;
+      --pine-dark: #072217;
+      --pine: #11422d;
+      --gold: #ffd147;
+      --gold-bright: #ffe999;
+      --text-main: #f8fafc;
+      --text-muted: #cbd5e1;
+      --glass: rgba(255, 255, 255, 0.055);
+      --glass-border: rgba(255, 209, 71, 0.26);
+      --radius-lg: 20px;
+      --radius-md: 14px;
+    }
+
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg-deep);
+      color: var(--text-main);
+      line-height: 1.55;
+      overflow-x: clip;
+    }
+
+    ::-webkit-scrollbar { width: 9px; height: 9px; }
+    ::-webkit-scrollbar-track { background: #050a11; }
+    ::-webkit-scrollbar-thumb {
+      background: linear-gradient(180deg, var(--crimson-bright), var(--gold));
+      border-radius: 10px;
+    }
+
+    #scroll-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3px;
+      width: 0%;
+      background: linear-gradient(90deg, var(--crimson-bright), var(--gold), #2aff7d);
+      z-index: 1000;
+      box-shadow: 0 0 10px var(--gold);
+      transition: width 0.08s linear;
+    }
+
+    #snow-canvas, #confetti-canvas {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+    #snow-canvas { z-index: 30; }
+    #confetti-canvas { z-index: 900; }
+
+    /* =========================================================
+       LIVE NOTICE BAR (HIDDEN UNTIL ADMIN PUBLISHES)
+       ========================================================= */
+    #live-notice-bar {
+      display: none;
+      background: linear-gradient(90deg, #6d0816, #a31326, #6d0816);
+      border-bottom: 1.5px solid var(--gold);
+      padding: 9px 20px;
+      text-align: center;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #fff;
+      position: relative;
+      z-index: 250;
+      animation: fadeIn 0.35s ease;
+    }
+    #live-notice-bar.show {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+    }
+    .live-dot {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255, 209, 71, 0.2);
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 1px;
+      padding: 2px 10px;
+      border-radius: 50px;
+      text-transform: uppercase;
+    }
+    .live-dot::before {
+      content: '';
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #4ade80;
+      box-shadow: 0 0 8px #4ade80;
+      animation: twinkle 1s infinite alternate;
+    }
+    .notice-dismiss {
+      position: absolute;
+      right: 16px;
+      background: none;
+      border: none;
+      color: #fff;
+      font-size: 1.2rem;
+      cursor: pointer;
+      opacity: 0.75;
+    }
+    .notice-dismiss:hover { opacity: 1; }
+
+    /* =========================================================
+       STICKY NAVBAR & FAIRY LIGHTS
+       ========================================================= */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 200;
+      background: rgba(22, 5, 11, 0.88);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(255, 209, 71, 0.22);
+    }
+
+    .nav-wrap {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 10px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: #fff;
+    }
+
+    .brand-crest {
+      width: 40px;
+      height: 40px;
+      border-radius: 11px;
+      background: linear-gradient(145deg, #9e0e22, #4b0610);
+      border: 1.5px solid var(--gold);
+      display: grid;
+      place-items: center;
+      padding: 5px;
+      box-shadow: 0 0 16px rgba(255, 209, 71, 0.35);
+    }
+
+    .brand-title {
+      font-family: 'Cinzel Decorative', serif;
+      font-weight: 900;
+      font-size: 1.05rem;
+      color: var(--gold);
+      letter-spacing: 0.8px;
+      line-height: 1.1;
+    }
+
+    .brand-sub {
+      font-size: 0.7rem;
+      color: #e2e8f0;
+      opacity: 0.85;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 26px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #f1f5f9;
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: color 0.25s;
+    }
+    .nav-links a:hover { color: var(--gold); }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .hub-btn {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 209, 71, 0.45);
+      color: #fff;
+      padding: 8px 14px;
+      border-radius: 50px;
+      font-family: inherit;
+      font-size: 0.84rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      transition: all 0.25s;
+    }
+    .hub-btn:hover {
+      background: rgba(255, 209, 71, 0.16);
+      border-color: var(--gold);
+      transform: translateY(-1px);
+    }
+
+    .badge-count {
+      background: var(--crimson-bright);
+      color: #fff;
+      font-size: 0.72rem;
+      font-weight: 800;
+      min-width: 20px;
+      height: 20px;
+      padding: 0 6px;
+      border-radius: 50px;
+      display: inline-grid;
+      place-items: center;
+    }
+
+    .nav-btn {
+      background: linear-gradient(135deg, var(--gold), #ff9900);
+      color: #2c0408;
+      padding: 9px 18px;
+      border-radius: 50px;
+      font-family: inherit;
+      font-weight: 700;
+      font-size: 0.86rem;
+      box-shadow: 0 4px 16px rgba(255, 209, 71, 0.35);
+      transition: transform 0.25s, box-shadow 0.25s;
+      border: none;
+      cursor: pointer;
+    }
+    .nav-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 22px rgba(255, 209, 71, 0.55);
+    }
+
+    .menu-toggle {
+      display: none;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 209, 71, 0.4);
+      color: var(--gold);
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      font-size: 1.25rem;
+      cursor: pointer;
+    }
+
+    .fairy-lights {
+      position: relative;
+      width: 100%;
+      height: 15px;
+      display: flex;
+      justify-content: space-around;
+      overflow: hidden;
+      pointer-events: none;
+    }
+    .fairy-lights::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      border-top: 2px solid #1e3b2b;
+    }
+    .bulb {
+      width: 8px;
+      height: 11px;
+      border-radius: 50% 50% 45% 45%;
+      margin-top: 2px;
+      animation: twinkle 1.8s infinite alternate ease-in-out;
+    }
+    .bulb.r { background: #ff385c; box-shadow: 0 2px 9px 2px #ff385c; animation-delay: 0s; }
+    .bulb.g { background: #ffd147; box-shadow: 0 2px 9px 2px #ffd147; animation-delay: 0.45s; }
+    .bulb.e { background: #2aff7d; box-shadow: 0 2px 9px 2px #2aff7d; animation-delay: 0.9s; }
+    .bulb.b { background: #38d9ff; box-shadow: 0 2px 9px 2px #38d9ff; animation-delay: 1.35s; }
+
+    /* =========================================================
+       HERO SECTION
+       ========================================================= */
+    .hero {
+      position: relative;
+      min-height: calc(100vh - 75px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 36px 20px 92px;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at var(--hx, 50%) var(--hy, 40%), rgba(255, 209, 71, 0.16), transparent 42%),
+        radial-gradient(circle at 18% 20%, rgba(200, 30, 55, 0.38), transparent 48%),
+        radial-gradient(circle at 82% 28%, rgba(17, 66, 45, 0.52), transparent 50%),
+        linear-gradient(180deg, #4b0610 0%, #7d0c1c 50%, #0c261c 90%, #070e17 100%);
+    }
+
+    .hero-ferris {
+      position: absolute;
+      right: -45px;
+      bottom: 34px;
+      width: clamp(240px, 30vw, 410px);
+      opacity: 0.25;
+      pointer-events: none;
+    }
+    .ferris-spin {
+      transform-origin: 200px 200px;
+      animation: spin 32s linear infinite;
+    }
+
+    .hero-pines {
+      position: absolute;
+      left: -20px;
+      bottom: 28px;
+      width: clamp(180px, 23vw, 300px);
+      opacity: 0.25;
+      pointer-events: none;
+      animation: floatY 6s ease-in-out infinite;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 5;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    .hero-anim {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: heroEnter 0.75s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    }
+    .delay-1 { animation-delay: 0.06s; }
+    .delay-2 { animation-delay: 0.16s; }
+    .delay-3 { animation-delay: 0.26s; }
+    .delay-4 { animation-delay: 0.36s; }
+    .delay-5 { animation-delay: 0.46s; }
+
+    .school-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 18px;
+      border-radius: 50px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 209, 71, 0.45);
+      backdrop-filter: blur(10px);
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--gold-bright);
+    }
+
+    .address-line {
+      font-size: 0.88rem;
+      color: #f8d8dc;
+      margin-top: 6px;
+    }
+
+    .organizes-label {
+      font-family: 'Mountains of Christmas', cursive;
+      font-size: clamp(1.35rem, 2.5vw, 1.85rem);
+      color: var(--gold-bright);
+      margin-top: 8px;
+      letter-spacing: 1.5px;
+    }
+
+    .hero-title {
+      font-family: 'Cinzel Decorative', serif;
+      font-size: clamp(2.3rem, 7vw, 4.9rem);
+      font-weight: 900;
+      line-height: 1.05;
+      letter-spacing: 2.5px;
+      margin-top: 2px;
+      background: linear-gradient(90deg, #fff3b8 0%, #ffd147 25%, #ffffff 50%, #ffd147 75%, #fff3b8 100%);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.55));
+      animation: shine 4.5s linear infinite, heroEnter 0.8s 0.16s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+      opacity: 0;
+    }
+
+    .hero-subtitle {
+      font-size: clamp(1rem, 2.5vw, 1.65rem);
+      font-weight: 800;
+      letter-spacing: 6px;
+      margin-top: 4px;
+      color: #fff;
+    }
+
+    .hero-meta-bar {
+      display: inline-flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+      margin: 18px auto 10px;
+      padding: 10px 24px;
+      border-radius: 14px;
+      background: rgba(8, 36, 24, 0.85);
+      border: 1.5px solid var(--gold);
+      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.4), 0 0 20px rgba(255, 209, 71, 0.18);
+      font-weight: 700;
+      font-size: clamp(0.9rem, 1.7vw, 1.05rem);
+    }
+
+    .hero-tagline {
+      font-family: 'Mountains of Christmas', cursive;
+      font-size: clamp(1.25rem, 2.4vw, 1.6rem);
+      color: #ffe8a3;
+      margin-bottom: 18px;
+    }
+
+    .countdown-grid {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 26px;
+    }
+
+    .cd-box {
+      min-width: 78px;
+      padding: 10px 14px;
+      border-radius: 14px;
+      background: rgba(7, 14, 23, 0.6);
+      border: 1px solid rgba(255, 209, 71, 0.38);
+      backdrop-filter: blur(10px);
+      transition: transform 0.25s, border-color 0.25s;
+    }
+    .cd-box:hover { transform: translateY(-4px); border-color: var(--gold); }
+
+    .cd-num {
+      display: block;
+      font-family: 'Cinzel Decorative', serif;
+      font-size: clamp(1.4rem, 2.8vw, 2rem);
+      font-weight: 900;
+      color: var(--gold);
+      line-height: 1.1;
+    }
+    .cd-lbl {
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--text-muted);
+    }
+
+    .hero-cta-group {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .btn {
+      position: relative;
+      overflow: hidden;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 13px 24px;
+      border-radius: 50px;
+      font-family: inherit;
+      font-weight: 700;
+      font-size: 0.92rem;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.25s, box-shadow 0.25s, background 0.25s;
+    }
+    .btn::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 55%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+      transform: skewX(-22deg);
+      transition: left 0.55s ease;
+    }
+    .btn:hover::after { left: 140%; }
+    .btn:hover { transform: translateY(-3px); }
+
+    .btn-gold {
+      background: linear-gradient(135deg, #ffe169, #ff9d00);
+      color: #2f0409;
+      box-shadow: 0 8px 24px rgba(255, 200, 0, 0.35);
+    }
+    .btn-pine {
+      background: linear-gradient(135deg, #155c3e, #0b3322);
+      color: #fff;
+      border: 1.5px solid var(--gold);
+    }
+    .btn-whatsapp {
+      background: linear-gradient(135deg, #25D366, #128C7E);
+      color: #fff;
+      box-shadow: 0 8px 22px rgba(37, 211, 102, 0.28);
+    }
+    .btn-glass {
+      background: rgba(255, 255, 255, 0.09);
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.28);
+      backdrop-filter: blur(8px);
+    }
+    .btn-glass:hover {
+      border-color: var(--gold);
+      background: rgba(255, 209, 71, 0.14);
+    }
+
+    /* Smooth Wave Dividers Between Sections */
+    .section-wave {
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      width: 100%;
+      line-height: 0;
+      pointer-events: none;
+      z-index: 4;
+    }
+
+    /* Decorative Hanging Christmas Ornaments on Wide Screens */
+    .side-ornament {
+      position: absolute;
+      top: 0;
+      width: 48px;
+      opacity: 0.35;
+      pointer-events: none;
+      z-index: 2;
+      animation: swingGentle 5s ease-in-out infinite alternate;
+      transform-origin: top center;
+    }
+    .side-ornament.left { left: 28px; }
+    .side-ornament.right { right: 28px; animation-delay: 1.5s; }
+
+    /* =========================================================
+       SECTIONS SHARED
+       ========================================================= */
+    section {
+      position: relative;
+      z-index: 10;
+      padding: 82px 24px 104px;
+      scroll-margin-top: 76px;
+      overflow: hidden;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 5;
+    }
+
+    .sec-head {
+      text-align: center;
+      margin-bottom: 38px;
+    }
+
+    .sec-eyebrow {
+      display: inline-block;
+      padding: 5px 16px;
+      border-radius: 50px;
+      background: rgba(255, 209, 71, 0.12);
+      border: 1px solid rgba(255, 209, 71, 0.4);
+      color: var(--gold);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .sec-title {
+      font-family: 'Cinzel Decorative', serif;
+      font-size: clamp(1.9rem, 4vw, 2.8rem);
+      color: #fff;
+    }
+    .sec-title span { color: var(--gold); }
+
+    .sec-sub {
+      max-width: 600px;
+      margin: 8px auto 0;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    /* =========================================================
+       ATTRACTIONS SECTION (SYMMETRICAL 5x2 + 3D TILT + VECTOR ICONS)
+       ========================================================= */
+    .attractions-sec {
+      background:
+        radial-gradient(circle at 12% 35%, rgba(200, 30, 55, 0.14), transparent 38%),
+        radial-gradient(circle at 88% 65%, rgba(255, 209, 71, 0.08), transparent 40%),
+        radial-gradient(circle at top, rgba(136, 13, 30, 0.25), #070e17 70%);
+    }
+
+    .controls-bar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 30px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 12px 16px;
+      border-radius: 18px;
+    }
+
+    .filter-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .filter-pill {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      color: #f1f5f9;
+      padding: 8px 16px;
+      border-radius: 50px;
+      font-family: inherit;
+      font-size: 0.84rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.25s;
+    }
+    .filter-pill:hover, .filter-pill.active {
+      background: linear-gradient(135deg, var(--gold), #ff9900);
+      color: #2f0409;
+      border-color: transparent;
+      box-shadow: 0 4px 14px rgba(255, 209, 71, 0.3);
+    }
+
+    .search-input {
+      background: rgba(0, 0, 0, 0.3);
+      border: 1px solid rgba(255, 209, 71, 0.3);
+      color: #fff;
+      padding: 9px 16px;
+      border-radius: 50px;
+      font-family: inherit;
+      font-size: 0.88rem;
+      min-width: 240px;
+      outline: none;
+      transition: border-color 0.25s, box-shadow 0.25s;
+    }
+    .search-input::placeholder { color: #94a3b8; }
+    .search-input:focus {
+      border-color: var(--gold);
+      box-shadow: 0 0 0 3px rgba(255, 209, 71, 0.15);
+    }
+
+    .attractions-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 18px;
+    }
+
+    .spot-card {
+      flex: 0 0 calc(20% - 15px);
+      min-width: 215px;
+      position: relative;
+      background: linear-gradient(160deg, rgba(255, 255, 255, 0.075), rgba(255, 255, 255, 0.02));
+      border: 1px solid rgba(255, 209, 71, 0.24);
+      border-radius: var(--radius-lg);
+      padding: 20px 18px 18px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow: hidden;
+      transform-style: preserve-3d;
+      will-change: transform;
+      transition: transform 0.25s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .spot-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(320px circle at var(--mx, 50%) var(--my, 50%), rgba(255, 209, 71, 0.18), transparent 65%);
+      opacity: 0;
+      transition: opacity 0.3s;
+      pointer-events: none;
+    }
+    .spot-card:hover::before { opacity: 1; }
+    .spot-card:hover {
+      border-color: var(--gold);
+      box-shadow: 0 20px 38px rgba(0, 0, 0, 0.5), 0 0 22px rgba(255, 209, 71, 0.15);
+    }
+    .spot-card.hidden { display: none; }
+
+    .card-top-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 14px;
+    }
+
+    .card-svg-icon {
+      width: 50px;
+      height: 50px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, rgba(200, 30, 55, 0.55), rgba(255, 209, 71, 0.18));
+      border: 1px solid rgba(255, 209, 71, 0.5);
+      display: grid;
+      place-items: center;
+      padding: 10px;
+      color: var(--gold);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
+    }
+    .spot-card:hover .card-svg-icon {
+      transform: scale(1.1) translateZ(10px);
+      box-shadow: 0 0 20px rgba(255, 209, 71, 0.45);
+    }
+    .spot-card:hover .spin-on-hover {
+      animation: spin 4s linear infinite;
+    }
+
+    .cat-tag {
+      font-size: 0.68rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      padding: 4px 9px;
+      border-radius: 50px;
+      background: rgba(17, 66, 45, 0.85);
+      border: 1px solid rgba(255, 209, 71, 0.3);
+      color: var(--gold-bright);
+    }
+
+    .spot-card h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 6px;
+    }
+
+    .spot-card p {
+      font-size: 0.84rem;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+    }
+
+    .plan-toggle-btn {
+      width: 100%;
+      padding: 8px 12px;
+      border-radius: 10px;
+      border: 1px solid rgba(255, 209, 71, 0.35);
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--gold-bright);
+      font-family: inherit;
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.25s;
+    }
+    .plan-toggle-btn:hover { background: rgba(255, 209, 71, 0.15); }
+    .plan-toggle-btn.saved {
+      background: rgba(22, 163, 74, 0.25);
+      border-color: #4ade80;
+      color: #bbf7d0;
+    }
+
+    /* =========================================================
+       COMPETITIONS ARENA (FREE - 3 + 2 CENTERED + 3D TILT)
+       ========================================================= */
+    .competitions-sec {
+      background:
+        radial-gradient(circle at 50% 0%, rgba(255, 209, 71, 0.08), transparent 45%),
+        radial-gradient(circle at 15% 75%, rgba(22, 163, 74, 0.14), transparent 40%),
+        linear-gradient(180deg, #071f15 0%, #0a3021 55%, #071b14 100%);
+    }
+
+    .free-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 12px;
+      padding: 5px 16px;
+      border-radius: 50px;
+      background: rgba(22, 163, 74, 0.22);
+      border: 1px solid rgba(74, 222, 128, 0.5);
+      color: #bbf7d0;
+      font-weight: 700;
+      font-size: 0.84rem;
+    }
+
+    .comp-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 22px;
+      max-width: 1120px;
+      margin: 0 auto;
+    }
+
+    .comp-card {
+      flex: 0 0 calc(33.333% - 15px);
+      min-width: 280px;
+      background: linear-gradient(160deg, rgba(17, 66, 45, 0.72), rgba(7, 20, 16, 0.94));
+      border: 1.5px solid rgba(255, 209, 71, 0.32);
+      border-radius: var(--radius-lg);
+      padding: 26px 22px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transform-style: preserve-3d;
+      will-change: transform;
+      transition: transform 0.25s ease, border-color 0.3s, box-shadow 0.3s;
+    }
+
+    .comp-card:hover {
+      border-color: var(--gold);
+      box-shadow: 0 22px 42px rgba(0, 0, 0, 0.55), 0 0 24px rgba(255, 209, 71, 0.16);
+    }
+
+    .comp-head {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 14px;
+    }
+
+    .comp-svg-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, var(--crimson-bright), #690814);
+      border: 1.5px solid var(--gold);
+      display: grid;
+      place-items: center;
+      padding: 11px;
+      color: var(--gold);
+      flex-shrink: 0;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
+      transition: transform 0.3s ease;
+    }
+    .comp-card:hover .comp-svg-icon { transform: scale(1.08) rotate(-4deg); }
+
+    .comp-sub {
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #6ee7b7;
+    }
+
+    .comp-card h3 {
+      font-family: 'Cinzel Decorative', serif;
+      font-size: 1.18rem;
+      color: var(--gold);
+    }
+
+    .comp-card p {
+      font-size: 0.88rem;
+      color: #d1fae5;
+      margin-bottom: 20px;
+      opacity: 0.9;
+    }
+
+    .comp-btn {
+      width: 100%;
+      padding: 11px 16px;
+      border-radius: 11px;
+      border: none;
+      background: linear-gradient(135deg, var(--gold), #ff9900);
+      color: #2f0409;
+      font-family: inherit;
+      font-weight: 700;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+    .comp-btn:hover {
+      transform: scale(1.02);
+      box-shadow: 0 6px 20px rgba(255, 209, 71, 0.4);
+    }
+
+    /* =========================================================
+       CARNIVAL ENTRY FEE (PERFORATED TICKET DESIGN)
+       ========================================================= */
+    .entry-info-sec {
+      background: radial-gradient(circle at top center, rgba(136, 13, 30, 0.34), #070e17 75%);
+    }
+
+    .entry-two-col {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 28px;
+      max-width: 1120px;
+      margin: 0 auto;
+      align-items: stretch;
+    }
+
+    /* Authentic Notched Ticket Card */
+    .ticket-card {
+      position: relative;
+      background: linear-gradient(155deg, rgba(110, 12, 26, 0.55), rgba(14, 24, 38, 0.92));
+      border: 1.5px solid rgba(255, 209, 71, 0.48);
+      border-radius: 24px;
+      padding: 30px 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
+      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.45);
+    }
+
+    /* Side semicircular ticket notches */
+    .ticket-card::before,
+    .ticket-card::after {
+      content: '';
+      position: absolute;
+      top: 43%;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: #0b111c;
+      border: 1.5px solid rgba(255, 209, 71, 0.45);
+      z-index: 3;
+    }
+    .ticket-card::before { left: -15px; }
+    .ticket-card::after { right: -15px; }
+
+    .entry-card {
+      background: linear-gradient(155deg, rgba(255, 255, 255, 0.075), rgba(255, 255, 255, 0.02));
+      border: 1.5px solid rgba(255, 209, 71, 0.35);
+      border-radius: 24px;
+      padding: 30px 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
+    }
+
+    .entry-head-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      padding-bottom: 18px;
+      border-bottom: 2px dashed rgba(255, 209, 71, 0.35);
+      margin-bottom: 18px;
+    }
+
+    .entry-price-badge {
+      background: linear-gradient(135deg, var(--gold), #ff9900);
+      color: #2f0409;
+      padding: 8px 20px;
+      border-radius: 14px;
+      font-family: 'Cinzel Decorative', serif;
+      font-weight: 900;
+      font-size: 1.5rem;
+      text-align: center;
+      box-shadow: 0 6px 20px rgba(255, 209, 71, 0.35);
+      flex-shrink: 0;
+    }
+    .entry-price-badge small {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      display: block;
+      margin-top: -2px;
+    }
+
+    .qr-area-wrap {
+      text-align: center;
+      background: rgba(0, 0, 0, 0.32);
+      border: 1px solid rgba(255, 209, 71, 0.28);
+      border-radius: 18px;
+      padding: 18px;
+      margin-top: 8px;
+    }
+
+    .qr-empty-frame {
+      width: 190px;
+      height: 190px;
+      margin: 12px auto 0;
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 2px dashed rgba(255, 209, 71, 0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px;
+      overflow: hidden;
+    }
+
+    .qr-empty-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      background: #fff;
+      border-radius: 10px;
+    }
+
+    .ticket-barcode {
+      margin-top: 14px;
+      height: 18px;
+      opacity: 0.35;
+      background: repeating-linear-gradient(
+        90deg,
+        var(--gold) 0px, var(--gold) 3px,
+        transparent 3px, transparent 6px,
+        var(--gold) 6px, var(--gold) 7px,
+        transparent 7px, transparent 11px
+      );
+      border-radius: 3px;
+    }
+
+    .wa-area-wrap {
+      background: rgba(18, 140, 126, 0.12);
+      border: 1.5px dashed rgba(37, 211, 102, 0.48);
+      border-radius: 18px;
+      padding: 26px 22px;
+      text-align: center;
+      margin-bottom: 18px;
+    }
+
+    .wa-icon-circle {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #25D366, #128C7E);
+      display: grid;
+      place-items: center;
+      font-size: 1.8rem;
+      margin: 0 auto 14px;
+      box-shadow: 0 8px 20px rgba(37, 211, 102, 0.3);
+    }
+
+    .entry-note-box {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.09);
+      border-radius: 14px;
+      padding: 16px;
+      font-size: 0.86rem;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    /* =========================================================
+       VENUE & VISITOR GUIDE
+       ========================================================= */
+    .venue-faq-sec { background: var(--bg-deep); padding-bottom: 84px; }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 26px;
+      max-width: 1120px;
+      margin: 0 auto;
+      align-items: stretch;
+    }
+
+    .panel-box {
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-lg);
+      padding: 28px 26px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
+    }
+
+    .panel-box h3 {
+      font-family: 'Cinzel Decorative', serif;
+      font-size: 1.35rem;
+      color: var(--gold);
+      margin-bottom: 18px;
+    }
+
+    .info-item {
+      display: flex;
+      gap: 14px;
+      padding: 15px;
+      border-radius: var(--radius-md);
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      margin-bottom: 12px;
+    }
+
+    .info-item .ico { font-size: 1.4rem; }
+    .info-item strong { display: block; color: #fff; font-size: 0.95rem; }
+    .info-item span { font-size: 0.86rem; color: var(--text-muted); }
+
+    .venue-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 16px;
+      padding-top: 6px;
+    }
+
+    .faq-item { border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+    .faq-item:last-child { border-bottom: none; }
+
+    .faq-q {
+      width: 100%;
+      background: none;
+      border: none;
+      color: #fff;
+      font-family: inherit;
+      font-size: 0.93rem;
+      font-weight: 600;
+      padding: 14px 0;
+      text-align: left;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+    }
+    .faq-q span {
+      color: var(--gold);
+      font-size: 1.2rem;
+      transition: transform 0.3s;
+    }
+    .faq-item.open .faq-q span { transform: rotate(45deg); }
+
+    .faq-a-wrap {
+      display: grid;
+      grid-template-rows: 0fr;
+      transition: grid-template-rows 0.32s ease;
+    }
+    .faq-item.open .faq-a-wrap { grid-template-rows: 1fr; }
+
+    .faq-a {
+      overflow: hidden;
+      font-size: 0.86rem;
+      color: var(--text-muted);
+    }
+    .faq-a p { padding-bottom: 14px; }
+
+    /* =========================================================
+       FOOTER + PRESTIGIOUS DESIGNER SIGNATURE (YAKSH • XI LILY)
+       ========================================================= */
+    footer {
+      position: relative;
+      background: #04080e;
+      border-top: 1px solid rgba(255, 209, 71, 0.22);
+      padding: 72px 20px 38px;
+      text-align: center;
+      overflow: hidden;
+      z-index: 10;
+    }
+
+    .santa-sleigh {
+      position: absolute;
+      top: 14px;
+      left: -280px;
+      width: 220px;
+      opacity: 0.85;
+      pointer-events: none;
+      animation: flySanta 19s linear infinite;
+    }
+
+    .footer-brand {
+      font-family: 'Cinzel Decorative', serif;
+      font-size: 1.55rem;
+      color: var(--gold);
+      margin-bottom: 6px;
+      display: inline-block;
+      user-select: none;
+      cursor: default;
+    }
+
+    .footer-meta {
+      color: var(--text-muted);
+      font-size: 0.88rem;
+      margin-bottom: 16px;
+    }
+
+    .back-top {
+      display: inline-block;
+      color: var(--gold);
+      font-size: 0.84rem;
+      font-weight: 600;
+      text-decoration: none;
+      border: 1px solid rgba(255, 209, 71, 0.35);
+      padding: 6px 16px;
+      border-radius: 50px;
+      transition: background 0.25s;
+    }
+    .back-top:hover { background: rgba(255, 209, 71, 0.14); }
+
+    .designer-wrap {
+      margin-top: 28px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .designer-plaque {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      padding: 12px 24px;
+      border-radius: 999px;
+      background: linear-gradient(145deg, rgba(16, 30, 44, 0.92), rgba(28, 10, 18, 0.92));
+      border: 1px solid rgba(255, 209, 71, 0.45);
+      box-shadow: 0 10px 32px rgba(0, 0, 0, 0.6), 0 0 24px rgba(255, 209, 71, 0.14);
+      cursor: pointer;
+      overflow: hidden;
+      transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s ease, border-color 0.35s ease;
+    }
+
+    .designer-plaque::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -120%;
+      width: 65%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.22), transparent);
+      transform: skewX(-24deg);
+      animation: plaqueSweep 4.5s infinite ease-in-out;
+    }
+
+    .designer-plaque:hover {
+      transform: translateY(-4px) scale(1.03);
+      border-color: var(--gold);
+      box-shadow: 0 16px 38px rgba(0, 0, 0, 0.75), 0 0 32px rgba(255, 209, 71, 0.38);
+    }
+
+    .designer-emblem {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #ffd147, #ff9900);
+      color: #2f0409;
+      display: grid;
+      place-items: center;
+      font-weight: 900;
+      font-size: 0.92rem;
+      box-shadow: 0 0 15px rgba(255, 209, 71, 0.55);
+      flex-shrink: 0;
+      transition: transform 0.5s ease;
+    }
+    .designer-plaque:hover .designer-emblem { transform: rotate(360deg); }
+
+    .designer-text { text-align: left; line-height: 1.25; }
+
+    .designer-kicker {
+      display: block;
+      font-size: 0.66rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #94a3b8;
+    }
+
+    .designer-name-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 2px;
+    }
+
+    .designer-name {
+      font-family: 'Cinzel Decorative', serif;
+      font-weight: 900;
+      font-size: 1.08rem;
+      letter-spacing: 1.5px;
+      background: linear-gradient(90deg, #fff3b8, #ffd147, #ffffff, #ffd147);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      animation: shine 3.8s linear infinite;
+    }
+
+    .designer-class {
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 1px;
+      padding: 3px 10px;
+      border-radius: 50px;
+      background: rgba(17, 66, 45, 0.85);
+      border: 1px solid rgba(110, 231, 183, 0.45);
+      color: #a7f3d0;
+    }
+
+    /* =========================================================
+       MODALS (REGISTRATION, PASS PREVIEW, MY HUB)
+       ========================================================= */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(4, 8, 15, 0.84);
+      backdrop-filter: blur(10px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 18px;
+      z-index: 700;
+    }
+    .modal-backdrop.open { display: flex; animation: fadeIn 0.25s ease; }
+
+    .modal-card {
+      background: linear-gradient(165deg, #3c0710, #0d2b1f);
+      border: 1.5px solid var(--gold);
+      border-radius: 24px;
+      width: 100%;
+      max-width: 500px;
+      max-height: 92vh;
+      overflow-y: auto;
+      padding: 28px 24px;
+      position: relative;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7);
+      animation: popIn 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      border: none;
+      background: rgba(255, 255, 255, 0.12);
+      color: #fff;
+      font-size: 1.25rem;
+      cursor: pointer;
+    }
+
+    .modal-card h3 {
+      font-family: 'Cinzel Decorative', serif;
+      color: var(--gold);
+      font-size: 1.4rem;
+      margin-bottom: 6px;
+    }
+
+    .field { margin-bottom: 13px; text-align: left; }
+    .field label {
+      display: block;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--gold-bright);
+      margin-bottom: 4px;
+    }
+    .field input, .field select {
+      width: 100%;
+      padding: 10px 13px;
+      border-radius: 10px;
+      border: 1px solid rgba(255, 209, 71, 0.35);
+      background: rgba(0, 0, 0, 0.35);
+      color: #fff;
+      font-family: inherit;
+      font-size: 0.9rem;
+      outline: none;
+    }
+    .field select option { background: #0d2b1f; }
+
+    .hub-tabs { display: flex; gap: 8px; margin: 14px 0 18px; }
+    .hub-tab {
+      flex: 1;
+      padding: 9px;
+      border-radius: 10px;
+      border: 1px solid rgba(255, 209, 71, 0.3);
+      background: rgba(255, 255, 255, 0.06);
+      color: #fff;
+      font-family: inherit;
+      font-weight: 600;
+      font-size: 0.84rem;
+      cursor: pointer;
+    }
+    .hub-tab.active {
+      background: var(--gold);
+      color: #2f0409;
+      border-color: transparent;
+    }
+
+    .saved-item {
+      background: rgba(0, 0, 0, 0.32);
+      border: 1px solid rgba(255, 209, 71, 0.3);
+      border-radius: 14px;
+      padding: 14px;
+      margin-bottom: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .saved-item strong { color: var(--gold); display: block; font-size: 0.94rem; }
+    .saved-item small { color: #cbd5e1; font-size: 0.8rem; }
+
+    .mini-btn {
+      background: rgba(255, 255, 255, 0.12);
+      border: none;
+      color: #fff;
+      padding: 6px 10px;
+      border-radius: 8px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .mini-btn:hover { background: rgba(255, 209, 71, 0.3); }
+
+    /* Pass Preview Box inside Success Modal */
+    .pass-qr-preview {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      background: rgba(0, 0, 0, 0.34);
+      border: 1.5px dashed var(--gold);
+      border-radius: 16px;
+      padding: 14px;
+      margin: 14px 0 18px;
+      text-align: left;
+    }
+    .pass-qr-img {
+      width: 96px;
+      height: 96px;
+      background: #fff;
+      border-radius: 10px;
+      padding: 5px;
+      flex-shrink: 0;
+      display: grid;
+      place-items: center;
+    }
+
+    /* =========================================================
+       FULL-PAGE HIDDEN ADMIN PORTAL
+       ========================================================= */
+    #admin-page {
+      display: none;
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at top right, rgba(200, 30, 55, 0.16), transparent 45%),
+        radial-gradient(circle at bottom left, rgba(17, 66, 45, 0.28), transparent 50%),
+        #060d16;
+      animation: fadeIn 0.25s ease;
+    }
+    #admin-page.active { display: block; }
+
+    .admin-navbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(9, 18, 29, 0.92);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(255, 209, 71, 0.25);
+    }
+
+    .admin-nav-inner {
+      max-width: 1380px;
+      margin: 0 auto;
+      padding: 14px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .admin-brand { display: flex; align-items: center; gap: 12px; }
+
+    .admin-badge-pill {
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding: 4px 12px;
+      border-radius: 50px;
+      background: rgba(255, 209, 71, 0.14);
+      border: 1px solid rgba(255, 209, 71, 0.4);
+      color: var(--gold);
+    }
+    .admin-badge-pill.cloud {
+      background: rgba(22, 163, 74, 0.22);
+      border-color: #4ade80;
+      color: #86efac;
+    }
+
+    .admin-nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .admin-login-screen {
+      min-height: calc(100vh - 75px);
+      display: grid;
+      place-items: center;
+      padding: 24px;
+    }
+
+    .admin-login-card {
+      width: 100%;
+      max-width: 420px;
+      background: linear-gradient(165deg, rgba(28, 12, 20, 0.92), rgba(10, 30, 23, 0.95));
+      border: 1.5px solid var(--gold);
+      border-radius: 24px;
+      padding: 36px 28px;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.65);
+    }
+
+    .admin-login-card h2 {
+      font-family: 'Cinzel Decorative', serif;
+      color: var(--gold);
+      font-size: 1.55rem;
+      margin-bottom: 6px;
+    }
+
+    .admin-workspace {
+      max-width: 1380px;
+      margin: 0 auto;
+      padding: 28px 24px 60px;
+    }
+
+    .new-alert-banner {
+      display: none;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      background: linear-gradient(135deg, rgba(200, 30, 55, 0.3), rgba(255, 209, 71, 0.18));
+      border: 1.5px solid var(--gold);
+      border-radius: 16px;
+      padding: 14px 20px;
+      margin-bottom: 20px;
+      animation: pulseAlert 2s infinite ease-in-out;
+    }
+    .new-alert-banner.show { display: flex; }
+
+    /* Admin Live Notice Control Card */
+    .admin-notice-card {
+      background: rgba(255, 255, 255, 0.035);
+      border: 1px solid rgba(255, 209, 71, 0.25);
+      border-radius: 16px;
+      padding: 16px 18px;
+      margin-bottom: 22px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 12px;
+    }
+    .admin-notice-card input {
+      flex: 1;
+      min-width: 240px;
+      padding: 10px 14px;
+      border-radius: 10px;
+      border: 1px solid rgba(255, 209, 71, 0.35);
+      background: rgba(0, 0, 0, 0.38);
+      color: #fff;
+      font-family: inherit;
+      font-size: 0.88rem;
+      outline: none;
+    }
+
+    .admin-header-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+    .admin-header-row h1 {
+      font-family: 'Cinzel Decorative', serif;
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      color: #fff;
+    }
+    .admin-header-row h1 span { color: var(--gold); }
+
+    .admin-stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .stat-box {
+      background: rgba(255, 255, 255, 0.045);
+      border: 1px solid rgba(255, 209, 71, 0.25);
+      border-radius: 16px;
+      padding: 14px 16px;
+      transition: transform 0.25s, border-color 0.25s;
+    }
+    .stat-box:hover { transform: translateY(-3px); border-color: var(--gold); }
+    .stat-box span {
+      display: block;
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.7px;
+      margin-bottom: 4px;
+    }
+    .stat-box strong {
+      font-family: 'Cinzel Decorative', serif;
+      font-size: 1.5rem;
+      color: var(--gold);
+    }
+
+    .admin-toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 18px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 14px;
+      border-radius: 16px;
+    }
+
+    .admin-toolbar input, .admin-toolbar select {
+      flex: 1;
+      min-width: 190px;
+      padding: 10px 14px;
+      border-radius: 10px;
+      border: 1px solid rgba(255, 209, 71, 0.3);
+      background: rgba(0, 0, 0, 0.38);
+      color: #fff;
+      font-family: inherit;
+      font-size: 0.88rem;
+      outline: none;
+    }
+    .admin-toolbar select option { background: #0b1624; }
+
+    .admin-table-wrap {
+      overflow-x: auto;
+      border: 1px solid rgba(255, 209, 71, 0.22);
+      border-radius: 16px;
+      background: rgba(0, 0, 0, 0.32);
+    }
+
+    table.admin-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.86rem;
+      text-align: left;
+    }
+    table.admin-table th {
+      background: rgba(255, 209, 71, 0.12);
+      color: var(--gold);
+      font-weight: 700;
+      padding: 14px 12px;
+      white-space: nowrap;
+    }
+    table.admin-table td {
+      padding: 12px;
+      border-top: 1px solid rgba(255, 255, 255, 0.07);
+      color: #e2e8f0;
+      white-space: nowrap;
+    }
+    table.admin-table tr:hover td { background: rgba(255, 255, 255, 0.04); }
+    table.admin-table tr.row-new td { background: rgba(255, 209, 71, 0.06); }
+
+    .comp-pill {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 50px;
+      font-size: 0.74rem;
+      font-weight: 600;
+      background: rgba(17, 66, 45, 0.75);
+      border: 1px solid rgba(110, 231, 183, 0.35);
+      color: #a7f3d0;
+    }
+
+    .status-pill-btn {
+      padding: 4px 10px;
+      border-radius: 50px;
+      font-size: 0.73rem;
+      font-weight: 700;
+      border: 1px solid transparent;
+      cursor: pointer;
+    }
+    .status-pill-btn.amber {
+      background: rgba(245, 158, 11, 0.22);
+      border-color: #fbbf24;
+      color: #fde68a;
+    }
+    .status-pill-btn.green {
+      background: rgba(22, 163, 74, 0.22);
+      border-color: #4ade80;
+      color: #86efac;
+    }
+    .status-pill-btn.slate {
+      background: rgba(148, 163, 184, 0.15);
+      border-color: rgba(148, 163, 184, 0.35);
+      color: #cbd5e1;
+    }
+
+    .auth-error {
+      color: #fda4af;
+      background: rgba(200, 30, 55, 0.22);
+      border: 1px solid rgba(244, 63, 94, 0.45);
+      padding: 9px 12px;
+      border-radius: 10px;
+      font-size: 0.84rem;
+      margin-bottom: 14px;
+      display: none;
+    }
+
+    #toast {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%) translateY(90px);
+      background: rgba(14, 48, 33, 0.96);
+      border: 1.5px solid var(--gold);
+      color: #fff;
+      padding: 12px 24px;
+      border-radius: 50px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.55);
+      z-index: 950;
+      opacity: 0;
+      transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.3s;
+      pointer-events: none;
+    }
+    #toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(26px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    @keyframes heroEnter { to { opacity: 1; transform: translateY(0); } }
+    @keyframes shine { to { background-position: 200% center; } }
+    @keyframes plaqueSweep {
+      0% { left: -120%; }
+      45%, 100% { left: 160%; }
+    }
+    @keyframes pulseAlert {
+      0%, 100% { box-shadow: 0 0 12px rgba(255, 209, 71, 0.2); }
+      50% { box-shadow: 0 0 26px rgba(255, 209, 71, 0.55); }
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    @keyframes floatY {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-14px); }
+    }
+    @keyframes swingGentle {
+      from { transform: rotate(-4deg); }
+      to { transform: rotate(4deg); }
+    }
+    @keyframes twinkle {
+      from { opacity: 0.4; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1.1); }
+    }
+    @keyframes flySanta {
+      0% { transform: translateX(-10vw) translateY(12px); }
+      50% { transform: translateX(60vw) translateY(-10px); }
+      100% { transform: translateX(125vw) translateY(8px); }
+    }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes popIn {
+      from { opacity: 0; transform: scale(0.92); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    @media print {
+      body * { visibility: hidden; }
+      #print-area, #print-area * { visibility: visible; }
+      #print-area {
+        position: fixed;
+        inset: 20px;
+        color: #000 !important;
+        background: #fff !important;
+        border: 3px solid #880d1e !important;
+        padding: 30px;
+        border-radius: 16px;
+      }
+    }
+
+    @media (max-width: 1160px) {
+      .spot-card { flex: 0 0 calc(50% - 10px); max-width: 400px; }
+      .side-ornament { display: none; }
+    }
+
+    @media (max-width: 960px) {
+      .comp-card { flex: 0 0 calc(50% - 11px); }
+      .two-col, .entry-two-col { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 820px) {
+      .menu-toggle { display: grid; place-items: center; }
+      .nav-links {
+        position: fixed;
+        top: 66px;
+        right: -100%;
+        width: 245px;
+        height: calc(100vh - 66px);
+        background: rgba(34, 6, 12, 0.97);
+        backdrop-filter: blur(18px);
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 28px 24px;
+        transition: right 0.3s ease;
+        border-left: 1px solid rgba(255, 209, 71, 0.25);
+      }
+      .nav-links.open { right: 0; }
+      .hero-ferris { right: -100px; opacity: 0.15; }
+      .hero-pines { left: -80px; opacity: 0.16; }
+      .controls-bar { flex-direction: column; align-items: stretch; }
+      .search-input { width: 100%; }
+    }
+
+    @media (max-width: 600px) {
+      .spot-card, .comp-card { flex: 0 0 100%; max-width: 100%; }
+      .pass-qr-preview { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <div id="scroll-progress"></div>
+  <canvas id="snow-canvas"></canvas>
+  <canvas id="confetti-canvas"></canvas>
+  <div id="toast"></div>
+
+  <!-- =========================================================
+       PUBLIC CARNIVAL WEBSITE WRAPPER
+       ========================================================= -->
+  <div id="public-site">
+
+    <!-- LIVE ADMIN-CONTROLLED NOTICE BANNER (HIDDEN UNLESS SET) -->
+    <div id="live-notice-bar">
+      <span class="live-dot">Live Update</span>
+      <span id="live-notice-text"></span>
+      <button class="notice-dismiss" id="dismiss-notice-btn" aria-label="Dismiss">&times;</button>
+    </div>
+
+    <header>
+      <div class="nav-wrap">
+        <a href="#top" class="brand">
+          <div class="brand-crest">
+            <svg viewBox="0 0 64 64" width="100%" height="100%" fill="none">
+              <polygon points="32,16 18,34 25,34 14,49 50,49 39,34 46,34" fill="#15803d" stroke="#ffd147" stroke-width="2.5" stroke-linejoin="round"/>
+              <rect x="29" y="49" width="6" height="6" rx="1" fill="#ffd147"/>
+              <polygon points="32,6 34.2,11.2 39.8,11.4 35.4,14.8 36.8,20.2 32,17 27.2,20.2 28.6,14.8 24.2,11.4 29.8,11.2" fill="#ffd147"/>
+            </svg>
+          </div>
+          <div>
+            <div class="brand-title">RESPLENDENCE</div>
+            <div class="brand-sub">Dwarka International School</div>
+          </div>
+        </a>
+
+        <ul class="nav-links" id="nav-links">
+          <li><a href="#attractions">Attractions</a></li>
+          <li><a href="#competitions">Competitions</a></li>
+          <li><a href="#entry-info">Entry Fee</a></li>
+          <li><a href="#venue">Venue & FAQ</a></li>
+        </ul>
+
+        <div class="nav-actions">
+          <button class="hub-btn" id="open-hub-btn" title="View your saved passes and carnival checklist">
+            🎟️ My Plan <span class="badge-count" id="hub-count">0</span>
+          </button>
+          <button class="nav-btn open-reg-btn">Register Free</button>
+          <button class="menu-toggle" id="menu-toggle" aria-label="Menu">☰</button>
+        </div>
+      </div>
+      <div class="fairy-lights" id="fairy-lights"></div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero" id="top">
+      <svg class="hero-pines" viewBox="0 0 220 260" fill="none">
+        <polygon points="110,15 45,105 175,105" fill="#15803d"/>
+        <polygon points="110,60 25,165 195,165" fill="#166534"/>
+        <polygon points="110,115 10,235 210,235" fill="#14532d"/>
+        <polygon points="110,2 115,15 129,15 118,23 122,36 110,28 98,36 102,23 91,15 105,15" fill="#ffd147"/>
+        <circle cx="90" cy="95" r="5" fill="#ff385c"/>
+        <circle cx="135" cy="100" r="5" fill="#ffd147"/>
+        <circle cx="72" cy="155" r="6" fill="#38d9ff"/>
+        <circle cx="150" cy="150" r="6" fill="#ff385c"/>
+        <circle cx="60" cy="212" r="7" fill="#ffd147"/>
+        <circle cx="155" cy="215" r="7" fill="#38d9ff"/>
+      </svg>
+
+      <svg class="hero-ferris" viewBox="0 0 400 440" fill="none">
+        <line x1="200" y1="200" x2="115" y2="425" stroke="#ffd147" stroke-width="7" stroke-linecap="round"/>
+        <line x1="200" y1="200" x2="285" y2="425" stroke="#ffd147" stroke-width="7" stroke-linecap="round"/>
+        <rect x="90" y="420" width="220" height="12" rx="6" fill="#ffd147"/>
+        <g class="ferris-spin">
+          <circle cx="200" cy="200" r="148" stroke="#ffd147" stroke-width="5"/>
+          <circle cx="200" cy="200" r="108" stroke="#ff6b6b" stroke-width="2.5" stroke-dasharray="10 8"/>
+          <line x1="200" y1="52" x2="200" y2="348" stroke="#ffd147" stroke-width="2.5"/>
+          <line x1="52" y1="200" x2="348" y2="200" stroke="#ffd147" stroke-width="2.5"/>
+          <line x1="95" y1="95" x2="305" y2="305" stroke="#ffd147" stroke-width="2.5"/>
+          <line x1="305" y1="95" x2="95" y2="305" stroke="#ffd147" stroke-width="2.5"/>
+          <circle cx="200" cy="52" r="13" fill="#ff385c" stroke="#fff" stroke-width="2"/>
+          <circle cx="305" cy="95" r="13" fill="#38d9ff" stroke="#fff" stroke-width="2"/>
+          <circle cx="348" cy="200" r="13" fill="#2aff7d" stroke="#fff" stroke-width="2"/>
+          <circle cx="305" cy="305" r="13" fill="#ffd147" stroke="#fff" stroke-width="2"/>
+          <circle cx="200" cy="348" r="13" fill="#ff385c" stroke="#fff" stroke-width="2"/>
+          <circle cx="95" cy="305" r="13" fill="#38d9ff" stroke="#fff" stroke-width="2"/>
+          <circle cx="52" cy="200" r="13" fill="#2aff7d" stroke="#fff" stroke-width="2"/>
+          <circle cx="95" cy="95" r="13" fill="#ffd147" stroke="#fff" stroke-width="2"/>
+        </g>
+        <circle cx="200" cy="200" r="20" fill="#c81e37" stroke="#ffd147" stroke-width="4"/>
+      </svg>
+
+      <div class="hero-inner">
+        <div class="hero-anim delay-1">
+          <div class="school-badge">🏫 Dwarka International School</div>
+          <p class="address-line">Sector 12, Dwarka, New Delhi - 110078</p>
+          <div class="organizes-label">~ Organizes ~</div>
+        </div>
+
+        <h1 class="hero-title">RESPLENDENCE</h1>
+        <div class="hero-subtitle hero-anim delay-2">WINTER CARNIVAL</div>
+
+        <div class="hero-anim delay-3">
+          <div class="hero-meta-bar">
+            <span>📅 DECEMBER 19, 2026</span>
+            <span style="color:var(--gold)">•</span>
+            <span>🕚 11:00 A.M - 7:00 P.M</span>
+          </div>
+          <div class="hero-tagline">❄️ Fun Filled Event and Activities 🎄</div>
+        </div>
+
+        <div class="countdown-grid hero-anim delay-4" id="countdown">
+          <div class="cd-box"><span class="cd-num" id="days">00</span><span class="cd-lbl">Days</span></div>
+          <div class="cd-box"><span class="cd-num" id="hours">00</span><span class="cd-lbl">Hours</span></div>
+          <div class="cd-box"><span class="cd-num" id="minutes">00</span><span class="cd-lbl">Mins</span></div>
+          <div class="cd-box"><span class="cd-num" id="seconds">00</span><span class="cd-lbl">Secs</span></div>
+        </div>
+
+        <div class="hero-cta-group hero-anim delay-5">
+          <a href="#attractions" class="btn btn-gold">🎡 Explore Attractions</a>
+          <a href="#competitions" class="btn btn-pine">🏆 Free Competitions</a>
+          <a href="#entry-info" class="btn btn-glass">🎟️ Entry Fee (₹100)</a>
+          <button class="btn btn-glass" id="share-btn">🔗 Share</button>
+        </div>
+      </div>
+
+      <div class="section-wave">
+        <svg viewBox="0 0 1440 70" preserveAspectRatio="none" style="width:100%; height:48px;">
+          <path fill="#070e17" d="M0,32 C300,82 600,0 950,42 C1180,68 1340,22 1440,36 L1440,70 L0,70 Z"></path>
+        </svg>
+      </div>
+    </section>
+
+    <!-- SPECIAL ATTRACTIONS (CUSTOM VECTOR ICONS + 3D TILT) -->
+    <section class="attractions-sec" id="attractions">
+      <!-- Subtle Hanging Ornaments for Wide Margins -->
+      <svg class="side-ornament left" viewBox="0 0 50 110" fill="none">
+        <line x1="25" y1="0" x2="25" y2="55" stroke="#ffd147" stroke-width="2"/>
+        <rect x="19" y="52" width="12" height="7" rx="2" fill="#ffd147"/>
+        <circle cx="25" cy="78" r="20" fill="#9e0e22" stroke="#ffd147" stroke-width="2.5"/>
+        <path d="M13 78 Q25 68 37 78" stroke="#ffd147" stroke-width="2" fill="none"/>
+      </svg>
+      <svg class="side-ornament right" viewBox="0 0 50 130" fill="none">
+        <line x1="25" y1="0" x2="25" y2="75" stroke="#ffd147" stroke-width="2"/>
+        <rect x="19" y="72" width="12" height="7" rx="2" fill="#ffd147"/>
+        <circle cx="25" cy="98" r="20" fill="#11422d" stroke="#ffd147" stroke-width="2.5"/>
+        <circle cx="25" cy="98" r="5" fill="#ffd147"/>
+      </svg>
+
+      <div class="container">
+        <div class="sec-head reveal">
+          <div class="sec-eyebrow">✨ Carnival Highlights</div>
+          <h2 class="sec-title">Special <span>Attractions</span></h2>
+          <p class="sec-sub">Filter, search, and add your favorite spots to your personal Carnival Plan!</p>
+        </div>
+
+        <div class="controls-bar reveal">
+          <div class="filter-group">
+            <button class="filter-pill active" data-filter="all">All (10)</button>
+            <button class="filter-pill" data-filter="thrill">Thrill & Games</button>
+            <button class="filter-pill" data-filter="stage">Stage & Lucky Draw</button>
+            <button class="filter-pill" data-filter="lifestyle">Food, Style & Mystic</button>
+          </div>
+          <input type="text" class="search-input" id="attraction-search" placeholder="🔍 Search attractions..." />
+        </div>
+
+        <div class="attractions-grid" id="attractions-grid">
+          <div class="spot-card tilt-card reveal" data-cat="lifestyle" data-name="Scrumptious Food">
+            <div>
+              <div class="card-top-row">
+                <div class="card-svg-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 2L3 20l18-6L12 2z"/><circle cx="10" cy="12" r="1" fill="currentColor"/><circle cx="14" cy="14" r="1" fill="currentColor"/><path d="M4.5 17a13 13 0 0 0 13.5-4"/>
+                  </svg>
+                </div>
+                <span class="cat-tag">Food</span>
+              </div>
+              <h3>Scrumptious Food</h3>
+              <p>Hot winter snacks, festive treats, and sweet desserts for every craving.</p>
+            </div>
+            <button class="plan-toggle-btn" data-item="Scrumptious Food">+ Add to My Plan</button>
+          </div>
+
+          <div class="spot-card tilt-card reveal" data-cat="thrill" data-name="Rides">
+            <div>
+              <div class="card-top-row">
+                <div class="card-svg-icon">
+                  <svg class="spin-on-hover" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="2"/><path d="M12 4v16M4 12h16M6.3 6.3l11.4 11.4M17.7 6.3L6.3 17.7"/>
+                  </svg>
+                </div>
+                <span class="cat-tag">Thrill</span>
+              </div>
+              <h3>Rides</h3>
+              <p>Exciting carnival rides and swings bringing nonstop fun for all ages.</p>
+            </div>
+            <button class="plan-toggle-btn" data-item="Rides">+ Add to My Plan</button>
+          </div>
+
+          <div class="spot-card tilt-card reveal" data-cat="lifestyle" data-name="Nail Art">
+            <div>
+              <div class="card-top-row">
+                <div class="card-svg-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 3l1.8 4.2L18 9l-4.2 1.8L12 15l-1.8-4.2L6 9l4.2-1.8L12 3z"/><path d="M19 15l.9 2.1L22 18l-2.1.9L19 21l-.9-2.1L16 18l2.1-.9L19 15z"/>
+                  </svg>
+                </div>
+                <span class="cat-tag">Style</span>
+              </div>
+              <h3>Nail Art</h3>
+              <p>Sparkling Christmas patterns, winter snowflakes, and chic nail styling.</p>
+            </div>
+            <button class="plan-toggle-btn" data-item="Nail Art">+ Add to My Plan</button>
+          </div>
+
+          <div class="spot-card tilt-card reveal" data-cat="lifestyle" data-name="Tattoo">
+            <div>
+              <div class="card-top-row">
+                <div class="card-svg-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M18.37 2.63L14 7l-1.59-1.59a2 2 0 0 0-2.82 0L8 7l9 9 1.59-1.59a2 2 0 0 0 0-2.82L17 10l4.37-4.37a2.12 2.12 0 1 0-3-3z"/><path d="M9 8c-2 3-4 3.5-7 4l8 10c2-1 6-5 6-7"/>
+                  </svg>
+                </div>
+                <span class="cat-tag">Style</span>
+              </div>
+              <h3>Tattoo</h3>
+              <p>Cool temporary & airbrush festive tattoos to match the carnival vibe.</p>
+            </div>
+            <button class="plan-toggle-btn" data-item="Tattoo">+ Add to My Plan</button>
+          </div>
+
+          <div class="spot-card tilt-card reveal" data-cat="lifestyle" data-name="Astrotalk by Kiama">
+            <div>
+              <div class="card-top-row">
+                <div class="card-svg-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="10" r="7"/><path d="M8 21h8M9 17l-1 4M15 17l1 4"/><path d="M12 6.5l.8 1.7 1.7.8-1.7.8-.8 1.7-.8-1.7-1.7-.8 1.7-.8z" fill="currentColor"/>
+                  </svg>
+                </div>
+                <span class="cat-tag">Mystic</span>
+              </div>
+              <h3>Astrotalk by Kiama</h3>
+              <p>Step into the mystic booth for cosmic readings and 2027 insights.</p>
+            </div>
+            <button class="plan-toggle-btn" data-item="Astrotalk by Kiama">+ Add to My Plan</button>
+          </div>
+
+          <div class="spot-card tilt-card reveal" data-cat="thrill" data-name="Console/PC Games">
+            <div>
+              <div class="card-top-row">
+                <div class="card-svg-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="2" y="6" width="20" height="12" rx="4"/><path d="M6 12h4M8 10v4"/><circle cx="15" cy="11" r="1" fill="currentColor"/><circle cx="17.5" cy="13" r="1" fill="currentColor"/>
+                  </svg>
+                </div>
+                <span class="cat-tag">Gaming</span>
+              </div>
+              <h3>Console/PC Games</h3>
+              <p>Multiplayer gaming stations—challenge your squad and win bragging rights!</p>
+            </div>
+            <button class="plan-toggle-btn" data-item="Console/PC Games">+ Add to My Plan</button>
+          </div>
+
+          <div class="spot-card tilt-card reveal" data-cat="stage" data-name="Band Presentation">
+            <div>
+              <div class="card-top-row">
+                <div class="card-svg-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/>
+                  </svg>
+                </div>
+                <span class="cat-tag">Live Stage</span>
+              </div>
+              <h3>Band Presentation</h3>
+              <p>Electrifying live band performances filling the winter air with beats.</p>
+            </div>
+            <button class="plan-toggle-btn" data-item="Band Presentation">+ Add to My Plan</button>
+          </div>
+
+          <div class="spot-card tilt-card reveal" data-cat="stage" data-name="Lucky Draw">
+            <div>
+              <div class="card-top-row">
+                <div class="card-svg-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"/><path d="M13 5v2M13 17v2M13 11v2"/>
+                  </svg>
+                </div>
+                <span class="cat-tag">Prizes</span>
+              </div>
+              <h3>Lucky Draw</h3>
+              <p>Keep your carnival tickets handy for exciting hampers and mega prizes!</p>
+            </div>
+            <button class="plan-toggle-btn" data-item="Lucky Draw">+ Add to My Plan</button>
+          </div>
+
+          <div class="spot-card tilt-card reveal" data-cat="lifestyle" data-name="Attractive Stalls">
+            <div>
+              <div class="card-top-row">
+                <div class="card-svg-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/>
+                  </svg>
+                </div>
+                <span class="cat-tag">Stalls</span>
+              </div>
+              <h3>Attractive Stalls</h3>
+              <p>Explore pop-up stalls loaded with crafts, winter gifts, and goodies.</p>
+            </div>
+            <button class="plan-toggle-btn" data-item="Attractive Stalls">+ Add to My Plan</button>
+          </div>
+
+          <div class="spot-card tilt-card reveal" data-cat="stage" data-name="Flash Mob">
+            <div>
+              <div class="card-top-row">
+                <div class="card-svg-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+                    <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+                  </svg>
+                </div>
+                <span class="cat-tag">Live Stage</span>
+              </div>
+              <h3>Flash Mob</h3>
+              <p>Watch the courtyard erupt into rhythm with a surprise dance takeover!</p>
+            </div>
+            <button class="plan-toggle-btn" data-item="Flash Mob">+ Add to My Plan</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Smooth Wave Transition to Competitions -->
+      <div class="section-wave">
+        <svg viewBox="0 0 1440 70" preserveAspectRatio="none" style="width:100%; height:48px;">
+          <path fill="#071f15" d="M0,45 C360,0 720,75 1080,25 C1260,5 1380,35 1440,48 L1440,70 L0,70 Z"></path>
+        </svg>
+      </div>
+    </section>
+
+    <!-- COMPETITIONS ARENA (100% FREE + CUSTOM ICONS + 3D TILT) -->
+    <section class="competitions-sec" id="competitions">
+      <div class="container">
+        <div class="sec-head reveal">
+          <div class="sec-eyebrow">🏆 Spotlight Arena</div>
+          <h2 class="sec-title">Grand <span>Competitions</span></h2>
+          <p class="sec-sub">Pick your favorite event and grab your free scannable Digital Pass!</p>
+          <div class="free-pill">✨ Every Competition Pass is FREE</div>
+        </div>
+
+        <div class="comp-grid">
+          <div class="comp-card tilt-card reveal">
+            <div>
+              <div class="comp-head">
+                <div class="comp-svg-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>
+                  </svg>
+                </div>
+                <div><div class="comp-sub">Family Duo</div><h3>Mom and Me</h3></div>
+              </div>
+              <p>Celebrate an iconic bond with fun stage rounds, coordinated outfits, and joyful memories.</p>
+            </div>
+            <button class="comp-btn open-reg-btn" data-comp="Mom and Me">Register Free →</button>
+          </div>
+
+          <div class="comp-card tilt-card reveal">
+            <div>
+              <div class="comp-head">
+                <div class="comp-svg-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M12 8l1.2 2.5 2.8.4-2 2 .5 2.8L12 14.4l-2.5 1.3.5-2.8-2-2 2.8-.4z"/>
+                  </svg>
+                </div>
+                <div><div class="comp-sub">Family Duo</div><h3>Dad and Me</h3></div>
+              </div>
+              <p>Bring the energy, teamwork, and unbeatable father-child chemistry to the carnival spotlight!</p>
+            </div>
+            <button class="comp-btn open-reg-btn" data-comp="Dad and Me">Register Free →</button>
+          </div>
+
+          <div class="comp-card tilt-card reveal">
+            <div>
+              <div class="comp-head">
+                <div class="comp-svg-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M6 3h12l4 6-10 13L2 9Z"/><path d="M2 9h20M10 3l-2 6 4 13 4-13-2-6"/>
+                  </svg>
+                </div>
+                <div><div class="comp-sub">Winter Fashion</div><h3>Ramp Walk</h3></div>
+              </div>
+              <p>Walk the runway in your sharpest Christmas or winter attire and win over the judges!</p>
+            </div>
+            <button class="comp-btn open-reg-btn" data-comp="Ramp Walk">Register Free →</button>
+          </div>
+
+          <div class="comp-card tilt-card reveal">
+            <div>
+              <div class="comp-head">
+                <div class="comp-svg-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="22"/>
+                  </svg>
+                </div>
+                <div><div class="comp-sub">Open Stage</div><h3>Talent Hunt</h3></div>
+              </div>
+              <p>Singing, dancing, magic, instruments, or comedy—show the school what you’ve got!</p>
+            </div>
+            <button class="comp-btn open-reg-btn" data-comp="Talent Hunt">Register Free →</button>
+          </div>
+
+          <div class="comp-card tilt-card reveal">
+            <div>
+              <div class="comp-head">
+                <div class="comp-svg-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M2 4l3 12h14l3-12-6 7-4-7-4 7-6-7zm3 16h14"/>
+                  </svg>
+                </div>
+                <div><div class="comp-sub">Golden Age Icons</div><h3>Sr. Citizen Rockerz</h3></div>
+              </div>
+              <p>An electrifying stage exclusively for our beloved elders to groove, shine, and steal the show!</p>
+            </div>
+            <button class="comp-btn open-reg-btn" data-comp="Sr. Citizen Rockerz">Register Free →</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Smooth Wave Transition to Entry Fee -->
+      <div class="section-wave">
+        <svg viewBox="0 0 1440 70" preserveAspectRatio="none" style="width:100%; height:48px;">
+          <path fill="#100a14" d="M0,25 C400,78 900,0 1440,42 L1440,70 L0,70 Z"></path>
+        </svg>
+      </div>
+    </section>
+
+    <!-- CARNIVAL ENTRY FEE (PERFORATED TICKET + EMPTY QR & WHATSAPP GROUP) -->
+    <section class="entry-info-sec" id="entry-info">
+      <div class="container">
+        <div class="sec-head reveal">
+          <div class="sec-eyebrow">🎟️ Carnival Entry</div>
+          <h2 class="sec-title">Entry Fee & <span>Updates</span></h2>
+          <p class="sec-sub">Entry to Resplendence Winter Carnival is ₹100 per person. Competition passes above are completely free!</p>
+        </div>
+
+        <div class="entry-two-col">
+          <div class="ticket-card reveal">
+            <div>
+              <div class="entry-head-row">
+                <div>
+                  <h3 style="font-family:'Cinzel Decorative',serif; font-size:1.35rem; color:#fff;">Carnival Entry Pass</h3>
+                  <p style="font-size:0.85rem; color:#cbd5e1;">Dec 19, 2026 • 11:00 A.M – 7:00 P.M</p>
+                </div>
+                <div class="entry-price-badge">
+                  ₹100
+                  <small>Entry Fee</small>
+                </div>
+              </div>
+
+              <p style="font-size:0.88rem; color:#e2e8f0; margin-bottom:14px;">
+                Pay the ₹100 carnival entry fee via UPI using the QR code below for full-day access to all stalls, food zone, games, live band, and flash mob.
+              </p>
+            </div>
+
+            <div>
+              <div class="qr-area-wrap">
+                <strong style="color:var(--gold); font-size:0.95rem;">💳 Scan to Pay ₹100</strong>
+                <div class="qr-empty-frame" id="entry-qr-box"></div>
+              </div>
+              <div class="ticket-barcode"></div>
+            </div>
+          </div>
+
+          <div class="entry-card reveal">
+            <div>
+              <div class="entry-head-row">
+                <div>
+                  <h3 style="font-family:'Cinzel Decorative',serif; font-size:1.35rem; color:#fff;">Official WhatsApp Group</h3>
+                  <p style="font-size:0.85rem; color:#cbd5e1;">Stay updated on carnival schedules & highlights</p>
+                </div>
+              </div>
+
+              <div class="wa-area-wrap">
+                <div class="wa-icon-circle">💬</div>
+                <h4 style="font-family:'Cinzel Decorative',serif; color:#86efac; font-size:1.12rem; margin-bottom:8px;">
+                  Resplendence Community Group
+                </h4>
+                <p style="font-size:0.85rem; color:#cbd5e1; margin-bottom:18px;">
+                  Join our official WhatsApp group for live stage timings, Lucky Draw alerts, and competition updates.
+                </p>
+                <button type="button" class="btn btn-whatsapp join-wa-btn" id="wa-invite-btn" style="width:100%;">
+                  💬 Join WhatsApp Group
+                </button>
+              </div>
+            </div>
+
+            <div class="entry-note-box">
+              <span>✨ Participating in any competition? Passes are <strong>FREE!</strong></span>
+              <button type="button" class="btn btn-gold open-reg-btn" style="padding:8px 18px; font-size:0.82rem;">
+                Register Free →
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-wave">
+        <svg viewBox="0 0 1440 70" preserveAspectRatio="none" style="width:100%; height:44px;">
+          <path fill="#070e17" d="M0,42 C480,0 960,72 1440,28 L1440,70 L0,70 Z"></path>
+        </svg>
+      </div>
+    </section>
+
+    <!-- VENUE & VISITOR GUIDE -->
+    <section class="venue-faq-sec" id="venue">
+      <div class="container">
+        <div class="two-col">
+          <div class="panel-box reveal">
+            <div>
+              <h3>📍 Venue & Schedule</h3>
+              <div class="info-item">
+                <div class="ico">🏫</div>
+                <div>
+                  <strong>Dwarka International School</strong>
+                  <span>Sector 12, Dwarka, New Delhi - 110078</span>
+                </div>
+              </div>
+              <div class="info-item">
+                <div class="ico">📅</div>
+                <div>
+                  <strong>December 19, 2026 (Saturday)</strong>
+                  <span>11:00 A.M to 7:00 P.M</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="venue-actions">
+              <a href="https://www.google.com/maps/search/?api=1&query=Dwarka+International+School+Sector+12+Dwarka+New+Delhi+110078"
+                 target="_blank" rel="noopener noreferrer" class="btn btn-gold">
+                🗺️ Get Directions
+              </a>
+              <button class="btn btn-glass" id="copy-addr-btn">📋 Copy Address</button>
+            </div>
+          </div>
+
+          <div class="panel-box reveal">
+            <div>
+              <h3>❓ Visitor Guide</h3>
+              <div class="faq-item open">
+                <button class="faq-q">What is the Carnival Entry Fee? <span>+</span></button>
+                <div class="faq-a-wrap"><div class="faq-a">
+                  <p>Carnival Entry Fee is ₹100 per person. All 5 competitions (Mom & Me, Dad & Me, Ramp Walk, Talent Hunt, Sr. Citizen Rockerz) have free registration!</p>
+                </div></div>
+              </div>
+
+              <div class="faq-item">
+                <button class="faq-q">How do I save or download my Pass on mobile? <span>+</span></button>
+                <div class="faq-a-wrap"><div class="faq-a">
+                  <p>After registering, click "Save Pass (PNG)" to download a golden QR pass straight to your phone gallery—or open "My Plan" anytime!</p>
+                </div></div>
+              </div>
+
+              <div class="faq-item">
+                <button class="faq-q">Who can join the competitions? <span>+</span></button>
+                <div class="faq-a-wrap"><div class="faq-a">
+                  <p>We have categories for students, parents (Mom & Me, Dad & Me), and grandparents (Sr. Citizen Rockerz), plus Ramp Walk and Talent Hunt!</p>
+                </div></div>
+              </div>
+
+              <div class="faq-item">
+                <button class="faq-q">Are food & rides available all day? <span>+</span></button>
+                <div class="faq-a-wrap"><div class="faq-a">
+                  <p>Yes! Scrumptious Food, Rides, Console/PC Games, Nail Art, Tattoos, Attractive Stalls, and Astrotalk by Kiama operate from 11:00 A.M to 7:00 P.M.</p>
+                </div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER WITH PRESTIGIOUS DESIGNER PLAQUE -->
+    <footer>
+      <svg class="santa-sleigh" viewBox="0 0 280 90" fill="none">
+        <path d="M210 55 Q225 45 235 55 L245 45 M225 55 L220 72 M235 55 L242 72" stroke="#ffd147" stroke-width="2.5" stroke-linecap="round"/>
+        <circle cx="250" cy="43" r="3.5" fill="#ff385c"/>
+        <path d="M160 58 Q175 48 185 58 L195 48 M175 58 L170 75 M185 58 L192 75" stroke="#ffd147" stroke-width="2.5" stroke-linecap="round"/>
+        <line x1="115" y1="52" x2="245" y2="48" stroke="#ffe999" stroke-width="1.3" stroke-dasharray="4 3"/>
+        <path d="M40 68 C65 78 100 78 120 62 L112 46 L55 46 C45 46 38 56 40 68 Z" fill="#c81e37" stroke="#ffd147" stroke-width="2"/>
+        <path d="M30 76 Q80 86 130 72" stroke="#ffd147" stroke-width="2.5" stroke-linecap="round"/>
+        <circle cx="76" cy="36" r="9" fill="#ffe0bd"/>
+        <path d="M66 32 Q76 15 88 32 Z" fill="#c81e37"/>
+        <circle cx="89" cy="24" r="3" fill="#fff"/>
+      </svg>
+
+      <div class="container">
+        <div class="footer-brand" id="secret-admin-trigger">RESPLENDENCE 2026</div>
+        <p class="footer-meta">Dwarka International School • Sector 12, Dwarka, New Delhi - 110078</p>
+        <a href="#top" class="back-top">↑ Back to Top</a>
+
+        <div class="designer-wrap">
+          <div class="designer-plaque" id="designer-plaque" title="Click for a celebratory sparkle!">
+            <div class="designer-emblem">✦</div>
+            <div class="designer-text">
+              <span class="designer-kicker">Designed & Crafted By</span>
+              <div class="designer-name-row">
+                <span class="designer-name">YAKSH</span>
+                <span class="designer-class">XI LILY</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- =========================================================
+       FULL-PAGE HIDDEN ADMIN PORTAL
+       ========================================================= -->
+  <div id="admin-page">
+    <nav class="admin-navbar">
+      <div class="admin-nav-inner">
+        <div class="admin-brand">
+          <div class="brand-crest">
+            <svg viewBox="0 0 64 64" width="100%" height="100%" fill="none">
+              <polygon points="32,16 18,34 25,34 14,49 50,49 39,34 46,34" fill="#15803d" stroke="#ffd147" stroke-width="2.5" stroke-linejoin="round"/>
+              <rect x="29" y="49" width="6" height="6" rx="1" fill="#ffd147"/>
+              <polygon points="32,6 34.2,11.2 39.8,11.4 35.4,14.8 36.8,20.2 32,17 27.2,20.2 28.6,14.8 24.2,11.4 29.8,11.2" fill="#ffd147"/>
+            </svg>
+          </div>
+          <div>
+            <div class="brand-title">RESPLENDENCE ADMIN</div>
+            <div class="brand-sub">Organizer Control Portal</div>
+          </div>
+          <span class="admin-badge-pill" id="admin-mode-badge">Locked</span>
+        </div>
+
+        <div class="admin-nav-actions">
+          <button class="btn btn-gold" id="admin-add-btn" style="display:none; padding:9px 16px; font-size:0.82rem;">+ New Entry</button>
+          <button class="btn btn-pine" id="export-new-csv-btn" style="display:none; padding:9px 16px; font-size:0.82rem;">🆕 Export New Only</button>
+          <button class="btn btn-glass" id="export-csv-btn" style="display:none; padding:9px 16px; font-size:0.82rem;">⬇ Export Full Excel</button>
+          <button class="btn btn-glass" id="admin-logout-btn" style="display:none; padding:9px 16px; font-size:0.82rem;">Logout</button>
+          <button class="btn btn-glass" id="back-to-site-btn" style="padding:9px 16px; font-size:0.82rem;">← Back to Website</button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Admin Full-Page Login Screen -->
+    <div class="admin-login-screen" id="admin-login-view">
+      <div class="admin-login-card">
+        <h2>🔐 Organizer Login</h2>
+        <p style="font-size:0.88rem; color:#cbd5e1; margin-bottom:20px;">
+          Sign in to manage registrations, stage check-ins, live announcements & Excel sync.
+        </p>
+
+        <div class="auth-error" id="auth-error">Invalid username or password.</div>
+
+        <form id="admin-login-form">
+          <div class="field">
+            <label for="admin-user">Username</label>
+            <input type="text" id="admin-user" autocomplete="username" placeholder="Enter username" required />
+          </div>
+          <div class="field">
+            <label for="admin-pass">Password</label>
+            <input type="password" id="admin-pass" autocomplete="current-password" placeholder="Enter password" required />
+          </div>
+          <button type="submit" class="btn btn-gold" style="width:100%; margin-top:6px;">Unlock Dashboard →</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Admin Full-Page Workspace -->
+    <div class="admin-workspace" id="admin-dash-view" style="display:none;">
+      <div class="new-alert-banner" id="new-alert-banner">
+        <div>
+          <strong style="color:var(--gold); font-size:1rem;" id="new-alert-text">🔔 New Registrations Waiting for Excel!</strong>
+          <p style="font-size:0.82rem; color:#e2e8f0;">Export only new rows to add them cleanly to the bottom of your Excel sheet without misplacing any names.</p>
+        </div>
+        <button class="btn btn-gold" id="banner-export-new-btn" style="padding:8px 18px; font-size:0.84rem;">🆕 Export New Rows Now</button>
+      </div>
+
+      <!-- Admin Live Notice / Lucky Draw Winner Broadcaster -->
+      <div class="admin-notice-card">
+        <span style="font-weight:700; color:var(--gold); font-size:0.88rem; white-space:nowrap;">📢 Live Website Notice:</span>
+        <input type="text" id="admin-notice-input" placeholder="e.g., 🎟️ Lucky Draw #1 Winner: Ticket #204! OR Flash Mob starting in 5 mins!" />
+        <button class="btn btn-gold" id="publish-notice-btn" style="padding:9px 18px; font-size:0.82rem;">Publish Live</button>
+        <button class="btn btn-glass" id="clear-notice-btn" style="padding:9px 16px; font-size:0.82rem;">Clear Notice</button>
+      </div>
+
+      <div class="admin-header-row">
+        <div>
+          <h1>Registrations <span>Overview</span></h1>
+          <p id="admin-source-label" style="color:#94a3b8; font-size:0.88rem; margin-top:4px;">
+            Connecting to cloud database...
+          </p>
+        </div>
+        <div style="display:flex; gap:8px; flex-wrap:wrap;">
+          <button class="btn btn-glass" id="mark-all-excel-btn" style="padding:9px 16px; font-size:0.82rem;">✅ Mark All Synced</button>
+          <button class="btn btn-glass" id="admin-refresh-btn" style="padding:9px 16px; font-size:0.82rem;">↻ Refresh Now</button>
+        </div>
+      </div>
+
+      <div class="admin-stats" id="admin-stats"></div>
+
+      <div class="admin-toolbar">
+        <input type="text" id="admin-search" placeholder="🔍 Search by Sr. No., name, Pass ID, phone, or class..." />
+        <select id="admin-filter-comp">
+          <option value="all">All Competitions</option>
+          <option value="Mom and Me">Mom and Me</option>
+          <option value="Dad and Me">Dad and Me</option>
+          <option value="Ramp Walk">Ramp Walk</option>
+          <option value="Talent Hunt">Talent Hunt</option>
+          <option value="Sr. Citizen Rockerz">Sr. Citizen Rockerz</option>
+        </select>
+        <select id="admin-filter-excel">
+          <option value="all">All Sync Status</option>
+          <option value="new">🆕 New / Not in Excel Yet</option>
+          <option value="synced">✅ Already in Excel</option>
+        </select>
+        <select id="admin-sort-order">
+          <option value="newest">Sort: Newest First (Top)</option>
+          <option value="excel">Sort: Excel Order (#1 → #N)</option>
+        </select>
+      </div>
+
+      <div class="admin-table-wrap">
+        <table class="admin-table">
+          <thead>
+            <tr>
+              <th>Sr. No.</th>
+              <th>Pass ID</th>
+              <th>Participant Name</th>
+              <th>Category / Class</th>
+              <th>Competition</th>
+              <th>Phone</th>
+              <th>Stage Check-In</th>
+              <th>Excel Status</th>
+              <th>Registered At</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="admin-tbody"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================
+       FREE COMPETITION REGISTRATION MODAL (WITH PASS QR & PNG DOWNLOAD)
+       ========================================================= -->
+  <div class="modal-backdrop" id="reg-modal">
+    <div class="modal-card">
+      <button class="modal-close" id="close-reg-modal">&times;</button>
+
+      <!-- Step 1: Form -->
+      <div id="reg-form-view">
+        <h3>Competition Registration</h3>
+        <p style="font-size:0.86rem; color:#a7f3d0; margin-bottom:16px;">
+          ✨ Free Digital QR Pass • Resplendence Winter Carnival (Dec 19, 2026)
+        </p>
+
+        <form id="reg-form">
+          <div class="field">
+            <label for="reg-name">Participant / Team Name</label>
+            <input type="text" id="reg-name" placeholder="e.g., Ananya Verma" required />
+          </div>
+          <div class="field">
+            <label for="reg-cat">Class / Relation / Age Group</label>
+            <input type="text" id="reg-cat" placeholder="e.g., Class 7-A / Mother & Son" required />
+          </div>
+          <div class="field">
+            <label for="reg-comp">Competition</label>
+            <select id="reg-comp" required>
+              <option value="Mom and Me">Mom and Me</option>
+              <option value="Dad and Me">Dad and Me</option>
+              <option value="Ramp Walk">Ramp Walk</option>
+              <option value="Talent Hunt">Talent Hunt</option>
+              <option value="Sr. Citizen Rockerz">Sr. Citizen Rockerz</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="reg-phone">Contact Number</label>
+            <input type="tel" id="reg-phone" placeholder="10-digit mobile number" pattern="[0-9]{10}" required />
+          </div>
+          <button type="submit" class="btn btn-gold" id="reg-submit-btn" style="width:100%; margin-top:4px;">Confirm Free Registration 🎟️</button>
+        </form>
+      </div>
+
+      <!-- Step 2: Instant QR Digital Pass + 1-Tap PNG Save -->
+      <div id="reg-success-view" style="display:none; text-align:center;">
+        <div style="font-size:2.4rem;">🎉</div>
+        <h3>Your Pass is Ready!</h3>
+        <p style="font-size:0.85rem; color:#cbd5e1;">Save this QR pass to your phone gallery or print it for stage check-in.</p>
+
+        <div class="pass-qr-preview">
+          <div class="pass-qr-img" id="modal-qr-box"></div>
+          <div id="modal-pass-info" style="font-size:0.86rem; line-height:1.6;"></div>
+        </div>
+
+        <div style="display:grid; gap:10px;">
+          <button class="btn btn-gold" id="modal-download-png-btn" style="width:100%;">
+            ⬇ Save Pass as Image (PNG)
+          </button>
+          <div style="display:flex; gap:10px;">
+            <button class="btn btn-pine" id="modal-print-pass-btn" style="flex:1; padding:11px 14px;">🖨️ Print</button>
+            <button class="btn btn-glass" id="modal-another-btn" style="flex:1; padding:11px 14px;">+ Register Another</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MY CARNIVAL HUB MODAL -->
+  <div class="modal-backdrop" id="hub-modal">
+    <div class="modal-card">
+      <button class="modal-close" id="close-hub-modal">&times;</button>
+      <h3>🎟️ My Carnival Hub</h3>
+
+      <div class="hub-tabs">
+        <button class="hub-tab active" data-hubtab="passes">My Passes</button>
+        <button class="hub-tab" data-hubtab="plan">My Attractions Plan</button>
+      </div>
+
+      <div id="hub-passes-pane"></div>
+      <div id="hub-plan-pane" style="display:none;"></div>
+    </div>
+  </div>
+
+  <div id="print-area" style="display:none;"></div>
+
+  <script>
+    /* =========================================================
+       1. CLOUD DATABASE & ORGANIZER CONFIG
+       ========================================================= */
+    const SUPABASE_URL = "https://vltmzuprcdgqwywyjfbw.supabase.co";
+    const SUPABASE_ANON_KEY = "sb_publishable_s_jVhPvlscozb5VJOpPy3Q_YoxVl8iq";
+
+    const PAYMENT_QR_URL = "";       // Paste ₹100 QR image filename/URL later
+    const WHATSAPP_GROUP_URL = "";   // Paste WhatsApp Group invite link later
+
+    /* Admin Credentials */
+    const ADMIN_USER = "resplendence";
+    const ADMIN_PASS = "wergoats";
+
+    const SB_BASE = SUPABASE_URL.trim().replace(/\/rest\/v1\/?$/i, '').replace(/\/+$/, '');
+    const HAS_CLOUD = Boolean(SB_BASE && SUPABASE_ANON_KEY.trim());
+
+    function sbHeaders(extra = {}) {
+      const key = SUPABASE_ANON_KEY.trim();
+      const headers = { 'apikey': key, ...extra };
+      if (!key.startsWith('sb_publishable_')) {
+        headers['Authorization'] = `Bearer ${key}`;
+      }
+      return headers;
+    }
+
+    const Store = {
+      get(key, fallback) {
+        try {
+          const v = localStorage.getItem(key);
+          return v ? JSON.parse(v) : fallback;
+        } catch { return fallback; }
+      },
+      set(key, val) {
+        try { localStorage.setItem(key, JSON.stringify(val)); } catch {}
+      }
+    };
+
+    function escapeHtml(str) {
+      return String(str)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#39;");
+    }
+
+    function formatDateTime(val) {
+      if (!val) return '—';
+      const d = new Date(val);
+      if (isNaN(d.getTime())) return String(val);
+      return d.toLocaleString('en-IN', { dateStyle: 'medium', timeStyle: 'short' });
+    }
+
+    function playNotificationChime() {
+      try {
+        const AudioCtx = window.AudioContext || window.webkitAudioContext;
+        if (!AudioCtx) return;
+        const ctx = new AudioCtx();
+        const now = ctx.currentTime;
+        [587.33, 880].forEach((freq, i) => {
+          const osc = ctx.createOscillator();
+          const gain = ctx.createGain();
+          osc.type = 'sine';
+          osc.frequency.setValueAtTime(freq, now + i * 0.12);
+          gain.gain.setValueAtTime(0.08, now + i * 0.12);
+          gain.gain.exponentialRampToValueAtTime(0.001, now + i * 0.12 + 0.3);
+          osc.connect(gain);
+          gain.connect(ctx.destination);
+          osc.start(now + i * 0.12);
+          osc.stop(now + i * 0.12 + 0.32);
+        });
+      } catch {}
+    }
+
+    /* =========================================================
+       2. REAL QR CODE + PNG PASS IMAGE GENERATOR
+       ========================================================= */
+    function generateQrSvg(text, size = 86) {
+      if (typeof qrcode === 'undefined') {
+        return `<div style="font-size:10px;color:#333;font-weight:700;text-align:center;">PASS QR<br/>READY</div>`;
+      }
+      const qr = qrcode(0, 'M');
+      qr.addData(text);
+      qr.make();
+      const count = qr.getModuleCount();
+      const cell = size / count;
+      let rects = '';
+      for (let r = 0; r < count; r++) {
+        for (let c = 0; c < count; c++) {
+          if (qr.isDark(r, c)) {
+            rects += `<rect x="${(c * cell).toFixed(2)}" y="${(r * cell).toFixed(2)}" width="${(cell + 0.15).toFixed(2)}" height="${(cell + 0.15).toFixed(2)}" fill="#111"/>`;
+          }
+        }
+      }
+      return `<svg xmlns="http://www.w3.org/2000/svg" width="${size}" height="${size}" viewBox="0 0 ${size} ${size}">${rects}</svg>`;
+    }
+
+    function downloadPassAsPng(p) {
+      const c = document.createElement('canvas');
+      c.width = 960;
+      c.height = 520;
+      const ctx = c.getContext('2d');
+
+      /* Luxury Crimson-Emerald Gradient Background */
+      const grad = ctx.createLinearGradient(0, 0, 960, 520);
+      grad.addColorStop(0, '#5a0714');
+      grad.addColorStop(0.55, '#2b0712');
+      grad.addColorStop(1, '#09271b');
+      ctx.fillStyle = grad;
+      ctx.fillRect(0, 0, 960, 520);
+
+      /* Subtle Gold Ticket Border */
+      ctx.strokeStyle = '#ffd147';
+      ctx.lineWidth = 5;
+      ctx.strokeRect(20, 20, 920, 480);
+
+      /* Side Semicircle Ticket Notches */
+      ctx.fillStyle = '#070e17';
+      ctx.beginPath(); ctx.arc(20, 260, 24, 0, Math.PI * 2); ctx.fill();
+      ctx.beginPath(); ctx.arc(940, 260, 24, 0, Math.PI * 2); ctx.fill();
+
+      /* Perforated Vertical Line */
+      ctx.save();
+      ctx.setLineDash([8, 8]);
+      ctx.strokeStyle = 'rgba(255,209,71,0.45)';
+      ctx.lineWidth = 2;
+      ctx.beginPath();
+      ctx.moveTo(640, 45);
+      ctx.lineTo(640, 475);
+      ctx.stroke();
+      ctx.restore();
+
+      /* School & Event Header */
+      ctx.fillStyle = '#ffe999';
+      ctx.font = 'bold 18px sans-serif';
+      ctx.fillText('DWARKA INTERNATIONAL SCHOOL • SECTOR 12, NEW DELHI', 54, 72);
+
+      ctx.fillStyle = '#ffd147';
+      ctx.font = 'bold 48px Georgia, serif';
+      ctx.fillText('RESPLENDENCE 2026', 54, 128);
+
+      ctx.fillStyle = '#a7f3d0';
+      ctx.font = 'bold 20px sans-serif';
+      ctx.fillText('WINTER CARNIVAL  •  FREE COMPETITION PASS', 54, 162);
+
+      /* Participant Details */
+      const lines = [
+        ['PASS ID', `${p.id}${p.seq ? `  (Sr. #${p.seq})` : ''}`],
+        ['PARTICIPANT', p.name],
+        ['CATEGORY', p.category],
+        ['COMPETITION', p.competition],
+        ['DATE & TIME', 'December 19, 2026  |  11:00 A.M - 7:00 P.M']
+      ];
+
+      let yPos = 225;
+      lines.forEach(([lbl, val]) => {
+        ctx.fillStyle = '#94a3b8';
+        ctx.font = 'bold 14px sans-serif';
+        ctx.fillText(lbl, 54, yPos);
+
+        ctx.fillStyle = lbl === 'PASS ID' ? '#ffd147' : '#ffffff';
+        ctx.font = 'bold 24px sans-serif';
+        ctx.fillText(String(val).slice(0, 40), 54, yPos + 27);
+        yPos += 56;
+      });
+
+      /* Right Stub: White Card + Scannable QR */
+      ctx.fillStyle = '#ffffff';
+      ctx.beginPath();
+      ctx.roundRect ? ctx.roundRect(680, 95, 220, 220, 18) : ctx.fillRect(680, 95, 220, 220);
+      ctx.fill();
+
+      const qrPayload = `RESPLENDENCE|${p.id}|${p.name}|${p.competition}|${p.phone}`;
+      if (typeof qrcode !== 'undefined') {
+        const qr = qrcode(0, 'M');
+        qr.addData(qrPayload);
+        qr.make();
+        const count = qr.getModuleCount();
+        const qrPx = 184;
+        const cell = qrPx / count;
+        ctx.fillStyle = '#111111';
+        for (let r = 0; r < count; r++) {
+          for (let col = 0; col < count; col++) {
+            if (qr.isDark(r, col)) {
+              ctx.fillRect(698 + col * cell, 113 + r * cell, Math.ceil(cell), Math.ceil(cell));
+            }
+          }
+        }
+      } else {
+        ctx.fillStyle = '#111';
+        ctx.font = 'bold 24px monospace';
+        ctx.fillText(p.id, 725, 210);
+      }
+
+      ctx.fillStyle = '#ffd147';
+      ctx.font = 'bold 16px sans-serif';
+      ctx.textAlign = 'center';
+      ctx.fillText('SCAN AT STAGE DESK', 790, 355);
+
+      ctx.fillStyle = '#cbd5e1';
+      ctx.font = '14px sans-serif';
+      ctx.fillText('Official Digital Pass', 790, 382);
+      ctx.fillText('Resplendence 2026', 790, 404);
+
+      /* Trigger PNG Download */
+      const link = document.createElement('a');
+      link.download = `Resplendence-Pass-${p.id}.png`;
+      link.href = c.toDataURL('image/png');
+      link.click();
+      showToast(`📥 Pass ${p.id} saved as PNG!`);
+    }
+
+    let savedPasses = Store.get('rsp_passes', []);
+    let allRegistrations = Store.get('rsp_all_registrations', []);
+    let savedPlan = Store.get('rsp_plan', []);
+    let checkedInMap = Store.get('rsp_checked_in', {});
+
+    if (savedPasses.length && !allRegistrations.length) {
+      allRegistrations = savedPasses.slice().reverse().map((p, idx) => ({
+        ...p,
+        seq: idx + 1,
+        in_excel: false,
+        created_at: p.created_at || new Date().toISOString()
+      }));
+      Store.set('rsp_all_registrations', allRegistrations);
+    }
+
+    const entryQrBox = document.getElementById('entry-qr-box');
+    if (PAYMENT_QR_URL) {
+      entryQrBox.innerHTML = `<img src="${escapeHtml(PAYMENT_QR_URL)}" alt="₹100 Carnival Entry Fee QR Code" />`;
+    } else {
+      entryQrBox.innerHTML = `<span style="font-size:0.8rem; color:#94a3b8;">QR Code Space<br/>(To be added)</span>`;
+    }
+
+    const waInviteBtn = document.getElementById('wa-invite-btn');
+    waInviteBtn.textContent = WHATSAPP_GROUP_URL
+      ? '💬 Join Official WhatsApp Group'
+      : '💬 WhatsApp Group (Link Coming Soon)';
+
+    document.querySelectorAll('.join-wa-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        if (WHATSAPP_GROUP_URL) {
+          window.open(WHATSAPP_GROUP_URL, '_blank', 'noopener,noreferrer');
+        } else {
+          showToast('💬 WhatsApp Group invite link will be added soon!');
+        }
+      });
+    });
+
+    document.getElementById('designer-plaque').addEventListener('click', () => {
+      launchConfetti();
+      showToast('✨ Resplendence 2026 — Designed by Yaksh (XI Lily)');
+    });
+
+    const toastEl = document.getElementById('toast');
+    let toastTimer;
+    function showToast(msg) {
+      toastEl.textContent = msg;
+      toastEl.classList.add('show');
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => toastEl.classList.remove('show'), 3600);
+    }
+
+    const progressEl = document.getElementById('scroll-progress');
+    window.addEventListener('scroll', () => {
+      const h = document.documentElement;
+      const denom = h.scrollHeight - h.clientHeight;
+      progressEl.style.width = denom > 0 ? `${(h.scrollTop / denom) * 100}%` : '0%';
+    });
+
+    const heroEl = document.querySelector('.hero');
+    heroEl.addEventListener('mousemove', e => {
+      const r = heroEl.getBoundingClientRect();
+      heroEl.style.setProperty('--hx', `${((e.clientX - r.left) / r.width) * 100}%`);
+      heroEl.style.setProperty('--hy', `${((e.clientY - r.top) / r.height) * 100}%`);
+    });
+
+    /* 3D Perspective Tilt + Spotlight Glow on Cards */
+    const isFinePointer = window.matchMedia('(pointer: fine)').matches;
+    document.querySelectorAll('.tilt-card').forEach(card => {
+      card.addEventListener('mousemove', e => {
+        const r = card.getBoundingClientRect();
+        const x = e.clientX - r.left;
+        const y = e.clientY - r.top;
+        card.style.setProperty('--mx', `${x}px`);
+        card.style.setProperty('--my', `${y}px`);
+        if (isFinePointer) {
+          const rx = ((y - r.height / 2) / (r.height / 2)) * -6;
+          const ry = ((x - r.width / 2) / (r.width / 2)) * 6;
+          card.style.transform = `perspective(800px) rotateX(${rx}deg) rotateY(${ry}deg) translateY(-6px)`;
+        }
+      });
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = 'perspective(800px) rotateX(0deg) rotateY(0deg) translateY(0)';
+      });
+    });
+
+    const lightsWrap = document.getElementById('fairy-lights');
+    const cols = ['r', 'g', 'e', 'b'];
+    const totalBulbs = Math.max(18, Math.floor(window.innerWidth / 44));
+    for (let i = 0; i < totalBulbs; i++) {
+      const b = document.createElement('div');
+      b.className = `bulb ${cols[i % 4]}`;
+      lightsWrap.appendChild(b);
+    }
+
+    const menuToggle = document.getElementById('menu-toggle');
+    const navLinks = document.getElementById('nav-links');
+    menuToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+    navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+
+    const eventTime = new Date('2026-12-19T11:00:00+05:30').getTime();
+    function tickCountdown() {
+      const diff = eventTime - Date.now();
+      if (diff <= 0) {
+        document.getElementById('countdown').innerHTML =
+          '<div class="cd-box" style="min-width:250px;"><span class="cd-num">🎉 HAPPENING NOW</span><span class="cd-lbl">11 AM – 7 PM</span></div>';
+        return;
+      }
+      document.getElementById('days').textContent = String(Math.floor(diff / 86400000)).padStart(2, '0');
+      document.getElementById('hours').textContent = String(Math.floor((diff % 86400000) / 3600000)).padStart(2, '0');
+      document.getElementById('minutes').textContent = String(Math.floor((diff % 3600000) / 60000)).padStart(2, '0');
+      document.getElementById('seconds').textContent = String(Math.floor((diff % 60000) / 1000)).padStart(2, '0');
+    }
+    tickCountdown();
+    setInterval(tickCountdown, 1000);
+
+    let activeCat = 'all';
+    const searchInput = document.getElementById('attraction-search');
+    const spotCards = document.querySelectorAll('.spot-card');
+
+    function applyAttractionFilters() {
+      const query = searchInput.value.trim().toLowerCase();
+      spotCards.forEach(card => {
+        const matchCat = activeCat === 'all' || card.dataset.cat === activeCat;
+        const matchText = card.dataset.name.toLowerCase().includes(query) || card.textContent.toLowerCase().includes(query);
+        card.classList.toggle('hidden', !(matchCat && matchText));
+      });
+    }
+
+    document.querySelectorAll('.filter-pill').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.filter-pill').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        activeCat = btn.dataset.filter;
+        applyAttractionFilters();
+      });
+    });
+    searchInput.addEventListener('input', applyAttractionFilters);
+
+    document.getElementById('share-btn').addEventListener('click', async () => {
+      const shareData = {
+        title: 'RESPLENDENCE 2026 — Winter Carnival',
+        text: 'Join us at Dwarka International School on Dec 19, 2026 (11 AM - 7 PM) for Resplendence Winter Carnival!',
+        url: window.location.href
+      };
+      if (navigator.share) {
+        try { await navigator.share(shareData); return; } catch {}
+      }
+      try {
+        await navigator.clipboard.writeText(`${shareData.text} ${shareData.url}`);
+        showToast('🔗 Event invite copied to clipboard!');
+      } catch {
+        showToast('🔗 Share this page link with your friends!');
+      }
+    });
+
+    document.getElementById('copy-addr-btn').addEventListener('click', async () => {
+      const addr = 'Dwarka International School, Sector 12, Dwarka, New Delhi - 110078';
+      try {
+        await navigator.clipboard.writeText(addr);
+        showToast('📋 Address copied!');
+      } catch {
+        showToast(addr);
+      }
+    });
+
+    document.querySelectorAll('.faq-q').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.parentElement;
+        const wasOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+        if (!wasOpen) item.classList.add('open');
+      });
+    });
+
+    const hubCountEl = document.getElementById('hub-count');
+
+    function syncUI() {
+      hubCountEl.textContent = savedPasses.length + savedPlan.length;
+      document.querySelectorAll('.plan-toggle-btn').forEach(btn => {
+        const name = btn.dataset.item;
+        const exists = savedPlan.some(p => p.name === name);
+        btn.classList.toggle('saved', exists);
+        btn.textContent = exists ? '✓ Added to Plan' : '+ Add to My Plan';
+      });
+      renderHub();
+    }
+
+    document.querySelectorAll('.plan-toggle-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const name = btn.dataset.item;
+        const idx = savedPlan.findIndex(p => p.name === name);
+        if (idx >= 0) {
+          savedPlan.splice(idx, 1);
+          showToast(`Removed "${name}" from your plan`);
+        } else {
+          savedPlan.push({ name, done: false });
+          showToast(`✨ Added "${name}" to My Plan!`);
+        }
+        Store.set('rsp_plan', savedPlan);
+        syncUI();
+      });
+    });
+
+    /* =========================================================
+       3. LIVE NOTICE BANNER (ADMIN CONTROLLED)
+       ========================================================= */
+    const liveNoticeBar = document.getElementById('live-notice-bar');
+    const liveNoticeText = document.getElementById('live-notice-text');
+
+    async function loadLiveNotice() {
+      let msg = Store.get('rsp_live_notice', '');
+      if (HAS_CLOUD) {
+        try {
+          const res = await fetch(`${SB_BASE}/rest/v1/announcements?id=eq.1&select=message`, {
+            headers: sbHeaders()
+          });
+          if (res.ok) {
+            const rows = await res.json();
+            if (rows && rows[0]) {
+              msg = rows[0].message || '';
+              Store.set('rsp_live_notice', msg);
+            }
+          }
+        } catch {}
+      }
+      if (msg && msg.trim()) {
+        liveNoticeText.textContent = msg.trim();
+        liveNoticeBar.classList.add('show');
+      } else {
+        liveNoticeBar.classList.remove('show');
+      }
+      const noticeInput = document.getElementById('admin-notice-input');
+      if (noticeInput && !noticeInput.value) noticeInput.value = msg || '';
+    }
+
+    document.getElementById('dismiss-notice-btn').addEventListener('click', () => {
+      liveNoticeBar.classList.remove('show');
+    });
+
+    loadLiveNotice();
+
+    /* =========================================================
+       4. FREE COMPETITION REGISTRATION + DUPLICATE GUARD + QR PASS
+       ========================================================= */
+    const regModal = document.getElementById('reg-modal');
+    const regForm = document.getElementById('reg-form');
+    const regFormView = document.getElementById('reg-form-view');
+    const regSuccessView = document.getElementById('reg-success-view');
+    const modalQrBox = document.getElementById('modal-qr-box');
+    const modalPassInfo = document.getElementById('modal-pass-info');
+    const regComp = document.getElementById('reg-comp');
+    const regSubmitBtn = document.getElementById('reg-submit-btn');
+    let activePassForModal = null;
+
+    function openRegModal(compName) {
+      if (compName) regComp.value = compName;
+      regFormView.style.display = 'block';
+      regSuccessView.style.display = 'none';
+      regModal.classList.add('open');
+    }
+
+    function showPassInModal(passObj) {
+      activePassForModal = passObj;
+      const qrData = `RESPLENDENCE|${passObj.id}|${passObj.name}|${passObj.competition}|${passObj.phone}`;
+      modalQrBox.innerHTML = generateQrSvg(qrData, 86);
+      modalPassInfo.innerHTML = `
+        <div><strong style="color:var(--gold);">Pass ID:</strong> ${escapeHtml(passObj.id)} ${passObj.seq ? `(#${passObj.seq})` : ''}</div>
+        <div><strong style="color:var(--gold);">Name:</strong> ${escapeHtml(passObj.name)}</div>
+        <div><strong style="color:var(--gold);">Event:</strong> ${escapeHtml(passObj.competition)}</div>
+        <div><strong style="color:var(--gold);">Category:</strong> ${escapeHtml(passObj.category)}</div>
+      `;
+      regFormView.style.display = 'none';
+      regSuccessView.style.display = 'block';
+    }
+
+    document.querySelectorAll('.open-reg-btn').forEach(btn => {
+      btn.addEventListener('click', () => openRegModal(btn.dataset.comp));
+    });
+    document.getElementById('close-reg-modal').addEventListener('click', () => regModal.classList.remove('open'));
+    regModal.addEventListener('click', e => { if (e.target === regModal) regModal.classList.remove('open'); });
+
+    document.getElementById('modal-another-btn').addEventListener('click', () => {
+      regSuccessView.style.display = 'none';
+      regFormView.style.display = 'block';
+    });
+    document.getElementById('modal-download-png-btn').addEventListener('click', () => {
+      if (activePassForModal) downloadPassAsPng(activePassForModal);
+    });
+    document.getElementById('modal-print-pass-btn').addEventListener('click', () => {
+      if (activePassForModal) printPassObject(activePassForModal);
+    });
+
+    regForm.addEventListener('submit', async e => {
+      e.preventDefault();
+      const phone = document.getElementById('reg-phone').value.trim();
+      const competition = regComp.value;
+
+      regSubmitBtn.disabled = true;
+      regSubmitBtn.textContent = 'Checking & Submitting...';
+
+      /* Duplicate Registration Check (Same Phone + Same Competition) */
+      let duplicateEntry = allRegistrations.find(r => r.phone === phone && r.competition === competition);
+      if (!duplicateEntry && HAS_CLOUD) {
+        try {
+          const checkRes = await fetch(
+            `${SB_BASE}/rest/v1/registrations?phone=eq.${encodeURIComponent(phone)}&competition=eq.${encodeURIComponent(competition)}&select=*`,
+            { headers: sbHeaders() }
+          );
+          if (checkRes.ok) {
+            const existing = await checkRes.json();
+            if (existing && existing.length > 0) duplicateEntry = existing[0];
+          }
+        } catch {}
+      }
+
+      if (duplicateEntry) {
+        regSubmitBtn.disabled = false;
+        regSubmitBtn.textContent = 'Confirm Free Registration 🎟️';
+        showToast(`⚠️ ${phone} is already registered for ${competition}! Showing existing pass.`);
+        if (!savedPasses.some(p => p.id === duplicateEntry.id)) {
+          savedPasses.unshift(duplicateEntry);
+          Store.set('rsp_passes', savedPasses);
+          syncUI();
+        }
+        showPassInModal(duplicateEntry);
+        return;
+      }
+
+      const payload = {
+        id: 'RSP-' + Math.floor(1000 + Math.random() * 9000),
+        name: document.getElementById('reg-name').value.trim(),
+        category: document.getElementById('reg-cat').value.trim(),
+        competition,
+        phone,
+        in_excel: false
+      };
+
+      let savedEntry = {
+        ...payload,
+        seq: allRegistrations.reduce((m, r) => Math.max(m, Number(r.seq) || 0), 0) + 1,
+        created_at: new Date().toISOString()
+      };
+
+      let cloudSaved = false;
+      if (HAS_CLOUD) {
+        try {
+          const res = await fetch(`${SB_BASE}/rest/v1/registrations`, {
+            method: 'POST',
+            headers: sbHeaders({
+              'Content-Type': 'application/json',
+              'Prefer': 'return=representation'
+            }),
+            body: JSON.stringify(payload)
+          });
+          if (res.ok) {
+            const rows = await res.json();
+            if (rows && rows[0]) savedEntry = rows[0];
+            cloudSaved = true;
+          }
+        } catch {}
+      }
+
+      savedPasses.unshift(savedEntry);
+      allRegistrations.push(savedEntry);
+      Store.set('rsp_passes', savedPasses);
+      Store.set('rsp_all_registrations', allRegistrations);
+
+      regForm.reset();
+      regSubmitBtn.disabled = false;
+      regSubmitBtn.textContent = 'Confirm Free Registration 🎟️';
+      launchConfetti();
+      syncUI();
+      showToast(cloudSaved
+        ? `🎉 Registered & synced to cloud! Pass ${savedEntry.id}`
+        : `🎟️ Pass ${savedEntry.id} confirmed!`);
+
+      if (isAdminPageOpen && isAdminLoggedIn) {
+        regModal.classList.remove('open');
+        await loadAdminData(false);
+      } else {
+        showPassInModal(savedEntry);
+      }
+    });
+
+    /* Hub Modal */
+    const hubModal = document.getElementById('hub-modal');
+    const passesPane = document.getElementById('hub-passes-pane');
+    const planPane = document.getElementById('hub-plan-pane');
+
+    function openHub(tab = 'passes') {
+      document.querySelectorAll('.hub-tab').forEach(t => t.classList.toggle('active', t.dataset.hubtab === tab));
+      passesPane.style.display = tab === 'passes' ? 'block' : 'none';
+      planPane.style.display = tab === 'plan' ? 'block' : 'none';
+      hubModal.classList.add('open');
+    }
+
+    document.getElementById('open-hub-btn').addEventListener('click', () => openHub('passes'));
+    document.getElementById('close-hub-modal').addEventListener('click', () => hubModal.classList.remove('open'));
+    hubModal.addEventListener('click', e => { if (e.target === hubModal) hubModal.classList.remove('open'); });
+    document.querySelectorAll('.hub-tab').forEach(t => t.addEventListener('click', () => openHub(t.dataset.hubtab)));
+
+    function renderHub() {
+      if (!savedPasses.length) {
+        passesPane.innerHTML = `<p style="color:#cbd5e1; text-align:center; padding:20px 0;">No competition passes yet. Click "Register Free" to get one!</p>`;
+      } else {
+        passesPane.innerHTML = savedPasses.map((p, i) => `
+          <div class="saved-item">
+            <div>
+              <strong>${escapeHtml(p.competition)} (${escapeHtml(p.id)})</strong>
+              <small>${escapeHtml(p.name)} • ${escapeHtml(p.category)} • Free QR Pass</small>
+            </div>
+            <div style="display:flex; gap:6px; flex-wrap:wrap;">
+              <button class="mini-btn" onclick="downloadHubPass(${i})">⬇ PNG</button>
+              <button class="mini-btn" onclick="printPass(${i})">🖨️ Print</button>
+              <button class="mini-btn" onclick="removePass(${i})">🗑️</button>
+            </div>
+          </div>
+        `).join('');
+      }
+
+      if (!savedPlan.length) {
+        planPane.innerHTML = `<p style="color:#cbd5e1; text-align:center; padding:20px 0;">Your checklist is empty. Add attractions like Rides, Food, or Flash Mob!</p>`;
+      } else {
+        planPane.innerHTML = savedPlan.map((item, i) => `
+          <div class="saved-item">
+            <label style="display:flex; align-items:center; gap:10px; cursor:pointer;">
+              <input type="checkbox" ${item.done ? 'checked' : ''} onchange="togglePlanDone(${i})" />
+              <span style="${item.done ? 'text-decoration:line-through; opacity:0.6;' : ''}">${escapeHtml(item.name)}</span>
+            </label>
+            <button class="mini-btn" onclick="removePlanItem(${i})">✕</button>
+          </div>
+        `).join('');
+      }
+    }
+
+    window.downloadHubPass = idx => downloadPassAsPng(savedPasses[idx]);
+
+    window.removePass = idx => {
+      savedPasses.splice(idx, 1);
+      Store.set('rsp_passes', savedPasses);
+      syncUI();
+    };
+
+    window.togglePlanDone = idx => {
+      savedPlan[idx].done = !savedPlan[idx].done;
+      Store.set('rsp_plan', savedPlan);
+      renderHub();
+    };
+
+    window.removePlanItem = idx => {
+      savedPlan.splice(idx, 1);
+      Store.set('rsp_plan', savedPlan);
+      syncUI();
+    };
+
+    function printPassObject(p) {
+      const pa = document.getElementById('print-area');
+      const qrPayload = `RESPLENDENCE|${p.id}|${p.name}|${p.competition}|${p.phone}`;
+      pa.style.display = 'block';
+      pa.innerHTML = `
+        <h1 style="color:#880d1e; margin-bottom:4px;">RESPLENDENCE — WINTER CARNIVAL 2026</h1>
+        <p style="margin-bottom:18px;">Dwarka International School • Sector 12, Dwarka, New Delhi - 110078</p>
+        <hr style="margin-bottom:18px;"/>
+        <div style="display:flex; justify-content:space-between; align-items:center; gap:20px;">
+          <div>
+            <h2>COMPETITION PASS (FREE)</h2>
+            ${p.seq ? `<p><strong>Serial No.:</strong> #${p.seq}</p>` : ''}
+            <p><strong>Pass ID:</strong> ${escapeHtml(p.id)}</p>
+            <p><strong>Participant:</strong> ${escapeHtml(p.name)}</p>
+            <p><strong>Category:</strong> ${escapeHtml(p.category)}</p>
+            <p><strong>Competition:</strong> ${escapeHtml(p.competition)}</p>
+            <p><strong>Date & Time:</strong> December 19, 2026 | 11:00 A.M - 7:00 P.M</p>
+          </div>
+          <div style="border:2px solid #880d1e; padding:10px; border-radius:12px;">
+            ${generateQrSvg(qrPayload, 130)}
+          </div>
+        </div>
+      `;
+      window.print();
+      pa.style.display = 'none';
+    }
+
+    window.printPass = idx => printPassObject(savedPasses[idx]);
+
+    syncUI();
+
+    /* =========================================================
+       5. FULL-PAGE ADMIN PORTAL (CHECK-IN + LIVE NOTICE + EXCEL SYNC)
+       ========================================================= */
+    const publicSite = document.getElementById('public-site');
+    const adminPage = document.getElementById('admin-page');
+    const adminLoginView = document.getElementById('admin-login-view');
+    const adminDashView = document.getElementById('admin-dash-view');
+    const adminLoginForm = document.getElementById('admin-login-form');
+    const authError = document.getElementById('auth-error');
+    const adminSearch = document.getElementById('admin-search');
+    const adminFilterComp = document.getElementById('admin-filter-comp');
+    const adminFilterExcel = document.getElementById('admin-filter-excel');
+    const adminSortOrder = document.getElementById('admin-sort-order');
+    const adminModeBadge = document.getElementById('admin-mode-badge');
+    const exportCsvBtn = document.getElementById('export-csv-btn');
+    const exportNewCsvBtn = document.getElementById('export-new-csv-btn');
+    const adminLogoutBtn = document.getElementById('admin-logout-btn');
+    const adminAddBtn = document.getElementById('admin-add-btn');
+    const newAlertBanner = document.getElementById('new-alert-banner');
+    const newAlertText = document.getElementById('new-alert-text');
+    const snowCanvasEl = document.getElementById('snow-canvas');
+
+    let isAdminPageOpen = false;
+    let isAdminLoggedIn = false;
+    let adminRows = [];
+    let lastKnownTotal = null;
+    let pollInterval = null;
+
+    try { isAdminLoggedIn = sessionStorage.getItem('rsp_admin_auth') === '1'; } catch {}
+
+    function updateAdminNavButtons(cloudStatus = null) {
+      if (!isAdminLoggedIn) {
+        adminModeBadge.textContent = 'Locked';
+        adminModeBadge.classList.remove('cloud');
+      } else if (cloudStatus === true || (cloudStatus === null && HAS_CLOUD)) {
+        adminModeBadge.textContent = '🟢 Live Cloud Sync';
+        adminModeBadge.classList.add('cloud');
+      } else {
+        adminModeBadge.textContent = '🟡 Local Fallback';
+        adminModeBadge.classList.remove('cloud');
+      }
+      exportCsvBtn.style.display = isAdminLoggedIn ? 'inline-flex' : 'none';
+      exportNewCsvBtn.style.display = isAdminLoggedIn ? 'inline-flex' : 'none';
+      adminLogoutBtn.style.display = isAdminLoggedIn ? 'inline-flex' : 'none';
+      adminAddBtn.style.display = isAdminLoggedIn ? 'inline-flex' : 'none';
+    }
+
+    function startPolling() {
+      stopPolling();
+      pollInterval = setInterval(() => {
+        if (isAdminPageOpen && isAdminLoggedIn) loadAdminData(true);
+      }, 8000);
+    }
+
+    function stopPolling() {
+      if (pollInterval) { clearInterval(pollInterval); pollInterval = null; }
+    }
+
+    async function openAdminPage() {
+      isAdminPageOpen = true;
+      publicSite.style.display = 'none';
+      snowCanvasEl.style.display = 'none';
+      progressEl.style.display = 'none';
+      adminPage.classList.add('active');
+      window.scrollTo(0, 0);
+      authError.style.display = 'none';
+      updateAdminNavButtons();
+
+      if (isAdminLoggedIn) {
+        adminLoginView.style.display = 'none';
+        adminDashView.style.display = 'block';
+        await loadAdminData(false);
+        startPolling();
+      } else {
+        adminLoginView.style.display = 'grid';
+        adminDashView.style.display = 'none';
+        setTimeout(() => document.getElementById('admin-user').focus(), 50);
+      }
+    }
+
+    function closeAdminPage() {
+      isAdminPageOpen = false;
+      stopPolling();
+      adminPage.classList.remove('active');
+      publicSite.style.display = 'block';
+      snowCanvasEl.style.display = 'block';
+      progressEl.style.display = 'block';
+      if (window.location.hash === '#admin') {
+        history.replaceState(null, '', window.location.pathname + window.location.search);
+      }
+      loadLiveNotice();
+      window.scrollTo(0, 0);
+    }
+
+    document.getElementById('back-to-site-btn').addEventListener('click', closeAdminPage);
+    adminAddBtn.addEventListener('click', () => openRegModal());
+
+    document.addEventListener('keydown', e => {
+      if (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === 'a') {
+        e.preventDefault();
+        openAdminPage();
+      }
+    });
+
+    let secretClicks = 0;
+    let secretClickTimer;
+    document.getElementById('secret-admin-trigger').addEventListener('click', () => {
+      secretClicks++;
+      clearTimeout(secretClickTimer);
+      secretClickTimer = setTimeout(() => { secretClicks = 0; }, 900);
+      if (secretClicks >= 3) {
+        secretClicks = 0;
+        openAdminPage();
+      }
+    });
+
+    if (window.location.hash === '#admin') openAdminPage();
+    window.addEventListener('hashchange', () => {
+      if (window.location.hash === '#admin') openAdminPage();
+    });
+
+    adminLoginForm.addEventListener('submit', async e => {
+      e.preventDefault();
+      const u = document.getElementById('admin-user').value.trim();
+      const p = document.getElementById('admin-pass').value;
+
+      if (u === ADMIN_USER && p === ADMIN_PASS) {
+        isAdminLoggedIn = true;
+        try { sessionStorage.setItem('rsp_admin_auth', '1'); } catch {}
+        authError.style.display = 'none';
+        adminLoginForm.reset();
+        adminLoginView.style.display = 'none';
+        adminDashView.style.display = 'block';
+        updateAdminNavButtons();
+        await loadAdminData(false);
+        startPolling();
+        showToast('🔓 Admin Portal Unlocked');
+      } else {
+        authError.style.display = 'block';
+      }
+    });
+
+    adminLogoutBtn.addEventListener('click', () => {
+      isAdminLoggedIn = false;
+      lastKnownTotal = null;
+      stopPolling();
+      try { sessionStorage.removeItem('rsp_admin_auth'); } catch {}
+      updateAdminNavButtons();
+      adminDashView.style.display = 'none';
+      adminLoginView.style.display = 'grid';
+      showToast('Logged out of Admin Portal');
+    });
+
+    document.getElementById('admin-refresh-btn').addEventListener('click', async () => {
+      await loadAdminData(false);
+      showToast('↻ Registrations synced');
+    });
+
+    /* Admin Publish / Clear Live Notice */
+    async function saveLiveNotice(msg) {
+      Store.set('rsp_live_notice', msg);
+      if (HAS_CLOUD) {
+        try {
+          await fetch(`${SB_BASE}/rest/v1/announcements`, {
+            method: 'POST',
+            headers: sbHeaders({
+              'Content-Type': 'application/json',
+              'Prefer': 'resolution=merge-duplicates'
+            }),
+            body: JSON.stringify({ id: 1, message: msg, updated_at: new Date().toISOString() })
+          });
+        } catch {}
+      }
+      await loadLiveNotice();
+    }
+
+    document.getElementById('publish-notice-btn').addEventListener('click', async () => {
+      const val = document.getElementById('admin-notice-input').value.trim();
+      if (!val) { showToast('Type a message first or click Clear Notice.'); return; }
+      await saveLiveNotice(val);
+      showToast('📢 Live Notice published on website!');
+    });
+
+    document.getElementById('clear-notice-btn').addEventListener('click', async () => {
+      document.getElementById('admin-notice-input').value = '';
+      await saveLiveNotice('');
+      showToast('Live Notice cleared');
+    });
+
+    async function loadAdminData(isAutoPoll = false) {
+      const sourceLabel = document.getElementById('admin-source-label');
+      let fetchedRows = null;
+      let errInfo = '';
+
+      if (HAS_CLOUD) {
+        try {
+          const res = await fetch(`${SB_BASE}/rest/v1/registrations?select=*&order=seq.asc`, {
+            headers: sbHeaders()
+          });
+          if (res.ok) {
+            fetchedRows = await res.json();
+            updateAdminNavButtons(true);
+            sourceLabel.textContent = '🟢 Live Cloud Database (Supabase) • Auto-syncing every 8s • Permanent Sr. No. locked';
+          } else {
+            errInfo = ` (HTTP ${res.status})`;
+          }
+        } catch {
+          errInfo = ' (Network issue)';
+        }
+      }
+
+      if (fetchedRows === null) {
+        updateAdminNavButtons(false);
+        allRegistrations = Store.get('rsp_all_registrations', []).slice().sort((a, b) => (a.seq || 0) - (b.seq || 0));
+        fetchedRows = allRegistrations;
+        sourceLabel.textContent = HAS_CLOUD
+          ? `⚠️ Cloud sync unavailable${errInfo} — showing local records`
+          : '🟡 Local Browser Mode';
+      }
+
+      if (isAutoPoll && lastKnownTotal !== null && fetchedRows.length > lastKnownTotal) {
+        const diff = fetchedRows.length - lastKnownTotal;
+        playNotificationChime();
+        showToast(`🔔 ${diff} New Registration${diff > 1 ? 's' : ''} Just Arrived!`);
+      }
+
+      lastKnownTotal = fetchedRows.length;
+      adminRows = fetchedRows;
+      renderAdminDashboard();
+    }
+
+    function isRowCheckedIn(r) {
+      if (typeof r.checked_in === 'boolean') return r.checked_in;
+      return Boolean(checkedInMap[r.id]);
+    }
+
+    function renderAdminDashboard() {
+      const comps = ['Mom and Me', 'Dad and Me', 'Ramp Walk', 'Talent Hunt', 'Sr. Citizen Rockerz'];
+      const notInExcelCount = adminRows.filter(r => !r.in_excel).length;
+      const checkedInCount = adminRows.filter(isRowCheckedIn).length;
+
+      if (notInExcelCount > 0) {
+        newAlertText.textContent = `🔔 ${notInExcelCount} New Registration${notInExcelCount > 1 ? 's' : ''} Not Yet Exported to Excel!`;
+        newAlertBanner.classList.add('show');
+      } else {
+        newAlertBanner.classList.remove('show');
+      }
+
+      const statsEl = document.getElementById('admin-stats');
+      statsEl.innerHTML = `
+        <div class="stat-box"><span>Total Entries</span><strong>${adminRows.length}</strong></div>
+        <div class="stat-box"><span>Stage Checked-In</span><strong style="color:#86efac;">${checkedInCount}</strong></div>
+        <div class="stat-box"><span>🆕 Not in Excel</span><strong style="color:${notInExcelCount ? '#fde68a' : '#86efac'};">${notInExcelCount}</strong></div>
+        ${comps.map(c => `
+          <div class="stat-box">
+            <span>${c}</span>
+            <strong>${adminRows.filter(r => r.competition === c).length}</strong>
+          </div>
+        `).join('')}
+      `;
+
+      const q = adminSearch.value.trim().toLowerCase();
+      const compFilter = adminFilterComp.value;
+      const excelFilter = adminFilterExcel.value;
+      const sortMode = adminSortOrder.value;
+
+      let filtered = adminRows.filter(r => {
+        const matchComp = compFilter === 'all' || r.competition === compFilter;
+        const matchExcel = excelFilter === 'all' || (excelFilter === 'new' ? !r.in_excel : !!r.in_excel);
+        const matchQ = !q ||
+          (r.seq && String(r.seq).includes(q)) ||
+          (r.name && r.name.toLowerCase().includes(q)) ||
+          (r.id && r.id.toLowerCase().includes(q)) ||
+          (r.phone && r.phone.toLowerCase().includes(q)) ||
+          (r.category && r.category.toLowerCase().includes(q));
+        return matchComp && matchExcel && matchQ;
+      });
+
+      filtered = filtered.slice().sort((a, b) => {
+        return sortMode === 'excel'
+          ? (Number(a.seq) || 0) - (Number(b.seq) || 0)
+          : (Number(b.seq) || 0) - (Number(a.seq) || 0);
+      });
+
+      const tbody = document.getElementById('admin-tbody');
+      if (!filtered.length) {
+        tbody.innerHTML = `<tr><td colspan="10" style="text-align:center; padding:34px; color:#94a3b8;">No registrations match your filter.</td></tr>`;
+        return;
+      }
+
+      tbody.innerHTML = filtered.map(r => {
+        const checked = isRowCheckedIn(r);
+        return `
+          <tr class="${r.in_excel ? '' : 'row-new'}">
+            <td><strong style="color:#fff;">#${r.seq || '—'}</strong></td>
+            <td><strong style="color:var(--gold);">${escapeHtml(r.id)}</strong></td>
+            <td>${escapeHtml(r.name)}</td>
+            <td>${escapeHtml(r.category)}</td>
+            <td><span class="comp-pill">${escapeHtml(r.competition)}</span></td>
+            <td>${escapeHtml(r.phone)}</td>
+            <td>
+              <button class="status-pill-btn ${checked ? 'green' : 'slate'}" onclick="toggleCheckIn('${escapeHtml(r.id)}')">
+                ${checked ? '✓ Checked In' : 'Check In'}
+              </button>
+            </td>
+            <td>
+              <button class="status-pill-btn ${r.in_excel ? 'green' : 'amber'}" onclick="toggleExcelFlag('${escapeHtml(r.id)}')">
+                ${r.in_excel ? '✅ In Excel' : '🆕 New'}
+              </button>
+            </td>
+            <td style="color:#94a3b8; font-size:0.78rem;">${escapeHtml(formatDateTime(r.created_at))}</td>
+            <td>
+              <button class="mini-btn" onclick="adminDownloadPng('${escapeHtml(r.id)}')">⬇ PNG</button>
+              <button class="mini-btn" onclick="adminPrintById('${escapeHtml(r.id)}')">🖨️</button>
+              <button class="mini-btn" onclick="deleteRegistration('${escapeHtml(r.id)}')">🗑️</button>
+            </td>
+          </tr>
+        `;
+      }).join('');
+    }
+
+    adminSearch.addEventListener('input', renderAdminDashboard);
+    adminFilterComp.addEventListener('change', renderAdminDashboard);
+    adminFilterExcel.addEventListener('change', renderAdminDashboard);
+    adminSortOrder.addEventListener('change', renderAdminDashboard);
+
+    window.toggleCheckIn = async id => {
+      const row = adminRows.find(r => r.id === id);
+      if (!row) return;
+      const nextVal = !isRowCheckedIn(row);
+
+      checkedInMap[id] = nextVal;
+      Store.set('rsp_checked_in', checkedInMap);
+
+      if (HAS_CLOUD) {
+        try {
+          await fetch(`${SB_BASE}/rest/v1/registrations?id=eq.${encodeURIComponent(id)}`, {
+            method: 'PATCH',
+            headers: sbHeaders({ 'Content-Type': 'application/json' }),
+            body: JSON.stringify({ checked_in: nextVal })
+          });
+        } catch {}
+      }
+
+      row.checked_in = nextVal;
+      renderAdminDashboard();
+      showToast(nextVal ? `✓ ${row.name} checked in at stage!` : `Check-in removed for ${row.name}`);
+    };
+
+    async function markRowsAsInExcel(ids) {
+      if (!ids.length) return;
+      if (HAS_CLOUD) {
+        try {
+          const inList = ids.map(id => encodeURIComponent(id)).join(',');
+          await fetch(`${SB_BASE}/rest/v1/registrations?id=in.(${inList})`, {
+            method: 'PATCH',
+            headers: sbHeaders({ 'Content-Type': 'application/json' }),
+            body: JSON.stringify({ in_excel: true })
+          });
+        } catch {}
+      }
+      const idSet = new Set(ids);
+      allRegistrations = allRegistrations.map(r => idSet.has(r.id) ? { ...r, in_excel: true } : r);
+      Store.set('rsp_all_registrations', allRegistrations);
+      await loadAdminData(false);
+    }
+
+    window.toggleExcelFlag = async id => {
+      const row = adminRows.find(r => r.id === id);
+      if (!row) return;
+      const nextVal = !row.in_excel;
+
+      if (HAS_CLOUD) {
+        try {
+          await fetch(`${SB_BASE}/rest/v1/registrations?id=eq.${encodeURIComponent(id)}`, {
+            method: 'PATCH',
+            headers: sbHeaders({ 'Content-Type': 'application/json' }),
+            body: JSON.stringify({ in_excel: nextVal })
+          });
+        } catch {}
+      }
+
+      allRegistrations = allRegistrations.map(r => r.id === id ? { ...r, in_excel: nextVal } : r);
+      Store.set('rsp_all_registrations', allRegistrations);
+      await loadAdminData(false);
+      showToast(nextVal ? `✅ Marked #${row.seq || id} as In Excel` : `Marked #${row.seq || id} as New`);
+    };
+
+    document.getElementById('mark-all-excel-btn').addEventListener('click', async () => {
+      const pending = adminRows.filter(r => !r.in_excel).map(r => r.id);
+      if (!pending.length) { showToast('All entries are already marked synced!'); return; }
+      await markRowsAsInExcel(pending);
+      showToast('✅ All registrations marked as synced to Excel!');
+    });
+
+    function downloadExcelCsv(rowsToExport, filename) {
+      const ordered = rowsToExport.slice().sort((a, b) => (Number(a.seq) || 0) - (Number(b.seq) || 0));
+      const headers = ['Sr. No.', 'Pass ID', 'Participant Name', 'Category/Class', 'Competition', 'Phone', 'Checked In', 'Registered At'];
+      const esc = val => `"${String(val ?? '').replace(/"/g, '""')}"`;
+      const csvBody = [
+        headers.join(','),
+        ...ordered.map(r => [
+          r.seq || '', r.id, r.name, r.category, r.competition, r.phone, isRowCheckedIn(r) ? 'Yes' : 'No', formatDateTime(r.created_at)
+        ].map(esc).join(','))
+      ].join('\r\n');
+
+      const blob = new Blob(['\uFEFF' + csvBody], { type: 'text/csv;charset=utf-8;' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = filename;
+      a.click();
+      URL.revokeObjectURL(url);
+    }
+
+    async function handleExportNewOnly() {
+      const newRows = adminRows.filter(r => !r.in_excel);
+      if (!newRows.length) {
+        showToast('✅ No new registrations pending—your Excel sheet is already up to date!');
+        return;
+      }
+      downloadExcelCsv(newRows, `Resplendence-NEW-Entries-${new Date().toISOString().slice(0, 10)}.csv`);
+      await markRowsAsInExcel(newRows.map(r => r.id));
+      showToast(`🆕 Exported ${newRows.length} new row(s) in #Sr.No order & marked synced!`);
+    }
+
+    exportNewCsvBtn.addEventListener('click', handleExportNewOnly);
+    document.getElementById('banner-export-new-btn').addEventListener('click', handleExportNewOnly);
+
+    exportCsvBtn.addEventListener('click', async () => {
+      if (!adminRows.length) {
+        showToast('No registrations to export yet.');
+        return;
+      }
+      downloadExcelCsv(adminRows, 'Resplendence-2026-FULL-Registrations.csv');
+      await markRowsAsInExcel(adminRows.map(r => r.id));
+      showToast('📥 Full Excel sheet exported in exact #1 → #N order!');
+    });
+
+    window.adminDownloadPng = id => {
+      const row = adminRows.find(r => r.id === id);
+      if (row) downloadPassAsPng(row);
+    };
+
+    window.adminPrintById = id => {
+      const row = adminRows.find(r => r.id === id);
+      if (row) printPassObject(row);
+    };
+
+    window.deleteRegistration = async id => {
+      if (!confirm(`Delete registration ${id}?`)) return;
+      if (HAS_CLOUD) {
+        try {
+          await fetch(`${SB_BASE}/rest/v1/registrations?id=eq.${encodeURIComponent(id)}`, {
+            method: 'DELETE',
+            headers: sbHeaders()
+          });
+        } catch {}
+      }
+      allRegistrations = allRegistrations.filter(r => r.id !== id);
+      savedPasses = savedPasses.filter(r => r.id !== id);
+      Store.set('rsp_all_registrations', allRegistrations);
+      Store.set('rsp_passes', savedPasses);
+      syncUI();
+      await loadAdminData(false);
+      showToast(`🗑️ Deleted ${id}`);
+    };
+
+    /* =========================================================
+       6. SCROLL REVEAL, SNOW & CONFETTI
+       ========================================================= */
+    const revealObs = new IntersectionObserver(entries => {
+      entries.forEach(en => { if (en.isIntersecting) en.target.classList.add('visible'); });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+
+    const snowC = document.getElementById('snow-canvas');
+    const snowCtx = snowC.getContext('2d');
+    let flakes = [];
+
+    function initSnow() {
+      snowC.width = window.innerWidth;
+      snowC.height = window.innerHeight;
+      const count = window.innerWidth < 640 ? 36 : 68;
+      flakes = Array.from({ length: count }, () => ({
+        x: Math.random() * snowC.width,
+        y: Math.random() * snowC.height,
+        r: Math.random() * 2.2 + 0.8,
+        vy: Math.random() * 0.95 + 0.4,
+        vx: Math.random() * 0.5 - 0.25,
+        a: Math.random() * 0.35 + 0.15
+      }));
+    }
+    window.addEventListener('resize', initSnow);
+    initSnow();
+
+    (function drawSnow() {
+      if (!isAdminPageOpen) {
+        snowCtx.clearRect(0, 0, snowC.width, snowC.height);
+        for (const f of flakes) {
+          snowCtx.beginPath();
+          snowCtx.arc(f.x, f.y, f.r, 0, Math.PI * 2);
+          snowCtx.fillStyle = `rgba(255,255,255,${f.a})`;
+          snowCtx.fill();
+          f.y += f.vy;
+          f.x += f.vx + Math.sin(f.y * 0.01) * 0.2;
+          if (f.y > snowC.height) { f.y = -4; f.x = Math.random() * snowC.width; }
+        }
+      }
+      requestAnimationFrame(drawSnow);
+    })();
+
+    const confC = document.getElementById('confetti-canvas');
+    const confCtx = confC.getContext('2d');
+    let confs = [];
+
+    function resizeConf() { confC.width = window.innerWidth; confC.height = window.innerHeight; }
+    window.addEventListener('resize', resizeConf);
+    resizeConf();
+
+    function launchConfetti() {
+      const palette = ['#ffd147', '#ff385c', '#2aff7d', '#38d9ff', '#ffffff'];
+      for (let i = 0; i < 110; i++) {
+        confs.push({
+          x: window.innerWidth / 2,
+          y: window.innerHeight / 2,
+          vx: (Math.random() - 0.5) * 15,
+          vy: (Math.random() - 0.7) * 15,
+          s: Math.random() * 7 + 4,
+          c: palette[i % palette.length],
+          r: Math.random() * 360,
+          rs: (Math.random() - 0.5) * 10,
+          life: 100
+        });
+      }
+    }
+
+    (function drawConf() {
+      confCtx.clearRect(0, 0, confC.width, confC.height);
+      confs = confs.filter(p => p.life > 0);
+      for (const p of confs) {
+        p.x += p.vx; p.y += p.vy; p.vy += 0.34; p.r += p.rs; p.life--;
+        confCtx.save();
+        confCtx.translate(p.x, p.y);
+        confCtx.rotate((p.r * Math.PI) / 180);
+        confCtx.fillStyle = p.c;
+        confCtx.globalAlpha = Math.min(1, p.life / 28);
+        confCtx.fillRect(-p.s / 2, -p.s / 2, p.s, p.s * 0.6);
+        confCtx.restore();
+      }
+      requestAnimationFrame(drawConf);
+    })();
+  </script>
+</body>
+</html>
