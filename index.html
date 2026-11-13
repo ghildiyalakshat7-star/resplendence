@@ -576,6 +576,37 @@
       background: rgba(255, 209, 71, 0.14);
     }
 
+    .visitor-live-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      margin-top: 22px;
+      padding: 8px 18px;
+      border-radius: 50px;
+      background: rgba(7, 14, 23, 0.58);
+      border: 1px solid rgba(255, 209, 71, 0.35);
+      backdrop-filter: blur(10px);
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+    }
+    .visitor-live-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: #4ade80;
+      box-shadow: 0 0 10px #4ade80;
+      animation: twinkle 1s infinite alternate;
+      flex-shrink: 0;
+    }
+    .visitor-live-pill strong {
+      color: var(--gold);
+      font-family: 'Cinzel Decorative', serif;
+      font-size: 0.96rem;
+      letter-spacing: 0.5px;
+    }
+
     .section-wave {
       position: absolute;
       bottom: -1px;
@@ -2032,6 +2063,13 @@
           <a href="#competitions" class="btn btn-pine">🏆 Free Competitions</a>
           <a href="#entry-info" class="btn btn-glass">🎟️ Entry Fee (₹100)</a>
           <button class="btn btn-glass" id="share-btn">🔗 Share</button>
+        </div>
+
+        <div class="hero-anim delay-5">
+          <div class="visitor-live-pill" id="visitor-pill">
+            <span class="visitor-live-dot"></span>
+            <span><strong id="visitor-count">—</strong> Visitors Explored Resplendence</span>
+          </div>
         </div>
       </div>
 
@@ -4156,6 +4194,67 @@
       }
       requestAnimationFrame(drawConf);
     })();
+
+    /* =========================================================
+       7. LIVE VISITOR COUNTER
+       ========================================================= */
+    const visitorCountEl = document.getElementById('visitor-count');
+
+    async function updateVisitorCount() {
+      let alreadyVisited = false;
+      try { alreadyVisited = localStorage.getItem('rsp_visited_device') === '1'; } catch {}
+
+      if (!HAS_CLOUD) {
+        let localCount = Number(Store.get('rsp_local_visits', 0));
+        if (!alreadyVisited) {
+          localCount += 1;
+          Store.set('rsp_local_visits', localCount);
+          try { localStorage.setItem('rsp_visited_device', '1'); } catch {}
+        }
+        visitorCountEl.textContent = localCount.toLocaleString('en-IN');
+        return;
+      }
+
+      try {
+        if (!alreadyVisited) {
+          const res = await fetch(`${SB_BASE}/rest/v1/rpc/increment_visitor_count`, {
+            method: 'POST',
+            headers: sbHeaders({ 'Content-Type': 'application/json' }),
+            body: '{}'
+          });
+          if (res.ok) {
+            const count = await res.json();
+            try { localStorage.setItem('rsp_visited_device', '1'); } catch {}
+            visitorCountEl.textContent = Number(count || 1).toLocaleString('en-IN');
+            return;
+          }
+        }
+
+        const readRes = await fetch(`${SB_BASE}/rest/v1/site_stats?id=eq.1&select=visitors`, {
+          headers: sbHeaders()
+        });
+        if (readRes.ok) {
+          const rows = await readRes.json();
+          if (rows && rows[0]) {
+            visitorCountEl.textContent = Number(rows[0].visitors || 0).toLocaleString('en-IN');
+          }
+        }
+      } catch {}
+    }
+
+    updateVisitorCount();
+    setInterval(() => {
+      if (!isAdminPageOpen && HAS_CLOUD) {
+        fetch(`${SB_BASE}/rest/v1/site_stats?id=eq.1&select=visitors`, { headers: sbHeaders() })
+          .then(r => r.ok ? r.json() : null)
+          .then(rows => {
+            if (rows && rows[0]) {
+              visitorCountEl.textContent = Number(rows[0].visitors || 0).toLocaleString('en-IN');
+            }
+          })
+          .catch(() => {});
+      }
+    }, 15000);
   </script>
 </body>
 </html>
