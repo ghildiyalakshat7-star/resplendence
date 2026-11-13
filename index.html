@@ -3465,9 +3465,22 @@
         return;
       }
 
-      // New (Zero collision, auto-sequential):
-      // Uses the next database count, or a timestamp-fallback if offline
-      const nextNum = 1000 + (allRegistrations.length + 1);
+      // Fetch latest serial number from cloud so all phones stay sequential (RSP-1001, 1002...)
+      let latestSeq = allRegistrations.reduce((m, r) => Math.max(m, Number(r.seq) || 0), 0);
+      if (HAS_CLOUD) {
+        try {
+          const seqRes = await fetch(
+            `${SB_BASE}/rest/v1/registrations?select=seq&order=seq.desc&limit=1`,
+            { headers: sbHeaders() }
+          );
+          if (seqRes.ok) {
+            const seqRows = await seqRes.json();
+            latestSeq = seqRows && seqRows[0] ? (Number(seqRows[0].seq) || 0) : 0;
+          }
+        } catch {}
+      }
+
+      let nextNum = 1000 + latestSeq + 1;
 
       const payload = {
         id: 'RSP-' + nextNum,
@@ -3480,27 +3493,55 @@
 
       let savedEntry = {
         ...payload,
-        seq: allRegistrations.reduce((m, r) => Math.max(m, Number(r.seq) || 0), 0) + 1,
+        seq: latestSeq + 1,
         created_at: new Date().toISOString()
       };
 
       let cloudSaved = false;
       if (HAS_CLOUD) {
-        try {
-          const res = await fetch(`${SB_BASE}/rest/v1/registrations`, {
-            method: 'POST',
-            headers: sbHeaders({
-              'Content-Type': 'application/json',
-              'Prefer': 'return=representation'
-            }),
-            body: JSON.stringify(payload)
-          });
-          if (res.ok) {
-            const rows = await res.json();
-            if (rows && rows[0]) savedEntry = rows[0];
-            cloudSaved = true;
+        for (let retry = 0; retry < 4; retry++) {
+          try {
+            const res = await fetch(`${SB_BASE}/rest/v1/registrations`, {
+              method: 'POST',
+              headers: sbHeaders({
+                'Content-Type': 'application/json',
+                'Prefer': 'return=representation'
+              }),
+              body: JSON.stringify(payload)
+            });
+
+            if (res.ok) {
+              const rows = await res.json();
+              if (rows && rows[0]) {
+                savedEntry = rows[0];
+                // If two phones submitted in the exact same millisecond, lock Pass ID to Supabase's unique seq
+                const trueId = 'RSP-' + (1000 + Number(savedEntry.seq));
+                if (savedEntry.seq && savedEntry.id !== trueId) {
+                  try {
+                    await fetch(`${SB_BASE}/rest/v1/registrations?seq=eq.${savedEntry.seq}`, {
+                      method: 'PATCH',
+                      headers: sbHeaders({ 'Content-Type': 'application/json' }),
+                      body: JSON.stringify({ id: trueId })
+                    });
+                    savedEntry.id = trueId;
+                  } catch {}
+                }
+              }
+              cloudSaved = true;
+              break;
+            }
+
+            if (res.status === 409) {
+              nextNum++;
+              payload.id = 'RSP-' + nextNum;
+              savedEntry.id = payload.id;
+              continue;
+            }
+            break;
+          } catch {
+            break;
           }
-        } catch {}
+        }
       }
 
       savedPasses.unshift(savedEntry);
