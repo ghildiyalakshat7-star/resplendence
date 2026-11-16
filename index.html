@@ -9,7 +9,7 @@
   <meta name="description" content="Dwarka International School (Sector 12, Dwarka, New Delhi) organizes RESPLENDENCE Winter Carnival on December 19, 2026 (11:00 A.M - 7:00 P.M). Food, Rides, Games, Live Band, Flash Mob, Lucky Draw & Free Competitions!" />
   <meta property="og:type" content="website" />
   <meta property="og:title" content="RESPLENDENCE 2026 | Winter Carnival — Dwarka International School" />
-  <meta property="og:description" content="Dec 19, 2026 | 11:00 A.M - 7:00 P.M • Attractions, Entry Info & Free Competition Passes!" />
+  <meta property="og:description" content="Dec 19, 2026 | 11:00 A.M - 7:00 P.M • Attractions, Entry Info & Free Competition Registrations!" />
   <meta property="og:image" content="resplendence-poster.jpg" />
   <meta name="theme-color" content="#880d1e" />
 
@@ -19,9 +19,6 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Mountains+of+Christmas:wght@700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
-  <!-- Tiny Scannable QR Generator -->
-  <script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.min.js"></script>
 
   <style>
     /* =========================================================
@@ -90,7 +87,7 @@
     #confetti-canvas { z-index: 900; }
 
     /* =========================================================
-       BIG FLOATING LIVE ANNOUNCEMENT CARD (IMPOSSIBLE TO MISS)
+       BIG FLOATING LIVE ANNOUNCEMENT CARD
        ========================================================= */
     #live-notice-card {
       position: fixed;
@@ -109,9 +106,7 @@
       animation: popIn 0.4s cubic-bezier(0.22, 1, 0.36, 1), pulseAlert 2.4s infinite ease-in-out;
     }
 
-    #live-notice-card.show {
-      display: block;
-    }
+    #live-notice-card.show { display: block; }
 
     .live-card-head {
       display: flex;
@@ -291,6 +286,9 @@
       font-family: inherit;
       font-weight: 700;
       font-size: 0.86rem;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
       box-shadow: 0 4px 16px rgba(255, 209, 71, 0.35);
       transition: transform 0.25s, box-shadow 0.25s;
       border: none;
@@ -682,7 +680,7 @@
     }
 
     /* =========================================================
-       ATTRACTIONS SECTION (SYMMETRICAL 5x2 + 3D TILT + VECTOR ICONS)
+       ATTRACTIONS SECTION
        ========================================================= */
     .attractions-sec {
       background:
@@ -956,6 +954,7 @@
     }
 
     .comp-btn {
+      display: block;
       width: 100%;
       padding: 11px 16px;
       border-radius: 11px;
@@ -965,6 +964,8 @@
       font-family: inherit;
       font-weight: 700;
       font-size: 0.9rem;
+      text-align: center;
+      text-decoration: none;
       cursor: pointer;
       transition: transform 0.25s, box-shadow 0.25s;
     }
@@ -974,7 +975,7 @@
     }
 
     /* =========================================================
-       CARNIVAL ENTRY FEE (PERFORATED TICKET DESIGN)
+       CARNIVAL ENTRY FEE
        ========================================================= */
     .entry-info-sec {
       background: radial-gradient(circle at top center, rgba(136, 13, 30, 0.34), #070e17 75%);
@@ -1382,7 +1383,7 @@
     }
 
     /* =========================================================
-       MODALS (REGISTRATION, PASS PREVIEW, MY HUB)
+       MY CARNIVAL PLAN MODAL
        ========================================================= */
     .modal-backdrop {
       position: fixed;
@@ -1432,59 +1433,6 @@
       margin-bottom: 6px;
     }
 
-    .field { margin-bottom: 13px; text-align: left; }
-    .field label {
-      display: block;
-      font-size: 0.8rem;
-      font-weight: 600;
-      color: var(--gold-bright);
-      margin-bottom: 4px;
-    }
-    .field input, .field select {
-      width: 100%;
-      padding: 10px 13px;
-      border-radius: 10px;
-      border: 1px solid rgba(255, 209, 71, 0.35);
-      background: rgba(0, 0, 0, 0.35);
-      color: #fff;
-      font-family: inherit;
-      font-size: 0.9rem;
-      outline: none;
-    }
-    .field select option { background: #0d2b1f; }
-
-    .field-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-    }
-
-    .age-hint {
-      font-size: 0.74rem;
-      color: #fde68a;
-      margin-top: 4px;
-      display: block;
-    }
-
-    .hub-tabs { display: flex; gap: 8px; margin: 14px 0 18px; }
-    .hub-tab {
-      flex: 1;
-      padding: 9px;
-      border-radius: 10px;
-      border: 1px solid rgba(255, 209, 71, 0.3);
-      background: rgba(255, 255, 255, 0.06);
-      color: #fff;
-      font-family: inherit;
-      font-weight: 600;
-      font-size: 0.84rem;
-      cursor: pointer;
-    }
-    .hub-tab.active {
-      background: var(--gold);
-      color: #2f0409;
-      border-color: transparent;
-    }
-
     .saved-item {
       background: rgba(0, 0, 0, 0.32);
       border: 1px solid rgba(255, 209, 71, 0.3);
@@ -1497,8 +1445,6 @@
       gap: 10px;
       flex-wrap: wrap;
     }
-    .saved-item strong { color: var(--gold); display: block; font-size: 0.94rem; }
-    .saved-item small { color: #cbd5e1; font-size: 0.8rem; }
 
     .mini-btn {
       background: rgba(255, 255, 255, 0.12);
@@ -1512,30 +1458,8 @@
     }
     .mini-btn:hover { background: rgba(255, 209, 71, 0.3); }
 
-    .pass-qr-preview {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      background: rgba(0, 0, 0, 0.34);
-      border: 1.5px dashed var(--gold);
-      border-radius: 16px;
-      padding: 14px;
-      margin: 14px 0 18px;
-      text-align: left;
-    }
-    .pass-qr-img {
-      width: 96px;
-      height: 96px;
-      background: #fff;
-      border-radius: 10px;
-      padding: 5px;
-      flex-shrink: 0;
-      display: grid;
-      place-items: center;
-    }
-
     /* =========================================================
-       FULL-PAGE HIDDEN ADMIN PORTAL
+       FULL-PAGE HIDDEN ADMIN PORTAL (LIVE NOTICE & STATS)
        ========================================================= */
     #admin-page {
       display: none;
@@ -1558,7 +1482,7 @@
     }
 
     .admin-nav-inner {
-      max-width: 1380px;
+      max-width: 1180px;
       margin: 0 auto;
       padding: 14px 24px;
       display: flex;
@@ -1618,49 +1542,30 @@
       margin-bottom: 6px;
     }
 
-    .admin-workspace {
-      max-width: 1380px;
-      margin: 0 auto;
-      padding: 28px 24px 60px;
+    .field { margin-bottom: 13px; text-align: left; }
+    .field label {
+      display: block;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--gold-bright);
+      margin-bottom: 4px;
     }
-
-    .new-alert-banner {
-      display: none;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 12px;
-      background: linear-gradient(135deg, rgba(200, 30, 55, 0.3), rgba(255, 209, 71, 0.18));
-      border: 1.5px solid var(--gold);
-      border-radius: 16px;
-      padding: 14px 20px;
-      margin-bottom: 20px;
-      animation: pulseAlert 2s infinite ease-in-out;
-    }
-    .new-alert-banner.show { display: flex; }
-
-    .admin-notice-card {
-      background: rgba(255, 255, 255, 0.035);
-      border: 1px solid rgba(255, 209, 71, 0.25);
-      border-radius: 16px;
-      padding: 16px 18px;
-      margin-bottom: 22px;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 12px;
-    }
-    .admin-notice-card input {
-      flex: 1;
-      min-width: 240px;
-      padding: 10px 14px;
+    .field input {
+      width: 100%;
+      padding: 10px 13px;
       border-radius: 10px;
       border: 1px solid rgba(255, 209, 71, 0.35);
-      background: rgba(0, 0, 0, 0.38);
+      background: rgba(0, 0, 0, 0.35);
       color: #fff;
       font-family: inherit;
-      font-size: 0.88rem;
+      font-size: 0.9rem;
       outline: none;
+    }
+
+    .admin-workspace {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 32px 24px 60px;
     }
 
     .admin-header-row {
@@ -1669,7 +1574,7 @@
       justify-content: space-between;
       align-items: flex-end;
       gap: 16px;
-      margin-bottom: 20px;
+      margin-bottom: 24px;
     }
     .admin-header-row h1 {
       font-family: 'Cinzel Decorative', serif;
@@ -1680,120 +1585,60 @@
 
     .admin-stats {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-      gap: 12px;
-      margin-bottom: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 14px;
+      margin-bottom: 24px;
     }
 
     .stat-box {
       background: rgba(255, 255, 255, 0.045);
       border: 1px solid rgba(255, 209, 71, 0.25);
       border-radius: 16px;
-      padding: 14px 16px;
-      transition: transform 0.25s, border-color 0.25s;
+      padding: 18px 20px;
     }
-    .stat-box:hover { transform: translateY(-3px); border-color: var(--gold); }
     .stat-box span {
       display: block;
-      font-size: 0.7rem;
+      font-size: 0.74rem;
       color: var(--text-muted);
       text-transform: uppercase;
       letter-spacing: 0.7px;
-      margin-bottom: 4px;
+      margin-bottom: 6px;
     }
     .stat-box strong {
       font-family: 'Cinzel Decorative', serif;
-      font-size: 1.5rem;
+      font-size: 1.8rem;
       color: var(--gold);
     }
 
-    .admin-toolbar {
+    .admin-notice-card {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1.5px solid rgba(255, 209, 71, 0.32);
+      border-radius: 20px;
+      padding: 24px;
+    }
+    .admin-notice-card h3 {
+      font-family: 'Cinzel Decorative', serif;
+      color: var(--gold);
+      font-size: 1.25rem;
+      margin-bottom: 8px;
+    }
+    .admin-notice-row {
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
-      margin-bottom: 18px;
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      padding: 14px;
-      border-radius: 16px;
+      margin-top: 14px;
     }
-
-    .admin-toolbar input, .admin-toolbar select {
+    .admin-notice-row input {
       flex: 1;
-      min-width: 190px;
-      padding: 10px 14px;
-      border-radius: 10px;
-      border: 1px solid rgba(255, 209, 71, 0.3);
+      min-width: 240px;
+      padding: 12px 16px;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 209, 71, 0.35);
       background: rgba(0, 0, 0, 0.38);
       color: #fff;
       font-family: inherit;
-      font-size: 0.88rem;
+      font-size: 0.92rem;
       outline: none;
-    }
-    .admin-toolbar select option { background: #0b1624; }
-
-    .admin-table-wrap {
-      overflow-x: auto;
-      border: 1px solid rgba(255, 209, 71, 0.22);
-      border-radius: 16px;
-      background: rgba(0, 0, 0, 0.32);
-    }
-
-    table.admin-table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 0.86rem;
-      text-align: left;
-    }
-    table.admin-table th {
-      background: rgba(255, 209, 71, 0.12);
-      color: var(--gold);
-      font-weight: 700;
-      padding: 14px 12px;
-      white-space: nowrap;
-    }
-    table.admin-table td {
-      padding: 12px;
-      border-top: 1px solid rgba(255, 255, 255, 0.07);
-      color: #e2e8f0;
-      white-space: nowrap;
-    }
-    table.admin-table tr:hover td { background: rgba(255, 255, 255, 0.04); }
-    table.admin-table tr.row-new td { background: rgba(255, 209, 71, 0.06); }
-
-    .comp-pill {
-      display: inline-block;
-      padding: 4px 10px;
-      border-radius: 50px;
-      font-size: 0.74rem;
-      font-weight: 600;
-      background: rgba(17, 66, 45, 0.75);
-      border: 1px solid rgba(110, 231, 183, 0.35);
-      color: #a7f3d0;
-    }
-
-    .status-pill-btn {
-      padding: 4px 10px;
-      border-radius: 50px;
-      font-size: 0.73rem;
-      font-weight: 700;
-      border: 1px solid transparent;
-      cursor: pointer;
-    }
-    .status-pill-btn.amber {
-      background: rgba(245, 158, 11, 0.22);
-      border-color: #fbbf24;
-      color: #fde68a;
-    }
-    .status-pill-btn.green {
-      background: rgba(22, 163, 74, 0.22);
-      border-color: #4ade80;
-      color: #86efac;
-    }
-    .status-pill-btn.slate {
-      background: rgba(148, 163, 184, 0.15);
-      border-color: rgba(148, 163, 184, 0.35);
-      color: #cbd5e1;
     }
 
     .auth-error {
@@ -1868,20 +1713,6 @@
       to { opacity: 1; transform: scale(1); }
     }
 
-    @media print {
-      body * { visibility: hidden; }
-      #print-area, #print-area * { visibility: visible; }
-      #print-area {
-        position: fixed;
-        inset: 20px;
-        color: #000 !important;
-        background: #fff !important;
-        border: 3px solid #880d1e !important;
-        padding: 30px;
-        border-radius: 16px;
-      }
-    }
-
     @media (max-width: 1160px) {
       .spot-card { flex: 0 0 calc(50% - 10px); max-width: 400px; }
       .side-ornament { display: none; }
@@ -1934,8 +1765,6 @@
 
     @media (max-width: 600px) {
       .spot-card, .comp-card { flex: 0 0 100%; max-width: 100%; }
-      .pass-qr-preview { flex-direction: column; text-align: center; }
-      .field-row { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -1980,14 +1809,14 @@
           <li><a href="#attractions">Attractions</a></li>
           <li><a href="#competitions">Competitions</a></li>
           <li><a href="#entry-info">Entry Fee</a></li>
-          <li><a href="#venue">Venue & FAQ</a></li>
+          <li><a href="#venue">Venue &amp; FAQ</a></li>
         </ul>
 
         <div class="nav-actions">
-          <button class="hub-btn" id="open-hub-btn" title="View your saved passes and carnival checklist">
-            🎟️ My Plan <span class="badge-count" id="hub-count">0</span>
+          <button class="hub-btn" id="open-hub-btn" title="View your saved carnival attractions checklist">
+            📝 My Plan <span class="badge-count" id="hub-count">0</span>
           </button>
-          <button class="nav-btn open-reg-btn">Register Free</button>
+          <a href="#competitions" class="nav-btn">Register Free</a>
           <button class="menu-toggle" id="menu-toggle" aria-label="Menu">☰</button>
         </div>
       </div>
@@ -2105,9 +1934,9 @@
         <div class="controls-bar reveal">
           <div class="filter-group">
             <button class="filter-pill active" data-filter="all">All (10)</button>
-            <button class="filter-pill" data-filter="thrill">Thrill & Games</button>
-            <button class="filter-pill" data-filter="stage">Stage & Lucky Draw</button>
-            <button class="filter-pill" data-filter="lifestyle">Food, Style & Mystic</button>
+            <button class="filter-pill" data-filter="thrill">Thrill &amp; Games</button>
+            <button class="filter-pill" data-filter="stage">Stage &amp; Lucky Draw</button>
+            <button class="filter-pill" data-filter="lifestyle">Food, Style &amp; Mystic</button>
           </div>
           <input type="text" class="search-input" id="attraction-search" placeholder="🔍 Search attractions..." />
         </div>
@@ -2172,7 +2001,7 @@
                 <span class="cat-tag">Style</span>
               </div>
               <h3>Tattoo</h3>
-              <p>Cool temporary & airbrush festive tattoos to match the carnival vibe.</p>
+              <p>Cool temporary &amp; airbrush festive tattoos to match the carnival vibe.</p>
             </div>
             <button class="plan-toggle-btn" data-item="Tattoo">+ Add to My Plan</button>
           </div>
@@ -2288,8 +2117,8 @@
         <div class="sec-head reveal">
           <div class="sec-eyebrow">🏆 Spotlight Arena</div>
           <h2 class="sec-title">Grand <span>Competitions</span></h2>
-          <p class="sec-sub">Pick your favorite event and grab your free scannable Digital Pass!</p>
-          <div class="free-pill">✨ Every Competition Pass is FREE</div>
+          <p class="sec-sub">Pick your favorite event and submit your registration via the official Google Form!</p>
+          <div class="free-pill">✨ Every Competition Registration is FREE</div>
         </div>
 
         <div class="comp-grid">
@@ -2305,7 +2134,7 @@
               </div>
               <p>Celebrate an iconic bond with fun stage rounds, coordinated outfits, and joyful memories.</p>
             </div>
-            <button class="comp-btn open-reg-btn" data-comp="Mom and Me">Register Free →</button>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfBRbGM7qvREyFcUh9uYIhcp1tvhD0bRt51ENrJkTMnj4AM8Q/viewform" target="_blank" rel="noopener noreferrer" class="comp-btn">Register via Google Form →</a>
           </div>
 
           <div class="comp-card tilt-card reveal">
@@ -2320,7 +2149,7 @@
               </div>
               <p>Bring the energy, teamwork, and unbeatable father-child chemistry to the carnival spotlight!</p>
             </div>
-            <button class="comp-btn open-reg-btn" data-comp="Dad and Me">Register Free →</button>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfAC_k-KzK4gXN0w4ctzsFDecmO_TtVNpcnqyEv_smyoRjxdw/viewform" target="_blank" rel="noopener noreferrer" class="comp-btn">Register via Google Form →</a>
           </div>
 
           <div class="comp-card tilt-card reveal">
@@ -2335,7 +2164,7 @@
               </div>
               <p>Walk the runway in your sharpest Christmas or winter attire and win over the judges!</p>
             </div>
-            <button class="comp-btn open-reg-btn" data-comp="Ramp Walk">Register Free →</button>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfktqZHLp2aYcr3kBFstsyxwkhaMCBEbcxXceiER83vPn_9jw/viewform?pli=1" target="_blank" rel="noopener noreferrer" class="comp-btn">Register via Google Form →</a>
           </div>
 
           <div class="comp-card tilt-card reveal">
@@ -2350,7 +2179,7 @@
               </div>
               <p>Singing, dancing, magic, instruments, or comedy—show the school what you’ve got!</p>
             </div>
-            <button class="comp-btn open-reg-btn" data-comp="Talent Hunt">Register Free →</button>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdudEaGRsIOuR5c7HPk-3nFFaslXWJyEZfqJfDxsPUm5IBo-A/viewform" target="_blank" rel="noopener noreferrer" class="comp-btn">Register via Google Form →</a>
           </div>
 
           <div class="comp-card tilt-card reveal">
@@ -2363,9 +2192,9 @@
                 </div>
                 <div><div class="comp-sub">Golden Age Icons</div><h3>Sr. Citizen Rockerz</h3></div>
               </div>
-              <p>An electrifying stage exclusively for our beloved elders to groove, shine, and steal the show!</p>
+              <p>An electrifying stage exclusively for our beloved elders (60+ years) to groove, shine, and steal the show!</p>
             </div>
-            <button class="comp-btn open-reg-btn" data-comp="Sr. Citizen Rockerz">Register Free →</button>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSch29hh_ZLtS1VXTZYv9z5N7dbuuvPRNs2RrB6c0VQMuP_jLg/viewform" target="_blank" rel="noopener noreferrer" class="comp-btn">Register via Google Form →</a>
           </div>
         </div>
       </div>
@@ -2377,13 +2206,13 @@
       </div>
     </section>
 
-    <!-- CARNIVAL ENTRY FEE (PERFORATED TICKET + EMPTY QR & WHATSAPP GROUP) -->
+    <!-- CARNIVAL ENTRY FEE -->
     <section class="entry-info-sec" id="entry-info">
       <div class="container">
         <div class="sec-head reveal">
           <div class="sec-eyebrow">🎟️ Carnival Entry</div>
-          <h2 class="sec-title">Entry Fee & <span>Updates</span></h2>
-          <p class="sec-sub">Entry to Resplendence Winter Carnival is ₹100 per person. Competition passes above are completely free!</p>
+          <h2 class="sec-title">Entry Fee &amp; <span>Updates</span></h2>
+          <p class="sec-sub">Entry to Resplendence Winter Carnival is ₹100 per person. Competition entries above are completely free!</p>
         </div>
 
         <div class="entry-two-col">
@@ -2419,7 +2248,7 @@
               <div class="entry-head-row">
                 <div>
                   <h3 style="font-family:'Cinzel Decorative',serif; font-size:1.35rem; color:#fff;">Official WhatsApp Group</h3>
-                  <p style="font-size:0.85rem; color:#cbd5e1;">Stay updated on carnival schedules & highlights</p>
+                  <p style="font-size:0.85rem; color:#cbd5e1;">Stay updated on carnival schedules &amp; highlights</p>
                 </div>
               </div>
 
@@ -2432,16 +2261,16 @@
                   Join our official WhatsApp group for live stage timings, Lucky Draw alerts, and competition updates.
                 </p>
                 <button type="button" class="btn btn-whatsapp join-wa-btn" id="wa-invite-btn" style="width:100%;">
-                  💬 Join WhatsApp Group
+                  💬 Join Official WhatsApp Group
                 </button>
               </div>
             </div>
 
             <div class="entry-note-box">
-              <span>✨ Participating in any competition? Passes are <strong>FREE!</strong></span>
-              <button type="button" class="btn btn-gold open-reg-btn" style="padding:8px 18px; font-size:0.82rem;">
+              <span>✨ Participating in any competition? Registration is <strong>FREE!</strong></span>
+              <a href="#competitions" class="btn btn-gold" style="padding:8px 18px; font-size:0.82rem;">
                 Register Free →
-              </button>
+              </a>
             </div>
           </div>
         </div>
@@ -2460,7 +2289,7 @@
         <div class="two-col">
           <div class="panel-box reveal">
             <div>
-              <h3>📍 Venue & Schedule</h3>
+              <h3>📍 Venue &amp; Schedule</h3>
               <div class="info-item">
                 <div class="ico">🏫</div>
                 <div>
@@ -2475,12 +2304,23 @@
                   <span>11:00 A.M to 7:00 P.M</span>
                 </div>
               </div>
+              <div class="info-item">
+                <div class="ico">🚇</div>
+                <div>
+                  <strong>Nearest Metro &amp; Access</strong>
+                  <span>Dwarka Sector 12 Metro Station (Blue Line) • Open to all participating schools &amp; families</span>
+                </div>
+              </div>
             </div>
 
             <div class="venue-actions">
               <a href="https://www.google.com/maps/search/?api=1&query=Dwarka+International+School+Sector+12+Dwarka+New+Delhi+110078"
                  target="_blank" rel="noopener noreferrer" class="btn btn-gold">
                 🗺️ Get Directions
+              </a>
+              <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=RESPLENDENCE+2026+%E2%80%94+Winter+Carnival&dates=20261219T053000Z/20261219T133000Z&details=Winter+Carnival+at+Dwarka+International+School+(11%3A00+A.M+-+7%3A00+P.M).+Food%2C+Rides%2C+Games%2C+Live+Band%2C+Flash+Mob%2C+Lucky+Draw+%26+Competitions!&location=Dwarka+International+School%2C+Sector+12%2C+Dwarka%2C+New+Delhi+-+110078"
+                 target="_blank" rel="noopener noreferrer" class="btn btn-pine">
+                📅 Add to Calendar
               </a>
               <button class="btn btn-glass" id="copy-addr-btn">📋 Copy Address</button>
             </div>
@@ -2492,28 +2332,28 @@
               <div class="faq-item open">
                 <button class="faq-q">What is the Carnival Entry Fee? <span>+</span></button>
                 <div class="faq-a-wrap"><div class="faq-a">
-                  <p>Carnival Entry Fee is ₹100 per person. All 5 competitions (Mom & Me, Dad & Me, Ramp Walk, Talent Hunt, Sr. Citizen Rockerz) have free registration!</p>
+                  <p>Carnival Entry Fee is ₹100 per person. All 5 competitions (Mom &amp; Me, Dad &amp; Me, Ramp Walk, Talent Hunt, Sr. Citizen Rockerz) have free registration!</p>
                 </div></div>
               </div>
 
               <div class="faq-item">
-                <button class="faq-q">How do I save or download my Pass on mobile? <span>+</span></button>
+                <button class="faq-q">How do I register for the competitions? <span>+</span></button>
                 <div class="faq-a-wrap"><div class="faq-a">
-                  <p>After registering, click "Save Pass (PNG)" to download a golden QR pass straight to your phone gallery—or open "My Plan" anytime!</p>
+                  <p>Go to the Grand Competitions section above and click "Register via Google Form" on your chosen event. Registration is completely free!</p>
                 </div></div>
               </div>
 
               <div class="faq-item">
-                <button class="faq-q">Who can join the competitions? <span>+</span></button>
+                <button class="faq-q">What are the reporting guidelines for participants? <span>+</span></button>
                 <div class="faq-a-wrap"><div class="faq-a">
-                  <p>We have categories for students, parents (Mom & Me, Dad & Me), and grandparents (Sr. Citizen Rockerz), plus Ramp Walk and Talent Hunt!</p>
+                  <p>Please report at the event registration/stage desk at least 20 minutes before your competition slot. Sr. Citizen Rockerz participants must be 60 years or older.</p>
                 </div></div>
               </div>
 
               <div class="faq-item">
-                <button class="faq-q">Are food & rides available all day? <span>+</span></button>
+                <button class="faq-q">Can students from other schools participate? <span>+</span></button>
                 <div class="faq-a-wrap"><div class="faq-a">
-                  <p>Yes! Scrumptious Food, Rides, Console/PC Games, Nail Art, Tattoos, Attractive Stalls, and Astrotalk by Kiama operate from 11:00 A.M to 7:00 P.M.</p>
+                  <p>Yes! Visitors, students, parents, and grandparents from all schools are welcome. Join our official WhatsApp group for live stage schedules and updates.</p>
                 </div></div>
               </div>
             </div>
@@ -2545,7 +2385,7 @@
           <div class="designer-plaque" id="designer-plaque" title="Click for a celebratory sparkle!">
             <div class="designer-emblem">✦</div>
             <div class="designer-text">
-              <span class="designer-kicker">Designed & Crafted By</span>
+              <span class="designer-kicker">Designed &amp; Crafted By</span>
               <div class="designer-name-row">
                 <span class="designer-name">YAKSH &amp; AKSHAT</span>
                 <span class="designer-class">XI LILY</span>
@@ -2558,7 +2398,7 @@
   </div>
 
   <!-- =========================================================
-       FULL-PAGE HIDDEN ADMIN PORTAL
+       FULL-PAGE HIDDEN ADMIN PORTAL (LIVE NOTICE & STATS)
        ========================================================= -->
   <div id="admin-page">
     <nav class="admin-navbar">
@@ -2573,15 +2413,12 @@
           </div>
           <div>
             <div class="brand-title">RESPLENDENCE ADMIN</div>
-            <div class="brand-sub">Organizer Control Portal</div>
+            <div class="brand-sub">Live Announcement &amp; Stats Control</div>
           </div>
           <span class="admin-badge-pill" id="admin-mode-badge">Locked</span>
         </div>
 
         <div class="admin-nav-actions">
-          <button class="btn btn-gold" id="admin-add-btn" style="display:none; padding:9px 16px; font-size:0.82rem;">+ New Entry</button>
-          <button class="btn btn-pine" id="export-new-csv-btn" style="display:none; padding:9px 16px; font-size:0.82rem;">🆕 Export New Only</button>
-          <button class="btn btn-glass" id="export-csv-btn" style="display:none; padding:9px 16px; font-size:0.82rem;">⬇ Export Full Excel</button>
           <button class="btn btn-glass" id="admin-logout-btn" style="display:none; padding:9px 16px; font-size:0.82rem;">Logout</button>
           <button class="btn btn-glass" id="back-to-site-btn" style="padding:9px 16px; font-size:0.82rem;">← Back to Website</button>
         </div>
@@ -2593,7 +2430,7 @@
       <div class="admin-login-card">
         <h2>🔐 Organizer Login</h2>
         <p style="font-size:0.88rem; color:#cbd5e1; margin-bottom:20px;">
-          Sign in to manage registrations, stage check-ins, live announcements & Excel sync.
+          Sign in to publish live carnival updates &amp; view visitor traffic.
         </p>
 
         <div class="auth-error" id="auth-error">Invalid username or password.</div>
@@ -2614,154 +2451,52 @@
 
     <!-- Admin Full-Page Workspace -->
     <div class="admin-workspace" id="admin-dash-view" style="display:none;">
-      <div class="new-alert-banner" id="new-alert-banner">
+      <div class="admin-header-row">
         <div>
-          <strong style="color:var(--gold); font-size:1rem;" id="new-alert-text">🔔 New Registrations Waiting for Excel!</strong>
-          <p style="font-size:0.82rem; color:#e2e8f0;">Export only new rows to add them cleanly to the bottom of your Excel sheet without misplacing any names.</p>
+          <h1>Carnival <span>Control Center</span></h1>
+          <p id="admin-source-label" style="color:#94a3b8; font-size:0.88rem; margin-top:4px;">
+            Connected to Supabase Cloud
+          </p>
         </div>
-        <button class="btn btn-gold" id="banner-export-new-btn" style="padding:8px 18px; font-size:0.84rem;">🆕 Export New Rows Now</button>
+        <button class="btn btn-glass" id="admin-refresh-btn" style="padding:9px 16px; font-size:0.82rem;">↻ Refresh Stats</button>
+      </div>
+
+      <div class="admin-stats">
+        <div class="stat-box">
+          <span>Total Unique Website Visitors</span>
+          <strong id="admin-visitor-stat">—</strong>
+        </div>
+        <div class="stat-box">
+          <span>Competition Registration Mode</span>
+          <strong style="font-size:1.15rem; color:#86efac;">Google Forms (5 Events)</strong>
+        </div>
       </div>
 
       <div class="admin-notice-card">
-        <span style="font-weight:700; color:var(--gold); font-size:0.88rem; white-space:nowrap;">📢 Live Website Notice:</span>
-        <input type="text" id="admin-notice-input" placeholder="e.g., 🎟️ Lucky Draw #1 Winner: Ticket #204! OR Flash Mob starting in 5 mins!" />
-        <button class="btn btn-gold" id="publish-notice-btn" style="padding:9px 18px; font-size:0.82rem;">Publish Live</button>
-        <button class="btn btn-glass" id="clear-notice-btn" style="padding:9px 16px; font-size:0.82rem;">Clear Notice</button>
-      </div>
-
-      <div class="admin-header-row">
-        <div>
-          <h1>Registrations <span>Overview</span></h1>
-          <p id="admin-source-label" style="color:#94a3b8; font-size:0.88rem; margin-top:4px;">
-            Connecting to cloud database...
-          </p>
-        </div>
-        <div style="display:flex; gap:8px; flex-wrap:wrap;">
-          <button class="btn btn-glass" id="mark-all-excel-btn" style="padding:9px 16px; font-size:0.82rem;">✅ Mark All Synced</button>
-          <button class="btn btn-glass" id="admin-refresh-btn" style="padding:9px 16px; font-size:0.82rem;">↻ Refresh Now</button>
-        </div>
-      </div>
-
-      <div class="admin-stats" id="admin-stats"></div>
-
-      <div class="admin-toolbar">
-        <input type="text" id="admin-search" placeholder="🔍 Search by Sr. No., name, Pass ID, phone, student, or school..." />
-        <select id="admin-filter-comp">
-          <option value="all">All Competitions</option>
-          <option value="Mom and Me">Mom and Me</option>
-          <option value="Dad and Me">Dad and Me</option>
-          <option value="Ramp Walk">Ramp Walk</option>
-          <option value="Talent Hunt">Talent Hunt</option>
-          <option value="Sr. Citizen Rockerz">Sr. Citizen Rockerz</option>
-        </select>
-        <select id="admin-filter-excel">
-          <option value="all">All Sync Status</option>
-          <option value="new">🆕 New / Not in Excel Yet</option>
-          <option value="synced">✅ Already in Excel</option>
-        </select>
-        <select id="admin-sort-order">
-          <option value="newest">Sort: Newest First (Top)</option>
-          <option value="excel">Sort: Excel Order (#1 → #N)</option>
-        </select>
-      </div>
-
-      <div class="admin-table-wrap">
-        <table class="admin-table">
-          <thead>
-            <tr>
-              <th>Sr. No.</th>
-              <th>Pass ID</th>
-              <th>Participant Name</th>
-              <th>Details (Student / School / Age / Gender)</th>
-              <th>Competition</th>
-              <th>Phone</th>
-              <th>Stage Check-In</th>
-              <th>Excel Status</th>
-              <th>Registered At</th>
-              <th>Actions</th>
-            </tr>
-          </thead>
-          <tbody id="admin-tbody"></tbody>
-        </table>
-      </div>
-    </div>
-  </div>
-
-  <!-- =========================================================
-       FREE COMPETITION REGISTRATION MODAL (WITH PASS QR & PNG DOWNLOAD)
-       ========================================================= -->
-  <div class="modal-backdrop" id="reg-modal">
-    <div class="modal-card">
-      <button class="modal-close" id="close-reg-modal">&times;</button>
-
-      <div id="reg-form-view">
-        <h3>Competition Registration</h3>
-        <p style="font-size:0.86rem; color:#a7f3d0; margin-bottom:16px;">
-          ✨ Free Digital QR Pass • Resplendence Winter Carnival (Dec 19, 2026)
+        <h3>📢 Live Website Notice</h3>
+        <p style="font-size:0.86rem; color:#cbd5e1;">
+          Publish an announcement here to show a glowing alert card live on all visitors' screens (e.g., Lucky Draw winners, Flash Mob timing, or stage updates).
         </p>
-
-        <form id="reg-form">
-          <div class="field">
-            <label for="reg-comp">Competition</label>
-            <select id="reg-comp" required>
-              <option value="Mom and Me">Mom and Me</option>
-              <option value="Dad and Me">Dad and Me</option>
-              <option value="Ramp Walk">Ramp Walk</option>
-              <option value="Talent Hunt">Talent Hunt</option>
-              <option value="Sr. Citizen Rockerz">Sr. Citizen Rockerz</option>
-            </select>
-          </div>
-
-          <div id="dynamic-comp-fields"></div>
-
-          <div class="field">
-            <label for="reg-phone">Phone Number</label>
-            <input type="tel" id="reg-phone" placeholder="10-digit mobile number" pattern="[0-9]{10}" required />
-          </div>
-          <button type="submit" class="btn btn-gold" id="reg-submit-btn" style="width:100%; margin-top:4px;">Confirm Free Registration 🎟️</button>
-        </form>
-      </div>
-
-      <div id="reg-success-view" style="display:none; text-align:center;">
-        <div style="font-size:2.4rem;">🎉</div>
-        <h3>Your Pass is Ready!</h3>
-        <p style="font-size:0.85rem; color:#cbd5e1;">Save this QR pass to your phone gallery or print it for stage check-in.</p>
-
-        <div class="pass-qr-preview">
-          <div class="pass-qr-img" id="modal-qr-box"></div>
-          <div id="modal-pass-info" style="font-size:0.86rem; line-height:1.6;"></div>
-        </div>
-
-        <div style="display:grid; gap:10px;">
-          <button class="btn btn-gold" id="modal-download-png-btn" style="width:100%;">
-            ⬇ Save Pass as Image (PNG)
-          </button>
-          <div style="display:flex; gap:10px;">
-            <button class="btn btn-pine" id="modal-print-pass-btn" style="flex:1; padding:11px 14px;">🖨️ Print</button>
-            <button class="btn btn-glass" id="modal-another-btn" style="flex:1; padding:11px 14px;">+ Register Another</button>
-          </div>
+        <div class="admin-notice-row">
+          <input type="text" id="admin-notice-input" placeholder="e.g., 🎟️ Lucky Draw #1 Winner: Ticket #204! OR Flash Mob starting in 5 mins!" />
+          <button class="btn btn-gold" id="publish-notice-btn" style="padding:10px 20px; font-size:0.86rem;">Publish Live</button>
+          <button class="btn btn-glass" id="clear-notice-btn" style="padding:10px 18px; font-size:0.86rem;">Clear Notice</button>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- MY CARNIVAL HUB MODAL -->
+  <!-- MY CARNIVAL PLAN MODAL -->
   <div class="modal-backdrop" id="hub-modal">
     <div class="modal-card">
       <button class="modal-close" id="close-hub-modal">&times;</button>
-      <h3>🎟️ My Carnival Hub</h3>
-
-      <div class="hub-tabs">
-        <button class="hub-tab active" data-hubtab="passes">My Passes</button>
-        <button class="hub-tab" data-hubtab="plan">My Attractions Plan</button>
-      </div>
-
-      <div id="hub-passes-pane"></div>
-      <div id="hub-plan-pane" style="display:none;"></div>
+      <h3>📝 My Carnival Plan</h3>
+      <p style="font-size:0.84rem; color:#cbd5e1; margin-bottom:16px;">
+        Check off the attractions and stalls you want to visit on December 19!
+      </p>
+      <div id="hub-plan-pane"></div>
     </div>
   </div>
-
-  <div id="print-area" style="display:none;"></div>
 
   <script>
     /* =========================================================
@@ -2771,7 +2506,7 @@
     const SUPABASE_ANON_KEY = "sb_publishable_s_jVhPvlscozb5VJOpPy3Q_YoxVl8iq";
 
     const PAYMENT_QR_URL = "";       // Paste ₹100 QR image filename/URL later
-    const WHATSAPP_GROUP_URL = "https://chat.whatsapp.com/E8rxCguALoR3eAQN5UpswW";   // Official WhatsApp Group invite link
+    const WHATSAPP_GROUP_URL = "https://chat.whatsapp.com/E8rxCguALoR3eAQN5UpswW";
 
     /* Admin Credentials */
     const ADMIN_USER = "resplendence";
@@ -2802,19 +2537,12 @@
     };
 
     function escapeHtml(str) {
-      return String(str)
+      return String(str ?? '')
         .replace(/&/g, "&amp;")
         .replace(/</g, "&lt;")
         .replace(/>/g, "&gt;")
         .replace(/"/g, "&quot;")
         .replace(/'/g, "&#39;");
-    }
-
-    function formatDateTime(val) {
-      if (!val) return '—';
-      const d = new Date(val);
-      if (isNaN(d.getTime())) return String(val);
-      return d.toLocaleString('en-IN', { dateStyle: 'medium', timeStyle: 'short' });
     }
 
     function playNotificationChime() {
@@ -2839,163 +2567,9 @@
     }
 
     /* =========================================================
-       2. REAL QR CODE + PNG PASS IMAGE GENERATOR
+       2. UI SETUP, FILTERS, PLANNER & INTERACTIONS
        ========================================================= */
-    function generateQrSvg(text, size = 86) {
-      if (typeof qrcode === 'undefined') {
-        return `<div style="font-size:10px;color:#333;font-weight:700;text-align:center;">PASS QR<br/>READY</div>`;
-      }
-      const qr = qrcode(0, 'M');
-      qr.addData(text);
-      qr.make();
-      const count = qr.getModuleCount();
-      const cell = size / count;
-      let rects = '';
-      for (let r = 0; r < count; r++) {
-        for (let c = 0; c < count; c++) {
-          if (qr.isDark(r, c)) {
-            rects += `<rect x="${(c * cell).toFixed(2)}" y="${(r * cell).toFixed(2)}" width="${(cell + 0.15).toFixed(2)}" height="${(cell + 0.15).toFixed(2)}" fill="#111"/>`;
-          }
-        }
-      }
-      return `<svg xmlns="http://www.w3.org/2000/svg" width="${size}" height="${size}" viewBox="0 0 ${size} ${size}">${rects}</svg>`;
-    }
-
-    function downloadPassAsPng(p) {
-      const c = document.createElement('canvas');
-      c.width = 960;
-      c.height = 520;
-      const ctx = c.getContext('2d');
-
-      const grad = ctx.createLinearGradient(0, 0, 960, 520);
-      grad.addColorStop(0, '#5a0714');
-      grad.addColorStop(0.55, '#2b0712');
-      grad.addColorStop(1, '#09271b');
-      ctx.fillStyle = grad;
-      ctx.fillRect(0, 0, 960, 520);
-
-      ctx.strokeStyle = '#ffd147';
-      ctx.lineWidth = 5;
-      ctx.strokeRect(20, 20, 920, 480);
-
-      ctx.fillStyle = '#070e17';
-      ctx.beginPath(); ctx.arc(20, 260, 24, 0, Math.PI * 2); ctx.fill();
-      ctx.beginPath(); ctx.arc(940, 260, 24, 0, Math.PI * 2); ctx.fill();
-
-      ctx.save();
-      ctx.setLineDash([8, 8]);
-      ctx.strokeStyle = 'rgba(255,209,71,0.45)';
-      ctx.lineWidth = 2;
-      ctx.beginPath();
-      ctx.moveTo(640, 45);
-      ctx.lineTo(640, 475);
-      ctx.stroke();
-      ctx.restore();
-
-      ctx.fillStyle = '#ffe999';
-      ctx.font = 'bold 18px sans-serif';
-      ctx.fillText('DWARKA INTERNATIONAL SCHOOL • SECTOR 12, NEW DELHI', 54, 72);
-
-      ctx.fillStyle = '#ffd147';
-      ctx.font = 'bold 48px Georgia, serif';
-      ctx.fillText('RESPLENDENCE 2026', 54, 128);
-
-      ctx.fillStyle = '#a7f3d0';
-      ctx.font = 'bold 20px sans-serif';
-      ctx.fillText('WINTER CARNIVAL  •  FREE COMPETITION PASS', 54, 162);
-
-      const lines = [
-        ['PASS ID', `${p.id}${p.seq ? `  (Sr. #${p.seq})` : ''}`],
-        ['PARTICIPANT', p.name],
-        ['DETAILS', p.category],
-        ['COMPETITION', p.competition],
-        ['DATE & TIME', 'December 19, 2026  |  11:00 A.M - 7:00 P.M']
-      ];
-
-      let yPos = 225;
-      lines.forEach(([lbl, val]) => {
-        ctx.fillStyle = '#94a3b8';
-        ctx.font = 'bold 14px sans-serif';
-        ctx.fillText(lbl, 54, yPos);
-
-        ctx.fillStyle = lbl === 'PASS ID' ? '#ffd147' : '#ffffff';
-        const textVal = String(val || '');
-        if (lbl === 'DETAILS' && textVal.length > 36) {
-          ctx.font = 'bold 15px sans-serif';
-          const parts = textVal.split(' | ');
-          if (parts.length >= 3) {
-            const half = Math.ceil(parts.length / 2);
-            ctx.fillText(parts.slice(0, half).join(' | ').slice(0, 56), 54, yPos + 19);
-            ctx.fillText(parts.slice(half).join(' | ').slice(0, 56), 54, yPos + 37);
-          } else {
-            ctx.fillText(textVal.slice(0, 58), 54, yPos + 19);
-            if (textVal.length > 58) ctx.fillText(textVal.slice(58, 116), 54, yPos + 37);
-          }
-        } else {
-          ctx.font = 'bold 24px sans-serif';
-          ctx.fillText(textVal.slice(0, 40), 54, yPos + 27);
-        }
-        yPos += 56;
-      });
-
-      ctx.fillStyle = '#ffffff';
-      ctx.beginPath();
-      ctx.roundRect ? ctx.roundRect(680, 95, 220, 220, 18) : ctx.fillRect(680, 95, 220, 220);
-      ctx.fill();
-
-      const qrPayload = `RESPLENDENCE|${p.id}|${p.name}|${p.competition}|${p.phone}`;
-      if (typeof qrcode !== 'undefined') {
-        const qr = qrcode(0, 'M');
-        qr.addData(qrPayload);
-        qr.make();
-        const count = qr.getModuleCount();
-        const qrPx = 184;
-        const cell = qrPx / count;
-        ctx.fillStyle = '#111111';
-        for (let r = 0; r < count; r++) {
-          for (let col = 0; col < count; col++) {
-            if (qr.isDark(r, col)) {
-              ctx.fillRect(698 + col * cell, 113 + r * cell, Math.ceil(cell), Math.ceil(cell));
-            }
-          }
-        }
-      } else {
-        ctx.fillStyle = '#111';
-        ctx.font = 'bold 24px monospace';
-        ctx.fillText(p.id, 725, 210);
-      }
-
-      ctx.fillStyle = '#ffd147';
-      ctx.font = 'bold 16px sans-serif';
-      ctx.textAlign = 'center';
-      ctx.fillText('SCAN AT STAGE DESK', 790, 355);
-
-      ctx.fillStyle = '#cbd5e1';
-      ctx.font = '14px sans-serif';
-      ctx.fillText('Official Digital Pass', 790, 382);
-      ctx.fillText('Resplendence 2026', 790, 404);
-
-      const link = document.createElement('a');
-      link.download = `Resplendence-Pass-${p.id}.png`;
-      link.href = c.toDataURL('image/png');
-      link.click();
-      showToast(`📥 Pass ${p.id} saved as PNG!`);
-    }
-
-    let savedPasses = Store.get('rsp_passes', []);
-    let allRegistrations = Store.get('rsp_all_registrations', []);
     let savedPlan = Store.get('rsp_plan', []);
-    let checkedInMap = Store.get('rsp_checked_in', {});
-
-    if (savedPasses.length && !allRegistrations.length) {
-      allRegistrations = savedPasses.slice().reverse().map((p, idx) => ({
-        ...p,
-        seq: idx + 1,
-        in_excel: false,
-        created_at: p.created_at || new Date().toISOString()
-      }));
-      Store.set('rsp_all_registrations', allRegistrations);
-    }
 
     const entryQrBox = document.getElementById('entry-qr-box');
     if (PAYMENT_QR_URL) {
@@ -3156,16 +2730,34 @@
     });
 
     const hubCountEl = document.getElementById('hub-count');
+    const hubModal = document.getElementById('hub-modal');
+    const planPane = document.getElementById('hub-plan-pane');
 
     function syncUI() {
-      hubCountEl.textContent = savedPasses.length + savedPlan.length;
+      hubCountEl.textContent = savedPlan.length;
       document.querySelectorAll('.plan-toggle-btn').forEach(btn => {
         const name = btn.dataset.item;
         const exists = savedPlan.some(p => p.name === name);
         btn.classList.toggle('saved', exists);
         btn.textContent = exists ? '✓ Added to Plan' : '+ Add to My Plan';
       });
-      renderHub();
+      renderPlanModal();
+    }
+
+    function renderPlanModal() {
+      if (!savedPlan.length) {
+        planPane.innerHTML = `<p style="color:#cbd5e1; text-align:center; padding:20px 0;">Your checklist is empty. Add attractions like Rides, Food, or Flash Mob!</p>`;
+      } else {
+        planPane.innerHTML = savedPlan.map((item, i) => `
+          <div class="saved-item">
+            <label style="display:flex; align-items:center; gap:10px; cursor:pointer;">
+              <input type="checkbox" ${item.done ? 'checked' : ''} data-plan-toggle="${i}" />
+              <span style="${item.done ? 'text-decoration:line-through; opacity:0.6;' : ''}">${escapeHtml(item.name)}</span>
+            </label>
+            <button class="mini-btn" data-plan-remove="${i}">✕</button>
+          </div>
+        `).join('');
+      }
     }
 
     document.querySelectorAll('.plan-toggle-btn').forEach(btn => {
@@ -3184,8 +2776,37 @@
       });
     });
 
+    document.getElementById('open-hub-btn').addEventListener('click', () => {
+      hubModal.classList.add('open');
+      navLinks.classList.remove('open');
+    });
+    document.getElementById('close-hub-modal').addEventListener('click', () => hubModal.classList.remove('open'));
+    hubModal.addEventListener('click', e => { if (e.target === hubModal) hubModal.classList.remove('open'); });
+
+    planPane.addEventListener('change', e => {
+      const cb = e.target.closest('input[data-plan-toggle]');
+      if (!cb) return;
+      const idx = Number(cb.dataset.planToggle);
+      if (savedPlan[idx]) {
+        savedPlan[idx].done = !savedPlan[idx].done;
+        Store.set('rsp_plan', savedPlan);
+        renderPlanModal();
+      }
+    });
+
+    planPane.addEventListener('click', e => {
+      const btn = e.target.closest('button[data-plan-remove]');
+      if (!btn) return;
+      const idx = Number(btn.dataset.planRemove);
+      savedPlan.splice(idx, 1);
+      Store.set('rsp_plan', savedPlan);
+      syncUI();
+    });
+
+    syncUI();
+
     /* =========================================================
-       3. LIVE FLOATING ANNOUNCEMENT CARD (AUTO-SYNC, ZERO RELOAD)
+       3. LIVE FLOATING ANNOUNCEMENT CARD
        ========================================================= */
     const liveNoticeCard = document.getElementById('live-notice-card');
     const liveNoticeText = document.getElementById('live-notice-text');
@@ -3213,7 +2834,7 @@
       msg = (msg || '').trim();
 
       const noticeInput = document.getElementById('admin-notice-input');
-      if (noticeInput && !isAdminPageOpen && document.activeElement !== noticeInput) {
+      if (noticeInput && document.activeElement !== noticeInput) {
         noticeInput.value = msg;
       }
 
@@ -3247,7 +2868,6 @@
       liveNoticeCard.classList.remove('show');
     });
 
-    /* Instant cross-tab sync on same PC + 5s background sync across all devices */
     window.addEventListener('storage', e => {
       if (e.key === 'rsp_live_notice') {
         dismissedNoticeMsg = '';
@@ -3262,415 +2882,7 @@
     loadLiveNotice(true);
 
     /* =========================================================
-       4. FREE COMPETITION REGISTRATION + DYNAMIC FORM + QR PASS
-       ========================================================= */
-    const regModal = document.getElementById('reg-modal');
-    const regForm = document.getElementById('reg-form');
-    const regFormView = document.getElementById('reg-form-view');
-    const regSuccessView = document.getElementById('reg-success-view');
-    const modalQrBox = document.getElementById('modal-qr-box');
-    const modalPassInfo = document.getElementById('modal-pass-info');
-    const regComp = document.getElementById('reg-comp');
-    const dynamicCompFields = document.getElementById('dynamic-comp-fields');
-    const regSubmitBtn = document.getElementById('reg-submit-btn');
-    let activePassForModal = null;
-
-    function renderCompFields(compName) {
-      if (compName === 'Mom and Me') {
-        dynamicCompFields.innerHTML = `
-          <div class="field">
-            <label for="reg-name">Mother's Name</label>
-            <input type="text" id="reg-name" placeholder="e.g., Sunita Verma" required />
-          </div>
-          <div class="field">
-            <label for="reg-student">Student's Name</label>
-            <input type="text" id="reg-student" placeholder="e.g., Ananya Verma" required />
-          </div>
-          <div class="field">
-            <label for="reg-school">School</label>
-            <input type="text" id="reg-school" placeholder="e.g., Dwarka International School" required />
-          </div>
-        `;
-      } else if (compName === 'Dad and Me') {
-        dynamicCompFields.innerHTML = `
-          <div class="field">
-            <label for="reg-name">Father's Name</label>
-            <input type="text" id="reg-name" placeholder="e.g., Rajesh Verma" required />
-          </div>
-          <div class="field">
-            <label for="reg-student">Student's Name</label>
-            <input type="text" id="reg-student" placeholder="e.g., Aarav Verma" required />
-          </div>
-          <div class="field">
-            <label for="reg-school">School</label>
-            <input type="text" id="reg-school" placeholder="e.g., Dwarka International School" required />
-          </div>
-        `;
-      } else if (compName === 'Ramp Walk' || compName === 'Talent Hunt') {
-        dynamicCompFields.innerHTML = `
-          <div class="field">
-            <label for="reg-name">Participant's Name</label>
-            <input type="text" id="reg-name" placeholder="e.g., Priya Sharma" required />
-          </div>
-          <div class="field">
-            <label for="reg-student">Child (Student) Name</label>
-            <input type="text" id="reg-student" placeholder="e.g., Kabir Sharma" required />
-          </div>
-          <div class="field-row">
-            <div class="field">
-              <label for="reg-gender">Gender</label>
-              <select id="reg-gender" required>
-                <option value="">Select Gender</option>
-                <option value="Female">Female</option>
-                <option value="Male">Male</option>
-                <option value="Other">Other</option>
-              </select>
-            </div>
-            <div class="field">
-              <label for="reg-school">School</label>
-              <input type="text" id="reg-school" placeholder="School Name" required />
-            </div>
-          </div>
-        `;
-      } else if (compName === 'Sr. Citizen Rockerz') {
-        dynamicCompFields.innerHTML = `
-          <div class="field">
-            <label for="reg-name">Participant's Name</label>
-            <input type="text" id="reg-name" placeholder="e.g., Ramesh Kumar" required />
-          </div>
-          <div class="field">
-            <label for="reg-student">Child (Student) Name</label>
-            <input type="text" id="reg-student" placeholder="e.g., Vivaan Kumar" required />
-          </div>
-          <div class="field-row">
-            <div class="field">
-              <label for="reg-age">Age (60+ Years)</label>
-              <input type="number" id="reg-age" min="60" max="120" placeholder="60 or above" required />
-              <span class="age-hint">* Must be 60 years or older</span>
-            </div>
-            <div class="field">
-              <label for="reg-gender">Gender</label>
-              <select id="reg-gender" required>
-                <option value="">Select Gender</option>
-                <option value="Male">Male</option>
-                <option value="Female">Female</option>
-                <option value="Other">Other</option>
-              </select>
-            </div>
-          </div>
-          <div class="field">
-            <label for="reg-school">School Name</label>
-            <input type="text" id="reg-school" placeholder="e.g., Dwarka International School" required />
-          </div>
-        `;
-      }
-    }
-
-    regComp.addEventListener('change', () => renderCompFields(regComp.value));
-    renderCompFields(regComp.value);
-
-    function openRegModal(compName) {
-      if (compName) regComp.value = compName;
-      renderCompFields(regComp.value);
-      regFormView.style.display = 'block';
-      regSuccessView.style.display = 'none';
-      regModal.classList.add('open');
-    }
-
-    function showPassInModal(passObj) {
-      activePassForModal = passObj;
-      const qrData = `RESPLENDENCE|${passObj.id}|${passObj.name}|${passObj.competition}|${passObj.phone}`;
-      modalQrBox.innerHTML = generateQrSvg(qrData, 86);
-      modalPassInfo.innerHTML = `
-        <div><strong style="color:var(--gold);">Pass ID:</strong> ${escapeHtml(passObj.id)} ${passObj.seq ? `(#${passObj.seq})` : ''}</div>
-        <div><strong style="color:var(--gold);">Name:</strong> ${escapeHtml(passObj.name)}</div>
-        <div><strong style="color:var(--gold);">Event:</strong> ${escapeHtml(passObj.competition)}</div>
-        <div><strong style="color:var(--gold);">Details:</strong> ${escapeHtml(passObj.category)}</div>
-      `;
-      regFormView.style.display = 'none';
-      regSuccessView.style.display = 'block';
-    }
-
-    document.querySelectorAll('.open-reg-btn').forEach(btn => {
-      btn.addEventListener('click', () => openRegModal(btn.dataset.comp));
-    });
-    document.getElementById('close-reg-modal').addEventListener('click', () => regModal.classList.remove('open'));
-    regModal.addEventListener('click', e => { if (e.target === regModal) regModal.classList.remove('open'); });
-
-    document.getElementById('modal-another-btn').addEventListener('click', () => {
-      regSuccessView.style.display = 'none';
-      regFormView.style.display = 'block';
-      renderCompFields(regComp.value);
-    });
-    document.getElementById('modal-download-png-btn').addEventListener('click', () => {
-      if (activePassForModal) downloadPassAsPng(activePassForModal);
-    });
-    document.getElementById('modal-print-pass-btn').addEventListener('click', () => {
-      if (activePassForModal) printPassObject(activePassForModal);
-    });
-
-    regForm.addEventListener('submit', async e => {
-      e.preventDefault();
-      const competition = regComp.value;
-      const phone = document.getElementById('reg-phone').value.trim();
-      const participantName = document.getElementById('reg-name').value.trim();
-      const studentName = document.getElementById('reg-student').value.trim();
-      const schoolName = document.getElementById('reg-school').value.trim();
-
-      let categoryDetails = '';
-      if (competition === 'Mom and Me' || competition === 'Dad and Me') {
-        categoryDetails = `Student: ${studentName} | School: ${schoolName}`;
-      } else if (competition === 'Ramp Walk' || competition === 'Talent Hunt') {
-        const gender = document.getElementById('reg-gender').value;
-        categoryDetails = `Child: ${studentName} | ${gender} | School: ${schoolName}`;
-      } else if (competition === 'Sr. Citizen Rockerz') {
-        const ageInput = document.getElementById('reg-age');
-        const ageVal = Number(ageInput.value);
-        if (isNaN(ageVal) || ageVal < 60) {
-          showToast('⚠️ Age must be 60 years or more for Sr. Citizen Rockerz!');
-          ageInput.focus();
-          return;
-        }
-        const gender = document.getElementById('reg-gender').value;
-        categoryDetails = `Child: ${studentName} | Age: ${ageVal} | ${gender} | School: ${schoolName}`;
-      }
-
-      regSubmitBtn.disabled = true;
-      regSubmitBtn.textContent = 'Checking & Submitting...';
-
-      let duplicateEntry = allRegistrations.find(r => r.phone === phone && r.competition === competition);
-      if (!duplicateEntry && HAS_CLOUD) {
-        try {
-          const checkRes = await fetch(
-            `${SB_BASE}/rest/v1/registrations?phone=eq.${encodeURIComponent(phone)}&competition=eq.${encodeURIComponent(competition)}&select=*`,
-            { headers: sbHeaders() }
-          );
-          if (checkRes.ok) {
-            const existing = await checkRes.json();
-            if (existing && existing.length > 0) duplicateEntry = existing[0];
-          }
-        } catch {}
-      }
-
-      if (duplicateEntry) {
-        regSubmitBtn.disabled = false;
-        regSubmitBtn.textContent = 'Confirm Free Registration 🎟️';
-        showToast(`⚠️ ${phone} is already registered for ${competition}! Showing existing pass.`);
-        if (!savedPasses.some(p => p.id === duplicateEntry.id)) {
-          savedPasses.unshift(duplicateEntry);
-          Store.set('rsp_passes', savedPasses);
-          syncUI();
-        }
-        showPassInModal(duplicateEntry);
-        return;
-      }
-
-      // Fetch latest serial number from cloud so all phones stay sequential (RSP-1001, 1002...)
-      let latestSeq = allRegistrations.reduce((m, r) => Math.max(m, Number(r.seq) || 0), 0);
-      if (HAS_CLOUD) {
-        try {
-          const seqRes = await fetch(
-            `${SB_BASE}/rest/v1/registrations?select=seq&order=seq.desc&limit=1`,
-            { headers: sbHeaders() }
-          );
-          if (seqRes.ok) {
-            const seqRows = await seqRes.json();
-            latestSeq = seqRows && seqRows[0] ? (Number(seqRows[0].seq) || 0) : 0;
-          }
-        } catch {}
-      }
-
-      let nextNum = 1000 + latestSeq + 1;
-
-      const payload = {
-        id: 'RSP-' + nextNum,
-        name: participantName,
-        category: categoryDetails,
-        competition,
-        phone,
-        in_excel: false
-      };
-
-      let savedEntry = {
-        ...payload,
-        seq: latestSeq + 1,
-        created_at: new Date().toISOString()
-      };
-
-      let cloudSaved = false;
-      if (HAS_CLOUD) {
-        for (let retry = 0; retry < 4; retry++) {
-          try {
-            const res = await fetch(`${SB_BASE}/rest/v1/registrations`, {
-              method: 'POST',
-              headers: sbHeaders({
-                'Content-Type': 'application/json',
-                'Prefer': 'return=representation'
-              }),
-              body: JSON.stringify(payload)
-            });
-
-            if (res.ok) {
-              const rows = await res.json();
-              if (rows && rows[0]) {
-                savedEntry = rows[0];
-                // If two phones submitted in the exact same millisecond, lock Pass ID to Supabase's unique seq
-                const trueId = 'RSP-' + (1000 + Number(savedEntry.seq));
-                if (savedEntry.seq && savedEntry.id !== trueId) {
-                  try {
-                    await fetch(`${SB_BASE}/rest/v1/registrations?seq=eq.${savedEntry.seq}`, {
-                      method: 'PATCH',
-                      headers: sbHeaders({ 'Content-Type': 'application/json' }),
-                      body: JSON.stringify({ id: trueId })
-                    });
-                    savedEntry.id = trueId;
-                  } catch {}
-                }
-              }
-              cloudSaved = true;
-              break;
-            }
-
-            if (res.status === 409) {
-              nextNum++;
-              payload.id = 'RSP-' + nextNum;
-              savedEntry.id = payload.id;
-              continue;
-            }
-            break;
-          } catch {
-            break;
-          }
-        }
-      }
-
-      savedPasses.unshift(savedEntry);
-      allRegistrations.push(savedEntry);
-      Store.set('rsp_passes', savedPasses);
-      Store.set('rsp_all_registrations', allRegistrations);
-
-      regForm.reset();
-      renderCompFields(regComp.value);
-      regSubmitBtn.disabled = false;
-      regSubmitBtn.textContent = 'Confirm Free Registration 🎟️';
-      launchConfetti();
-      syncUI();
-      showToast(cloudSaved
-        ? `🎉 Registered & synced to cloud! Pass ${savedEntry.id}`
-        : `🎟️ Pass ${savedEntry.id} confirmed!`);
-
-      if (isAdminPageOpen && isAdminLoggedIn) {
-        regModal.classList.remove('open');
-        await loadAdminData(false);
-      } else {
-        showPassInModal(savedEntry);
-      }
-    });
-
-    /* Hub Modal */
-    const hubModal = document.getElementById('hub-modal');
-    const passesPane = document.getElementById('hub-passes-pane');
-    const planPane = document.getElementById('hub-plan-pane');
-
-    function openHub(tab = 'passes') {
-      document.querySelectorAll('.hub-tab').forEach(t => t.classList.toggle('active', t.dataset.hubtab === tab));
-      passesPane.style.display = tab === 'passes' ? 'block' : 'none';
-      planPane.style.display = tab === 'plan' ? 'block' : 'none';
-      hubModal.classList.add('open');
-    }
-
-    document.getElementById('open-hub-btn').addEventListener('click', () => openHub('passes'));
-    document.getElementById('close-hub-modal').addEventListener('click', () => hubModal.classList.remove('open'));
-    hubModal.addEventListener('click', e => { if (e.target === hubModal) hubModal.classList.remove('open'); });
-    document.querySelectorAll('.hub-tab').forEach(t => t.addEventListener('click', () => openHub(t.dataset.hubtab)));
-
-    function renderHub() {
-      if (!savedPasses.length) {
-        passesPane.innerHTML = `<p style="color:#cbd5e1; text-align:center; padding:20px 0;">No competition passes yet. Click "Register Free" to get one!</p>`;
-      } else {
-        passesPane.innerHTML = savedPasses.map((p, i) => `
-          <div class="saved-item">
-            <div>
-              <strong>${escapeHtml(p.competition)} (${escapeHtml(p.id)})</strong>
-              <small>${escapeHtml(p.name)} • ${escapeHtml(p.category)} • Free QR Pass</small>
-            </div>
-            <div style="display:flex; gap:6px; flex-wrap:wrap;">
-              <button class="mini-btn" onclick="downloadHubPass(${i})">⬇ PNG</button>
-              <button class="mini-btn" onclick="printPass(${i})">🖨️ Print</button>
-              <button class="mini-btn" onclick="removePass(${i})">🗑️</button>
-            </div>
-          </div>
-        `).join('');
-      }
-
-      if (!savedPlan.length) {
-        planPane.innerHTML = `<p style="color:#cbd5e1; text-align:center; padding:20px 0;">Your checklist is empty. Add attractions like Rides, Food, or Flash Mob!</p>`;
-      } else {
-        planPane.innerHTML = savedPlan.map((item, i) => `
-          <div class="saved-item">
-            <label style="display:flex; align-items:center; gap:10px; cursor:pointer;">
-              <input type="checkbox" ${item.done ? 'checked' : ''} onchange="togglePlanDone(${i})" />
-              <span style="${item.done ? 'text-decoration:line-through; opacity:0.6;' : ''}">${escapeHtml(item.name)}</span>
-            </label>
-            <button class="mini-btn" onclick="removePlanItem(${i})">✕</button>
-          </div>
-        `).join('');
-      }
-    }
-
-    window.downloadHubPass = idx => downloadPassAsPng(savedPasses[idx]);
-
-    window.removePass = idx => {
-      savedPasses.splice(idx, 1);
-      Store.set('rsp_passes', savedPasses);
-      syncUI();
-    };
-
-    window.togglePlanDone = idx => {
-      savedPlan[idx].done = !savedPlan[idx].done;
-      Store.set('rsp_plan', savedPlan);
-      renderHub();
-    };
-
-    window.removePlanItem = idx => {
-      savedPlan.splice(idx, 1);
-      Store.set('rsp_plan', savedPlan);
-      syncUI();
-    };
-
-    function printPassObject(p) {
-      const pa = document.getElementById('print-area');
-      const qrPayload = `RESPLENDENCE|${p.id}|${p.name}|${p.competition}|${p.phone}`;
-      pa.style.display = 'block';
-      pa.innerHTML = `
-        <h1 style="color:#880d1e; margin-bottom:4px;">RESPLENDENCE — WINTER CARNIVAL 2026</h1>
-        <p style="margin-bottom:18px;">Dwarka International School • Sector 12, Dwarka, New Delhi - 110078</p>
-        <hr style="margin-bottom:18px;"/>
-        <div style="display:flex; justify-content:space-between; align-items:center; gap:20px;">
-          <div>
-            <h2>COMPETITION PASS (FREE)</h2>
-            ${p.seq ? `<p><strong>Serial No.:</strong> #${p.seq}</p>` : ''}
-            <p><strong>Pass ID:</strong> ${escapeHtml(p.id)}</p>
-            <p><strong>Participant:</strong> ${escapeHtml(p.name)}</p>
-            <p><strong>Details:</strong> ${escapeHtml(p.category)}</p>
-            <p><strong>Competition:</strong> ${escapeHtml(p.competition)}</p>
-            <p><strong>Date & Time:</strong> December 19, 2026 | 11:00 A.M - 7:00 P.M</p>
-          </div>
-          <div style="border:2px solid #880d1e; padding:10px; border-radius:12px;">
-            ${generateQrSvg(qrPayload, 130)}
-          </div>
-        </div>
-      `;
-      window.print();
-      pa.style.display = 'none';
-    }
-
-    window.printPass = idx => printPassObject(savedPasses[idx]);
-
-    syncUI();
-
-    /* =========================================================
-       5. FULL-PAGE ADMIN PORTAL (CHECK-IN + LIVE NOTICE + EXCEL SYNC)
+       4. FULL-PAGE ADMIN PORTAL (LIVE NOTICE & VISITOR STATS)
        ========================================================= */
     const publicSite = document.getElementById('public-site');
     const adminPage = document.getElementById('admin-page');
@@ -3678,53 +2890,45 @@
     const adminDashView = document.getElementById('admin-dash-view');
     const adminLoginForm = document.getElementById('admin-login-form');
     const authError = document.getElementById('auth-error');
-    const adminSearch = document.getElementById('admin-search');
-    const adminFilterComp = document.getElementById('admin-filter-comp');
-    const adminFilterExcel = document.getElementById('admin-filter-excel');
-    const adminSortOrder = document.getElementById('admin-sort-order');
     const adminModeBadge = document.getElementById('admin-mode-badge');
-    const exportCsvBtn = document.getElementById('export-csv-btn');
-    const exportNewCsvBtn = document.getElementById('export-new-csv-btn');
     const adminLogoutBtn = document.getElementById('admin-logout-btn');
-    const adminAddBtn = document.getElementById('admin-add-btn');
-    const newAlertBanner = document.getElementById('new-alert-banner');
-    const newAlertText = document.getElementById('new-alert-text');
+    const adminVisitorStat = document.getElementById('admin-visitor-stat');
     const snowCanvasEl = document.getElementById('snow-canvas');
 
     let isAdminPageOpen = false;
     let isAdminLoggedIn = false;
-    let adminRows = [];
-    let lastKnownTotal = null;
-    let pollInterval = null;
-
     try { isAdminLoggedIn = sessionStorage.getItem('rsp_admin_auth') === '1'; } catch {}
 
-    function updateAdminNavButtons(cloudStatus = null) {
+    function updateAdminNav() {
       if (!isAdminLoggedIn) {
         adminModeBadge.textContent = 'Locked';
         adminModeBadge.classList.remove('cloud');
-      } else if (cloudStatus === true || (cloudStatus === null && HAS_CLOUD)) {
+      } else if (HAS_CLOUD) {
         adminModeBadge.textContent = '🟢 Live Cloud Sync';
         adminModeBadge.classList.add('cloud');
       } else {
-        adminModeBadge.textContent = '🟡 Local Fallback';
+        adminModeBadge.textContent = '🟡 Local Mode';
         adminModeBadge.classList.remove('cloud');
       }
-      exportCsvBtn.style.display = isAdminLoggedIn ? 'inline-flex' : 'none';
-      exportNewCsvBtn.style.display = isAdminLoggedIn ? 'inline-flex' : 'none';
       adminLogoutBtn.style.display = isAdminLoggedIn ? 'inline-flex' : 'none';
-      adminAddBtn.style.display = isAdminLoggedIn ? 'inline-flex' : 'none';
     }
 
-    function startPolling() {
-      stopPolling();
-      pollInterval = setInterval(() => {
-        if (isAdminPageOpen && isAdminLoggedIn) loadAdminData(true);
-      }, 8000);
-    }
-
-    function stopPolling() {
-      if (pollInterval) { clearInterval(pollInterval); pollInterval = null; }
+    async function refreshAdminStats() {
+      if (!HAS_CLOUD) {
+        adminVisitorStat.textContent = Number(Store.get('rsp_local_visits', 0)).toLocaleString('en-IN');
+        return;
+      }
+      try {
+        const res = await fetch(`${SB_BASE}/rest/v1/site_stats?id=eq.1&select=visitors`, {
+          headers: sbHeaders()
+        });
+        if (res.ok) {
+          const rows = await res.json();
+          if (rows && rows[0]) {
+            adminVisitorStat.textContent = Number(rows[0].visitors || 0).toLocaleString('en-IN');
+          }
+        }
+      } catch {}
     }
 
     async function openAdminPage() {
@@ -3735,14 +2939,13 @@
       adminPage.classList.add('active');
       window.scrollTo(0, 0);
       authError.style.display = 'none';
-      updateAdminNavButtons();
+      updateAdminNav();
 
       if (isAdminLoggedIn) {
         adminLoginView.style.display = 'none';
         adminDashView.style.display = 'block';
-        document.getElementById('admin-notice-input').value = Store.get('rsp_live_notice', '');
-        await loadAdminData(false);
-        startPolling();
+        await loadLiveNotice(true);
+        await refreshAdminStats();
       } else {
         adminLoginView.style.display = 'grid';
         adminDashView.style.display = 'none';
@@ -3752,7 +2955,6 @@
 
     function closeAdminPage() {
       isAdminPageOpen = false;
-      stopPolling();
       adminPage.classList.remove('active');
       publicSite.style.display = 'block';
       snowCanvasEl.style.display = 'block';
@@ -3765,12 +2967,15 @@
     }
 
     document.getElementById('back-to-site-btn').addEventListener('click', closeAdminPage);
-    adminAddBtn.addEventListener('click', () => openRegModal());
 
     document.addEventListener('keydown', e => {
       if (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === 'a') {
         e.preventDefault();
         openAdminPage();
+      }
+      if (e.key === 'Escape') {
+        hubModal.classList.remove('open');
+        navLinks.classList.remove('open');
       }
     });
 
@@ -3803,10 +3008,9 @@
         adminLoginForm.reset();
         adminLoginView.style.display = 'none';
         adminDashView.style.display = 'block';
-        document.getElementById('admin-notice-input').value = Store.get('rsp_live_notice', '');
-        updateAdminNavButtons();
-        await loadAdminData(false);
-        startPolling();
+        updateAdminNav();
+        await loadLiveNotice(true);
+        await refreshAdminStats();
         showToast('🔓 Admin Portal Unlocked');
       } else {
         authError.style.display = 'block';
@@ -3815,21 +3019,19 @@
 
     adminLogoutBtn.addEventListener('click', () => {
       isAdminLoggedIn = false;
-      lastKnownTotal = null;
-      stopPolling();
       try { sessionStorage.removeItem('rsp_admin_auth'); } catch {}
-      updateAdminNavButtons();
+      updateAdminNav();
       adminDashView.style.display = 'none';
       adminLoginView.style.display = 'grid';
       showToast('Logged out of Admin Portal');
     });
 
     document.getElementById('admin-refresh-btn').addEventListener('click', async () => {
-      await loadAdminData(false);
-      showToast('↻ Registrations synced');
+      await refreshAdminStats();
+      await loadLiveNotice(true);
+      showToast('↻ Stats refreshed');
     });
 
-    /* Admin Publish / Clear Live Notice */
     async function saveLiveNotice(msg) {
       Store.set('rsp_live_notice', msg);
       dismissedNoticeMsg = '';
@@ -3844,9 +3046,8 @@
             body: JSON.stringify({ id: 1, message: msg, updated_at: new Date().toISOString() })
           });
           if (!res.ok) {
-            console.error('Supabase announcements error:', res.status, await res.text());
             await loadLiveNotice(true);
-            showToast('⚠️ Saved on this PC! Run announcements SQL in Supabase for all phones.');
+            showToast('⚠️ Saved on this PC! Check announcements table permissions in Supabase.');
             return false;
           }
         } catch {
@@ -3863,7 +3064,7 @@
       const val = document.getElementById('admin-notice-input').value.trim();
       if (!val) { showToast('Type a message first or click Clear Notice.'); return; }
       const ok = await saveLiveNotice(val);
-      if (ok) showToast('📢 Live Notice published! Visitors see it automatically without reloading.');
+      if (ok) showToast('📢 Live Notice published! Visitors see it automatically.');
     });
 
     document.getElementById('clear-notice-btn').addEventListener('click', async () => {
@@ -3872,287 +3073,8 @@
       showToast('Live Notice cleared');
     });
 
-    async function loadAdminData(isAutoPoll = false) {
-      const sourceLabel = document.getElementById('admin-source-label');
-      let fetchedRows = null;
-      let errInfo = '';
-
-      if (HAS_CLOUD) {
-        try {
-          const res = await fetch(`${SB_BASE}/rest/v1/registrations?select=*&order=seq.asc`, {
-            headers: sbHeaders()
-          });
-          if (res.ok) {
-            fetchedRows = await res.json();
-            updateAdminNavButtons(true);
-            sourceLabel.textContent = '🟢 Live Cloud Database (Supabase) • Auto-syncing every 8s • Permanent Sr. No. locked';
-          } else {
-            errInfo = ` (HTTP ${res.status})`;
-          }
-        } catch {
-          errInfo = ' (Network issue)';
-        }
-      }
-
-      if (fetchedRows === null) {
-        updateAdminNavButtons(false);
-        allRegistrations = Store.get('rsp_all_registrations', []).slice().sort((a, b) => (a.seq || 0) - (b.seq || 0));
-        fetchedRows = allRegistrations;
-        sourceLabel.textContent = HAS_CLOUD
-          ? `⚠️ Cloud sync unavailable${errInfo} — showing local records`
-          : '🟡 Local Browser Mode';
-      }
-
-      if (isAutoPoll && lastKnownTotal !== null && fetchedRows.length > lastKnownTotal) {
-        const diff = fetchedRows.length - lastKnownTotal;
-        playNotificationChime();
-        showToast(`🔔 ${diff} New Registration${diff > 1 ? 's' : ''} Just Arrived!`);
-      }
-
-      lastKnownTotal = fetchedRows.length;
-      adminRows = fetchedRows;
-      renderAdminDashboard();
-    }
-
-    function isRowCheckedIn(r) {
-      if (typeof r.checked_in === 'boolean') return r.checked_in;
-      return Boolean(checkedInMap[r.id]);
-    }
-
-    function renderAdminDashboard() {
-      const comps = ['Mom and Me', 'Dad and Me', 'Ramp Walk', 'Talent Hunt', 'Sr. Citizen Rockerz'];
-      const notInExcelCount = adminRows.filter(r => !r.in_excel).length;
-      const checkedInCount = adminRows.filter(isRowCheckedIn).length;
-
-      if (notInExcelCount > 0) {
-        newAlertText.textContent = `🔔 ${notInExcelCount} New Registration${notInExcelCount > 1 ? 's' : ''} Not Yet Exported to Excel!`;
-        newAlertBanner.classList.add('show');
-      } else {
-        newAlertBanner.classList.remove('show');
-      }
-
-      const statsEl = document.getElementById('admin-stats');
-      statsEl.innerHTML = `
-        <div class="stat-box"><span>Total Entries</span><strong>${adminRows.length}</strong></div>
-        <div class="stat-box"><span>Stage Checked-In</span><strong style="color:#86efac;">${checkedInCount}</strong></div>
-        <div class="stat-box"><span>🆕 Not in Excel</span><strong style="color:${notInExcelCount ? '#fde68a' : '#86efac'};">${notInExcelCount}</strong></div>
-        ${comps.map(c => `
-          <div class="stat-box">
-            <span>${c}</span>
-            <strong>${adminRows.filter(r => r.competition === c).length}</strong>
-          </div>
-        `).join('')}
-      `;
-
-      const q = adminSearch.value.trim().toLowerCase();
-      const compFilter = adminFilterComp.value;
-      const excelFilter = adminFilterExcel.value;
-      const sortMode = adminSortOrder.value;
-
-      let filtered = adminRows.filter(r => {
-        const matchComp = compFilter === 'all' || r.competition === compFilter;
-        const matchExcel = excelFilter === 'all' || (excelFilter === 'new' ? !r.in_excel : !!r.in_excel);
-        const matchQ = !q ||
-          (r.seq && String(r.seq).includes(q)) ||
-          (r.name && r.name.toLowerCase().includes(q)) ||
-          (r.id && r.id.toLowerCase().includes(q)) ||
-          (r.phone && r.phone.toLowerCase().includes(q)) ||
-          (r.category && r.category.toLowerCase().includes(q));
-        return matchComp && matchExcel && matchQ;
-      });
-
-      filtered = filtered.slice().sort((a, b) => {
-        return sortMode === 'excel'
-          ? (Number(a.seq) || 0) - (Number(b.seq) || 0)
-          : (Number(b.seq) || 0) - (Number(a.seq) || 0);
-      });
-
-      const tbody = document.getElementById('admin-tbody');
-      if (!filtered.length) {
-        tbody.innerHTML = `<tr><td colspan="10" style="text-align:center; padding:34px; color:#94a3b8;">No registrations match your filter.</td></tr>`;
-        return;
-      }
-
-      tbody.innerHTML = filtered.map(r => {
-        const checked = isRowCheckedIn(r);
-        return `
-          <tr class="${r.in_excel ? '' : 'row-new'}">
-            <td><strong style="color:#fff;">#${r.seq || '—'}</strong></td>
-            <td><strong style="color:var(--gold);">${escapeHtml(r.id)}</strong></td>
-            <td>${escapeHtml(r.name)}</td>
-            <td>${escapeHtml(r.category)}</td>
-            <td><span class="comp-pill">${escapeHtml(r.competition)}</span></td>
-            <td>${escapeHtml(r.phone)}</td>
-            <td>
-              <button class="status-pill-btn ${checked ? 'green' : 'slate'}" onclick="toggleCheckIn('${escapeHtml(r.id)}')">
-                ${checked ? '✓ Checked In' : 'Check In'}
-              </button>
-            </td>
-            <td>
-              <button class="status-pill-btn ${r.in_excel ? 'green' : 'amber'}" onclick="toggleExcelFlag('${escapeHtml(r.id)}')">
-                ${r.in_excel ? '✅ In Excel' : '🆕 New'}
-              </button>
-            </td>
-            <td style="color:#94a3b8; font-size:0.78rem;">${escapeHtml(formatDateTime(r.created_at))}</td>
-            <td>
-              <button class="mini-btn" onclick="adminDownloadPng('${escapeHtml(r.id)}')">⬇ PNG</button>
-              <button class="mini-btn" onclick="adminPrintById('${escapeHtml(r.id)}')">🖨️</button>
-              <button class="mini-btn" onclick="deleteRegistration('${escapeHtml(r.id)}')">🗑️</button>
-            </td>
-          </tr>
-        `;
-      }).join('');
-    }
-
-    adminSearch.addEventListener('input', renderAdminDashboard);
-    adminFilterComp.addEventListener('change', renderAdminDashboard);
-    adminFilterExcel.addEventListener('change', renderAdminDashboard);
-    adminSortOrder.addEventListener('change', renderAdminDashboard);
-
-    window.toggleCheckIn = async id => {
-      const row = adminRows.find(r => r.id === id);
-      if (!row) return;
-      const nextVal = !isRowCheckedIn(row);
-
-      checkedInMap[id] = nextVal;
-      Store.set('rsp_checked_in', checkedInMap);
-
-      if (HAS_CLOUD) {
-        try {
-          await fetch(`${SB_BASE}/rest/v1/registrations?id=eq.${encodeURIComponent(id)}`, {
-            method: 'PATCH',
-            headers: sbHeaders({ 'Content-Type': 'application/json' }),
-            body: JSON.stringify({ checked_in: nextVal })
-          });
-        } catch {}
-      }
-
-      row.checked_in = nextVal;
-      renderAdminDashboard();
-      showToast(nextVal ? `✓ ${row.name} checked in at stage!` : `Check-in removed for ${row.name}`);
-    };
-
-    async function markRowsAsInExcel(ids) {
-      if (!ids.length) return;
-      if (HAS_CLOUD) {
-        try {
-          const inList = ids.map(id => encodeURIComponent(id)).join(',');
-          await fetch(`${SB_BASE}/rest/v1/registrations?id=in.(${inList})`, {
-            method: 'PATCH',
-            headers: sbHeaders({ 'Content-Type': 'application/json' }),
-            body: JSON.stringify({ in_excel: true })
-          });
-        } catch {}
-      }
-      const idSet = new Set(ids);
-      allRegistrations = allRegistrations.map(r => idSet.has(r.id) ? { ...r, in_excel: true } : r);
-      Store.set('rsp_all_registrations', allRegistrations);
-      await loadAdminData(false);
-    }
-
-    window.toggleExcelFlag = async id => {
-      const row = adminRows.find(r => r.id === id);
-      if (!row) return;
-      const nextVal = !row.in_excel;
-
-      if (HAS_CLOUD) {
-        try {
-          await fetch(`${SB_BASE}/rest/v1/registrations?id=eq.${encodeURIComponent(id)}`, {
-            method: 'PATCH',
-            headers: sbHeaders({ 'Content-Type': 'application/json' }),
-            body: JSON.stringify({ in_excel: nextVal })
-          });
-        } catch {}
-      }
-
-      allRegistrations = allRegistrations.map(r => r.id === id ? { ...r, in_excel: nextVal } : r);
-      Store.set('rsp_all_registrations', allRegistrations);
-      await loadAdminData(false);
-      showToast(nextVal ? `✅ Marked #${row.seq || id} as In Excel` : `Marked #${row.seq || id} as New`);
-    };
-
-    document.getElementById('mark-all-excel-btn').addEventListener('click', async () => {
-      const pending = adminRows.filter(r => !r.in_excel).map(r => r.id);
-      if (!pending.length) { showToast('All entries are already marked synced!'); return; }
-      await markRowsAsInExcel(pending);
-      showToast('✅ All registrations marked as synced to Excel!');
-    });
-
-    function downloadExcelCsv(rowsToExport, filename) {
-      const ordered = rowsToExport.slice().sort((a, b) => (Number(a.seq) || 0) - (Number(b.seq) || 0));
-      const headers = ['Sr. No.', 'Pass ID', 'Participant Name', 'Details (Student/School/Age/Gender)', 'Competition', 'Phone', 'Checked In', 'Registered At'];
-      const esc = val => `"${String(val ?? '').replace(/"/g, '""')}"`;
-      const csvBody = [
-        headers.join(','),
-        ...ordered.map(r => [
-          r.seq || '', r.id, r.name, r.category, r.competition, r.phone, isRowCheckedIn(r) ? 'Yes' : 'No', formatDateTime(r.created_at)
-        ].map(esc).join(','))
-      ].join('\r\n');
-
-      const blob = new Blob(['\uFEFF' + csvBody], { type: 'text/csv;charset=utf-8;' });
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = filename;
-      a.click();
-      URL.revokeObjectURL(url);
-    }
-
-    async function handleExportNewOnly() {
-      const newRows = adminRows.filter(r => !r.in_excel);
-      if (!newRows.length) {
-        showToast('✅ No new registrations pending—your Excel sheet is already up to date!');
-        return;
-      }
-      downloadExcelCsv(newRows, `Resplendence-NEW-Entries-${new Date().toISOString().slice(0, 10)}.csv`);
-      await markRowsAsInExcel(newRows.map(r => r.id));
-      showToast(`🆕 Exported ${newRows.length} new row(s) in #Sr.No order & marked synced!`);
-    }
-
-    exportNewCsvBtn.addEventListener('click', handleExportNewOnly);
-    document.getElementById('banner-export-new-btn').addEventListener('click', handleExportNewOnly);
-
-    exportCsvBtn.addEventListener('click', async () => {
-      if (!adminRows.length) {
-        showToast('No registrations to export yet.');
-        return;
-      }
-      downloadExcelCsv(adminRows, 'Resplendence-2026-FULL-Registrations.csv');
-      await markRowsAsInExcel(adminRows.map(r => r.id));
-      showToast('📥 Full Excel sheet exported in exact #1 → #N order!');
-    });
-
-    window.adminDownloadPng = id => {
-      const row = adminRows.find(r => r.id === id);
-      if (row) downloadPassAsPng(row);
-    };
-
-    window.adminPrintById = id => {
-      const row = adminRows.find(r => r.id === id);
-      if (row) printPassObject(row);
-    };
-
-    window.deleteRegistration = async id => {
-      if (!confirm(`Delete registration ${id}?`)) return;
-      if (HAS_CLOUD) {
-        try {
-          await fetch(`${SB_BASE}/rest/v1/registrations?id=eq.${encodeURIComponent(id)}`, {
-            method: 'DELETE',
-            headers: sbHeaders()
-          });
-        } catch {}
-      }
-      allRegistrations = allRegistrations.filter(r => r.id !== id);
-      savedPasses = savedPasses.filter(r => r.id !== id);
-      Store.set('rsp_all_registrations', allRegistrations);
-      Store.set('rsp_passes', savedPasses);
-      syncUI();
-      await loadAdminData(false);
-      showToast(`🗑️ Deleted ${id}`);
-    };
-
     /* =========================================================
-       6. SCROLL REVEAL, SNOW & CONFETTI
+       5. SCROLL REVEAL, SNOW & CONFETTI
        ========================================================= */
     const revealObs = new IntersectionObserver(entries => {
       entries.forEach(en => { if (en.isIntersecting) en.target.classList.add('visible'); });
@@ -4237,7 +3159,7 @@
     })();
 
     /* =========================================================
-       7. LIVE VISITOR COUNTER
+       6. LIVE VISITOR COUNTER
        ========================================================= */
     const visitorCountEl = document.getElementById('visitor-count');
 
