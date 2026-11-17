@@ -105,7 +105,6 @@
       display: none;
       animation: popIn 0.4s cubic-bezier(0.22, 1, 0.36, 1), pulseAlert 2.4s infinite ease-in-out;
     }
-
     #live-notice-card.show { display: block; }
 
     .live-card-head {
@@ -141,8 +140,8 @@
     }
 
     .notice-dismiss {
-      width: 30px;
-      height: 30px;
+      width: 32px;
+      height: 32px;
       border-radius: 50%;
       background: rgba(255, 255, 255, 0.12);
       border: none;
@@ -184,48 +183,51 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 16px;
+      gap: 14px;
     }
 
     .brand {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 10px;
       text-decoration: none;
       color: #fff;
+      min-width: 0;
     }
 
     .brand-crest {
-      width: 40px;
-      height: 40px;
+      width: 38px;
+      height: 38px;
       border-radius: 11px;
       background: linear-gradient(145deg, #9e0e22, #4b0610);
       border: 1.5px solid var(--gold);
       display: grid;
       place-items: center;
       padding: 5px;
+      flex-shrink: 0;
       box-shadow: 0 0 16px rgba(255, 209, 71, 0.35);
     }
 
     .brand-title {
       font-family: 'Cinzel Decorative', serif;
       font-weight: 900;
-      font-size: 1.05rem;
+      font-size: 1.02rem;
       color: var(--gold);
       letter-spacing: 0.8px;
       line-height: 1.1;
     }
 
     .brand-sub {
-      font-size: 0.7rem;
+      font-size: 0.68rem;
       color: #e2e8f0;
       opacity: 0.85;
+      white-space: nowrap;
     }
 
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 26px;
+      gap: 24px;
       list-style: none;
     }
 
@@ -238,25 +240,28 @@
     }
     .nav-links a:hover { color: var(--gold); }
 
+    .mobile-reg-link { display: none; }
+
     .nav-actions {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 8px;
+      flex-shrink: 0;
     }
 
     .hub-btn {
       background: rgba(255, 255, 255, 0.08);
       border: 1px solid rgba(255, 209, 71, 0.45);
       color: #fff;
-      padding: 8px 14px;
+      padding: 8px 13px;
       border-radius: 50px;
       font-family: inherit;
-      font-size: 0.84rem;
+      font-size: 0.82rem;
       font-weight: 600;
       cursor: pointer;
       display: inline-flex;
       align-items: center;
-      gap: 7px;
+      gap: 6px;
       transition: all 0.25s;
     }
     .hub-btn:hover {
@@ -285,7 +290,7 @@
       border-radius: 50px;
       font-family: inherit;
       font-weight: 700;
-      font-size: 0.86rem;
+      font-size: 0.85rem;
       text-decoration: none;
       display: inline-flex;
       align-items: center;
@@ -481,7 +486,7 @@
       justify-content: center;
       gap: 12px;
       flex-wrap: wrap;
-      margin-bottom: 26px;
+      margin-bottom: 24px;
     }
 
     .cd-box {
@@ -574,17 +579,26 @@
       background: rgba(255, 209, 71, 0.14);
     }
 
-    .visitor-live-pill {
+    /* Visitor + Live Hype Cheers Row */
+    .hero-live-row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 22px;
+    }
+
+    .visitor-live-pill, .hype-pill {
       display: inline-flex;
       align-items: center;
-      gap: 9px;
-      margin-top: 22px;
+      gap: 8px;
       padding: 8px 18px;
       border-radius: 50px;
-      background: rgba(7, 14, 23, 0.58);
+      background: rgba(7, 14, 23, 0.62);
       border: 1px solid rgba(255, 209, 71, 0.35);
       backdrop-filter: blur(10px);
-      font-size: 0.85rem;
+      font-size: 0.84rem;
       font-weight: 600;
       color: var(--text-muted);
       box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
@@ -598,12 +612,26 @@
       animation: twinkle 1s infinite alternate;
       flex-shrink: 0;
     }
-    .visitor-live-pill strong {
+    .visitor-live-pill strong, .hype-pill strong {
       color: var(--gold);
       font-family: 'Cinzel Decorative', serif;
       font-size: 0.96rem;
-      letter-spacing: 0.5px;
     }
+
+    .hype-pill {
+      cursor: pointer;
+      font-family: inherit;
+      border-color: rgba(255, 56, 92, 0.55);
+      background: rgba(136, 13, 30, 0.45);
+      color: #fff;
+      transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+    }
+    .hype-pill:hover {
+      transform: translateY(-2px) scale(1.04);
+      border-color: var(--gold);
+      box-shadow: 0 0 20px rgba(255, 56, 92, 0.45);
+    }
+    .hype-pill:active { transform: scale(0.95); }
 
     .section-wave {
       position: absolute;
@@ -706,6 +734,7 @@
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
+      align-items: center;
     }
 
     .filter-pill {
@@ -725,6 +754,24 @@
       color: #2f0409;
       border-color: transparent;
       box-shadow: 0 4px 14px rgba(255, 209, 71, 0.3);
+    }
+
+    .surprise-btn {
+      background: rgba(200, 30, 55, 0.35);
+      border: 1px solid rgba(255, 209, 71, 0.55);
+      color: var(--gold-bright);
+      padding: 8px 16px;
+      border-radius: 50px;
+      font-family: inherit;
+      font-size: 0.84rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.25s;
+    }
+    .surprise-btn:hover {
+      background: rgba(200, 30, 55, 0.65);
+      transform: scale(1.04);
+      box-shadow: 0 0 18px rgba(255, 209, 71, 0.35);
     }
 
     .search-input {
@@ -782,6 +829,11 @@
     .spot-card:hover {
       border-color: var(--gold);
       box-shadow: 0 20px 38px rgba(0, 0, 0, 0.5), 0 0 22px rgba(255, 209, 71, 0.15);
+    }
+    .spot-card.spotlight-pick {
+      border-color: var(--gold);
+      box-shadow: 0 0 35px rgba(255, 209, 71, 0.65);
+      animation: pulseAlert 1.2s 2 ease-in-out;
     }
     .spot-card.hidden { display: none; }
 
@@ -972,6 +1024,71 @@
     .comp-btn:hover {
       transform: scale(1.02);
       box-shadow: 0 6px 20px rgba(255, 209, 71, 0.4);
+    }
+    .comp-btn.closed-btn {
+      background: rgba(148, 163, 184, 0.16);
+      border: 1px solid rgba(248, 113, 113, 0.45);
+      color: #fca5a5;
+      cursor: not-allowed;
+      box-shadow: none;
+    }
+    .comp-btn.closed-btn:hover { transform: none; box-shadow: none; }
+
+    /* =========================================================
+       LIVE WINNERS SPOTLIGHT (HIDDEN UNTIL ADMIN ADDS WINNER)
+       ========================================================= */
+    .winners-sec {
+      display: none;
+      background:
+        radial-gradient(circle at 50% 20%, rgba(255, 209, 71, 0.14), transparent 55%),
+        linear-gradient(180deg, #0b1624 0%, #1a0b15 100%);
+    }
+    .winners-sec.active { display: block; }
+
+    .winners-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      max-width: 1120px;
+      margin: 0 auto;
+    }
+
+    .winner-card {
+      flex: 0 1 330px;
+      background: linear-gradient(155deg, rgba(255, 209, 71, 0.12), rgba(20, 10, 18, 0.92));
+      border: 1.5px solid var(--gold);
+      border-radius: 20px;
+      padding: 22px;
+      text-align: center;
+      box-shadow: 0 14px 35px rgba(0, 0, 0, 0.45), 0 0 22px rgba(255, 209, 71, 0.14);
+      animation: popIn 0.4s ease;
+    }
+    .winner-trophy {
+      font-size: 2.1rem;
+      margin-bottom: 6px;
+    }
+    .winner-event {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      padding: 4px 12px;
+      border-radius: 50px;
+      background: rgba(255, 209, 71, 0.2);
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+    .winner-name {
+      font-family: 'Cinzel Decorative', serif;
+      font-size: 1.25rem;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+    .winner-meta {
+      font-size: 0.86rem;
+      color: #a7f3d0;
     }
 
     /* =========================================================
@@ -1233,7 +1350,7 @@
     .faq-a p { padding-bottom: 14px; }
 
     /* =========================================================
-       FOOTER + DESIGNER SIGNATURE (YAKSH & AKSHAT • XI LILY)
+       FOOTER + DESIGNER SIGNATURE
        ========================================================= */
     footer {
       position: relative;
@@ -1262,6 +1379,7 @@
       margin-bottom: 6px;
       display: inline-block;
       user-select: none;
+      touch-action: manipulation;
       cursor: default;
     }
 
@@ -1459,7 +1577,7 @@
     .mini-btn:hover { background: rgba(255, 209, 71, 0.3); }
 
     /* =========================================================
-       FULL-PAGE HIDDEN ADMIN PORTAL (LIVE NOTICE & STATS)
+       FULL-PAGE HIDDEN ADMIN COMMAND CENTER
        ========================================================= */
     #admin-page {
       display: none;
@@ -1482,7 +1600,7 @@
     }
 
     .admin-nav-inner {
-      max-width: 1180px;
+      max-width: 1240px;
       margin: 0 auto;
       padding: 14px 24px;
       display: flex;
@@ -1550,7 +1668,7 @@
       color: var(--gold-bright);
       margin-bottom: 4px;
     }
-    .field input {
+    .field input, .field select {
       width: 100%;
       padding: 10px 13px;
       border-radius: 10px;
@@ -1561,11 +1679,12 @@
       font-size: 0.9rem;
       outline: none;
     }
+    .field select option { background: #0b1624; }
 
     .admin-workspace {
-      max-width: 1180px;
+      max-width: 1240px;
       margin: 0 auto;
-      padding: 32px 24px 60px;
+      padding: 30px 24px 60px;
     }
 
     .admin-header-row {
@@ -1574,7 +1693,7 @@
       justify-content: space-between;
       align-items: flex-end;
       gap: 16px;
-      margin-bottom: 24px;
+      margin-bottom: 22px;
     }
     .admin-header-row h1 {
       font-family: 'Cinzel Decorative', serif;
@@ -1585,7 +1704,7 @@
 
     .admin-stats {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       gap: 14px;
       margin-bottom: 24px;
     }
@@ -1594,51 +1713,150 @@
       background: rgba(255, 255, 255, 0.045);
       border: 1px solid rgba(255, 209, 71, 0.25);
       border-radius: 16px;
-      padding: 18px 20px;
+      padding: 16px 18px;
     }
     .stat-box span {
       display: block;
-      font-size: 0.74rem;
+      font-size: 0.72rem;
       color: var(--text-muted);
       text-transform: uppercase;
       letter-spacing: 0.7px;
-      margin-bottom: 6px;
+      margin-bottom: 4px;
     }
     .stat-box strong {
       font-family: 'Cinzel Decorative', serif;
-      font-size: 1.8rem;
+      font-size: 1.65rem;
       color: var(--gold);
     }
 
-    .admin-notice-card {
-      background: rgba(255, 255, 255, 0.04);
-      border: 1.5px solid rgba(255, 209, 71, 0.32);
-      border-radius: 20px;
-      padding: 24px;
+    .admin-grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
+      margin-bottom: 22px;
     }
-    .admin-notice-card h3 {
+
+    .admin-panel-card {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1.5px solid rgba(255, 209, 71, 0.28);
+      border-radius: 20px;
+      padding: 22px;
+    }
+    .admin-panel-card h3 {
       font-family: 'Cinzel Decorative', serif;
       color: var(--gold);
-      font-size: 1.25rem;
-      margin-bottom: 8px;
+      font-size: 1.18rem;
+      margin-bottom: 6px;
     }
+
     .admin-notice-row {
       display: flex;
       flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 14px;
+      gap: 10px;
+      margin-top: 12px;
     }
     .admin-notice-row input {
       flex: 1;
-      min-width: 240px;
-      padding: 12px 16px;
+      min-width: 220px;
+      padding: 11px 14px;
       border-radius: 12px;
       border: 1px solid rgba(255, 209, 71, 0.35);
       background: rgba(0, 0, 0, 0.38);
       color: #fff;
       font-family: inherit;
-      font-size: 0.92rem;
+      font-size: 0.9rem;
       outline: none;
+    }
+
+    /* 1-Click Presets */
+    .preset-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 14px;
+    }
+    .preset-chip {
+      background: rgba(255, 209, 71, 0.1);
+      border: 1px solid rgba(255, 209, 71, 0.35);
+      color: var(--gold-bright);
+      padding: 6px 12px;
+      border-radius: 50px;
+      font-family: inherit;
+      font-size: 0.78rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .preset-chip:hover {
+      background: var(--gold);
+      color: #2f0409;
+    }
+
+    /* Competition Open/Closed Switches */
+    .switch-list {
+      display: grid;
+      gap: 10px;
+      margin-top: 14px;
+    }
+    .switch-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 14px;
+      border-radius: 12px;
+      background: rgba(0, 0, 0, 0.3);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .toggle-pill {
+      padding: 5px 14px;
+      border-radius: 50px;
+      font-family: inherit;
+      font-size: 0.78rem;
+      font-weight: 800;
+      cursor: pointer;
+      border: 1px solid transparent;
+    }
+    .toggle-pill.open {
+      background: rgba(22, 163, 74, 0.25);
+      border-color: #4ade80;
+      color: #86efac;
+    }
+    .toggle-pill.closed {
+      background: rgba(220, 38, 38, 0.25);
+      border-color: #f87171;
+      color: #fca5a5;
+    }
+
+    /* Admin Analytics Bars */
+    .bar-list {
+      display: grid;
+      gap: 10px;
+      margin-top: 14px;
+    }
+    .bar-item-head {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.82rem;
+      margin-bottom: 4px;
+    }
+    .bar-track {
+      height: 8px;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    .bar-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--crimson-bright), var(--gold));
+      border-radius: 10px;
+      transition: width 0.5s ease;
+    }
+
+    /* Winners List in Admin */
+    .admin-winners-list {
+      margin-top: 14px;
+      display: grid;
+      gap: 8px;
     }
 
     .auth-error {
@@ -1720,11 +1938,13 @@
 
     @media (max-width: 960px) {
       .comp-card { flex: 0 0 calc(50% - 11px); }
-      .two-col, .entry-two-col { grid-template-columns: 1fr; }
+      .two-col, .entry-two-col, .admin-grid-2 { grid-template-columns: 1fr; }
     }
 
     @media (max-width: 820px) {
       .menu-toggle { display: grid; place-items: center; }
+      .mobile-reg-link { display: block; }
+      .nav-btn { display: none; }
       .nav-links {
         position: fixed;
         top: 66px;
@@ -1747,6 +1967,7 @@
     }
 
     @media (max-width: 680px) {
+      .brand-sub { display: none; }
       #live-notice-card {
         bottom: 16px;
         right: 16px;
@@ -1758,9 +1979,7 @@
         top: 84px;
         transform: translateX(-50%) translateY(-90px);
       }
-      #toast.show {
-        transform: translateX(-50%) translateY(0);
-      }
+      #toast.show { transform: translateX(-50%) translateY(0); }
     }
 
     @media (max-width: 600px) {
@@ -1780,7 +1999,7 @@
        ========================================================= -->
   <div id="public-site">
 
-    <!-- BIG FLOATING LIVE ANNOUNCEMENT CARD (AUTO-UPDATES WITHOUT RELOAD) -->
+    <!-- BIG FLOATING LIVE ANNOUNCEMENT CARD -->
     <div id="live-notice-card" role="status" aria-live="polite">
       <div class="live-card-head">
         <span class="live-dot">Live Carnival Update</span>
@@ -1810,6 +2029,7 @@
           <li><a href="#competitions">Competitions</a></li>
           <li><a href="#entry-info">Entry Fee</a></li>
           <li><a href="#venue">Venue &amp; FAQ</a></li>
+          <li class="mobile-reg-link"><a href="#competitions" style="color:var(--gold);">🏆 Register Free →</a></li>
         </ul>
 
         <div class="nav-actions">
@@ -1894,11 +2114,14 @@
           <button class="btn btn-glass" id="share-btn">🔗 Share</button>
         </div>
 
-        <div class="hero-anim delay-5">
+        <div class="hero-live-row hero-anim delay-5">
           <div class="visitor-live-pill" id="visitor-pill">
             <span class="visitor-live-dot"></span>
             <span><strong id="visitor-count">—</strong> Visitors Explored Resplendence</span>
           </div>
+          <button type="button" class="hype-pill" id="hype-btn" title="Tap to cheer for Resplendence!">
+            🔥 <strong id="hype-count">0</strong> Cheers • Tap!
+          </button>
         </div>
       </div>
 
@@ -1937,6 +2160,7 @@
             <button class="filter-pill" data-filter="thrill">Thrill &amp; Games</button>
             <button class="filter-pill" data-filter="stage">Stage &amp; Lucky Draw</button>
             <button class="filter-pill" data-filter="lifestyle">Food, Style &amp; Mystic</button>
+            <button class="surprise-btn" id="surprise-me-btn">🎲 Surprise Me!</button>
           </div>
           <input type="text" class="search-input" id="attraction-search" placeholder="🔍 Search attractions..." />
         </div>
@@ -2134,7 +2358,7 @@
               </div>
               <p>Celebrate an iconic bond with fun stage rounds, coordinated outfits, and joyful memories.</p>
             </div>
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfBRbGM7qvREyFcUh9uYIhcp1tvhD0bRt51ENrJkTMnj4AM8Q/viewform" target="_blank" rel="noopener noreferrer" class="comp-btn">Register via Google Form →</a>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfBRbGM7qvREyFcUh9uYIhcp1tvhD0bRt51ENrJkTMnj4AM8Q/viewform" data-comp="Mom and Me" target="_blank" rel="noopener noreferrer" class="comp-btn">Register via Google Form →</a>
           </div>
 
           <div class="comp-card tilt-card reveal">
@@ -2149,7 +2373,7 @@
               </div>
               <p>Bring the energy, teamwork, and unbeatable father-child chemistry to the carnival spotlight!</p>
             </div>
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfxR5SVAZkuySONCHq7PmrxtvlTJL3Gc3Q_e-auU5eh8IiLUg/viewform" target="_blank" rel="noopener noreferrer" class="comp-btn">Register via Google Form →</a>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfxR5SVAZkuySONCHq7PmrxtvlTJL3Gc3Q_e-auU5eh8IiLUg/viewform" data-comp="Dad and Me" target="_blank" rel="noopener noreferrer" class="comp-btn">Register via Google Form →</a>
           </div>
 
           <div class="comp-card tilt-card reveal">
@@ -2164,7 +2388,7 @@
               </div>
               <p>Walk the runway in your sharpest Christmas or winter attire and win over the judges!</p>
             </div>
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfktqZHLp2aYcr3kBFstsyxwkhaMCBEbcxXceiER83vPn_9jw/viewform?pli=1" target="_blank" rel="noopener noreferrer" class="comp-btn">Register via Google Form →</a>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfktqZHLp2aYcr3kBFstsyxwkhaMCBEbcxXceiER83vPn_9jw/viewform" data-comp="Ramp Walk" target="_blank" rel="noopener noreferrer" class="comp-btn">Register via Google Form →</a>
           </div>
 
           <div class="comp-card tilt-card reveal">
@@ -2179,7 +2403,7 @@
               </div>
               <p>Singing, dancing, magic, instruments, or comedy—show the school what you’ve got!</p>
             </div>
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdudEaGRsIOuR5c7HPk-3nFFaslXWJyEZfqJfDxsPUm5IBo-A/viewform" target="_blank" rel="noopener noreferrer" class="comp-btn">Register via Google Form →</a>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdudEaGRsIOuR5c7HPk-3nFFaslXWJyEZfqJfDxsPUm5IBo-A/viewform" data-comp="Talent Hunt" target="_blank" rel="noopener noreferrer" class="comp-btn">Register via Google Form →</a>
           </div>
 
           <div class="comp-card tilt-card reveal">
@@ -2194,7 +2418,7 @@
               </div>
               <p>An electrifying stage exclusively for our beloved elders (60+ years) to groove, shine, and steal the show!</p>
             </div>
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSch29hh_ZLtS1VXTZYv9z5N7dbuuvPRNs2RrB6c0VQMuP_jLg/viewform" target="_blank" rel="noopener noreferrer" class="comp-btn">Register via Google Form →</a>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSch29hh_ZLtS1VXTZYv9z5N7dbuuvPRNs2RrB6c0VQMuP_jLg/viewform" data-comp="Sr. Citizen Rockerz" target="_blank" rel="noopener noreferrer" class="comp-btn">Register via Google Form →</a>
           </div>
         </div>
       </div>
@@ -2202,6 +2426,24 @@
       <div class="section-wave">
         <svg viewBox="0 0 1440 70" preserveAspectRatio="none" style="width:100%; height:48px;">
           <path fill="#100a14" d="M0,25 C400,78 900,0 1440,42 L1440,70 L0,70 Z"></path>
+        </svg>
+      </div>
+    </section>
+
+    <!-- LIVE WINNERS & LUCKY DRAW SPOTLIGHT (HIDDEN UNTIL ADMIN ADDS WINNER) -->
+    <section class="winners-sec" id="winners-section">
+      <div class="container">
+        <div class="sec-head">
+          <div class="sec-eyebrow">🏆 Live Results</div>
+          <h2 class="sec-title">Winners <span>Spotlight</span></h2>
+          <p class="sec-sub">Congratulations to our Lucky Draw &amp; Competition champions!</p>
+        </div>
+        <div class="winners-grid" id="winners-grid"></div>
+      </div>
+
+      <div class="section-wave">
+        <svg viewBox="0 0 1440 70" preserveAspectRatio="none" style="width:100%; height:44px;">
+          <path fill="#100a14" d="M0,38 C420,0 980,72 1440,22 L1440,70 L0,70 Z"></path>
         </svg>
       </div>
     </section>
@@ -2398,7 +2640,7 @@
   </div>
 
   <!-- =========================================================
-       FULL-PAGE HIDDEN ADMIN PORTAL (LIVE NOTICE & STATS)
+       FULL-PAGE HIDDEN ADMIN COMMAND CENTER
        ========================================================= -->
   <div id="admin-page">
     <nav class="admin-navbar">
@@ -2413,7 +2655,7 @@
           </div>
           <div>
             <div class="brand-title">RESPLENDENCE ADMIN</div>
-            <div class="brand-sub">Live Announcement &amp; Stats Control</div>
+            <div class="brand-sub">Event Command Center</div>
           </div>
           <span class="admin-badge-pill" id="admin-mode-badge">Locked</span>
         </div>
@@ -2425,12 +2667,12 @@
       </div>
     </nav>
 
-    <!-- Admin Full-Page Login Screen -->
+    <!-- Admin Login Screen -->
     <div class="admin-login-screen" id="admin-login-view">
       <div class="admin-login-card">
         <h2>🔐 Organizer Login</h2>
         <p style="font-size:0.88rem; color:#cbd5e1; margin-bottom:20px;">
-          Sign in to publish live carnival updates &amp; view visitor traffic.
+          Sign in to control Live Notices, Competition Switches, Winners Spotlight &amp; Analytics.
         </p>
 
         <div class="auth-error" id="auth-error">Invalid username or password.</div>
@@ -2444,43 +2686,108 @@
             <label for="admin-pass">Password</label>
             <input type="password" id="admin-pass" autocomplete="current-password" placeholder="Enter password" required />
           </div>
-          <button type="submit" class="btn btn-gold" style="width:100%; margin-top:6px;">Unlock Dashboard →</button>
+          <button type="submit" class="btn btn-gold" style="width:100%; margin-top:6px;">Unlock Command Center →</button>
         </form>
       </div>
     </div>
 
-    <!-- Admin Full-Page Workspace -->
+    <!-- Admin Workspace -->
     <div class="admin-workspace" id="admin-dash-view" style="display:none;">
       <div class="admin-header-row">
         <div>
-          <h1>Carnival <span>Control Center</span></h1>
+          <h1>Carnival <span>Command Center</span></h1>
           <p id="admin-source-label" style="color:#94a3b8; font-size:0.88rem; margin-top:4px;">
             Connected to Supabase Cloud
           </p>
         </div>
-        <button class="btn btn-glass" id="admin-refresh-btn" style="padding:9px 16px; font-size:0.82rem;">↻ Refresh Stats</button>
+        <button class="btn btn-glass" id="admin-refresh-btn" style="padding:9px 16px; font-size:0.82rem;">↻ Refresh All Stats</button>
       </div>
 
+      <!-- Top Metrics -->
       <div class="admin-stats">
-        <div class="stat-box">
-          <span>Total Unique Website Visitors</span>
-          <strong id="admin-visitor-stat">—</strong>
-        </div>
-        <div class="stat-box">
-          <span>Competition Registration Mode</span>
-          <strong style="font-size:1.15rem; color:#86efac;">Google Forms (5 Events)</strong>
-        </div>
+        <div class="stat-box"><span>Total Unique Visitors</span><strong id="admin-visitor-stat">—</strong></div>
+        <div class="stat-box"><span>Total Form Clicks</span><strong id="admin-form-clicks-stat">0</strong></div>
+        <div class="stat-box"><span>Carnival Cheers 🔥</span><strong id="admin-cheers-stat">0</strong></div>
+        <div class="stat-box"><span>Open Competitions</span><strong id="admin-open-comps-stat">5 / 5</strong></div>
       </div>
 
-      <div class="admin-notice-card">
-        <h3>📢 Live Website Notice</h3>
-        <p style="font-size:0.86rem; color:#cbd5e1;">
-          Publish an announcement here to show a glowing alert card live on all visitors' screens (e.g., Lucky Draw winners, Flash Mob timing, or stage updates).
+      <!-- 1. Live Notice + 1-Tap Presets -->
+      <div class="admin-panel-card" style="margin-bottom:22px;">
+        <h3>📢 Live Website Notice &amp; Quick Presets</h3>
+        <p style="font-size:0.84rem; color:#cbd5e1;">
+          Publish custom alerts or tap any preset below to instantly broadcast onto all visitors' screens.
         </p>
         <div class="admin-notice-row">
-          <input type="text" id="admin-notice-input" placeholder="e.g., 🎟️ Lucky Draw #1 Winner: Ticket #204! OR Flash Mob starting in 5 mins!" />
-          <button class="btn btn-gold" id="publish-notice-btn" style="padding:10px 20px; font-size:0.86rem;">Publish Live</button>
-          <button class="btn btn-glass" id="clear-notice-btn" style="padding:10px 18px; font-size:0.86rem;">Clear Notice</button>
+          <input type="text" id="admin-notice-input" placeholder="Type a custom announcement..." />
+          <button class="btn btn-gold" id="publish-notice-btn" style="padding:10px 20px; font-size:0.85rem;">Publish Live</button>
+          <button class="btn btn-glass" id="clear-notice-btn" style="padding:10px 18px; font-size:0.85rem;">Clear Notice</button>
+        </div>
+        <div class="preset-chips">
+          <span style="font-size:0.78rem; color:#94a3b8; align-self:center; margin-right:4px;">⚡ 1-Tap Broadcast:</span>
+          <button type="button" class="preset-chip" data-preset="🕺 Surprise Flash Mob starting at the Central Ground in 5 mins!">🕺 Flash Mob in 5m</button>
+          <button type="button" class="preset-chip" data-preset="🎟️ Lucky Draw Round starting on Main Stage! Keep your tickets ready!">🎟️ Lucky Draw Now</button>
+          <button type="button" class="preset-chip" data-preset="🎸 Live Band Presentation is rocking the Main Stage right now!">🎸 Band Live</button>
+          <button type="button" class="preset-chip" data-preset="🏆 New Winners just posted! Scroll to the Winners Spotlight!">🏆 Winners Posted</button>
+          <button type="button" class="preset-chip" data-preset="🍔 Food Court, Rides & Gaming Zone are open until 7:00 P.M!">🍔 Food &amp; Rides</button>
+        </div>
+      </div>
+
+      <!-- 2. Competition Switches & Winners Manager -->
+      <div class="admin-grid-2">
+        <!-- Competition Open/Closed Toggles -->
+        <div class="admin-panel-card">
+          <h3>🚦 Competition Open / Closed</h3>
+          <p style="font-size:0.84rem; color:#cbd5e1;">
+            Close registrations anytime without touching code.
+          </p>
+          <div class="switch-list" id="admin-comp-switches"></div>
+        </div>
+
+        <!-- Lucky Draw & Winners Manager -->
+        <div class="admin-panel-card">
+          <h3>🏆 Post Winner / Lucky Draw Result</h3>
+          <p style="font-size:0.84rem; color:#cbd5e1; margin-bottom:12px;">
+            Adds a glowing trophy card on the public website.
+          </p>
+          <form id="admin-winner-form">
+            <div class="field">
+              <label for="win-event">Event / Round</label>
+              <select id="win-event">
+                <option value="Lucky Draw">🎟️ Lucky Draw</option>
+                <option value="Mom and Me">👩‍👧 Mom and Me</option>
+                <option value="Dad and Me">👨‍👦 Dad and Me</option>
+                <option value="Ramp Walk">💃 Ramp Walk</option>
+                <option value="Talent Hunt">🌟 Talent Hunt</option>
+                <option value="Sr. Citizen Rockerz">🎸 Sr. Citizen Rockerz</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="win-name">Winner Name / Ticket Number</label>
+              <input type="text" id="win-name" placeholder="e.g., Ananya Sharma  OR  Ticket #402" required />
+            </div>
+            <div class="field">
+              <label for="win-detail">Position / School / Prize</label>
+              <input type="text" id="win-detail" placeholder="e.g., 1st Place • DPS Dwarka  OR  Mega Hamper" required />
+            </div>
+            <button type="submit" class="btn btn-gold" style="width:100%; padding:10px;">Publish Winner 🏆</button>
+          </form>
+
+          <div class="admin-winners-list" id="admin-winners-list"></div>
+        </div>
+      </div>
+
+      <!-- 3. Live Analytics (Attractions Popularity & Form Clicks) -->
+      <div class="admin-grid-2" style="margin-bottom:0;">
+        <div class="admin-panel-card">
+          <h3>🔥 Top Planned Attractions</h3>
+          <p style="font-size:0.84rem; color:#cbd5e1;">Live count of visitors adding attractions to "My Plan".</p>
+          <div class="bar-list" id="analytics-attractions-bars"></div>
+        </div>
+
+        <div class="admin-panel-card">
+          <h3>📋 Competition Form Clicks</h3>
+          <p style="font-size:0.84rem; color:#cbd5e1;">Tracks how many visitors opened each Google Form.</p>
+          <div class="bar-list" id="analytics-comps-bars"></div>
         </div>
       </div>
     </div>
@@ -2511,6 +2818,12 @@
     /* Admin Credentials */
     const ADMIN_USER = "resplendence";
     const ADMIN_PASS = "wergoats";
+
+    const COMPETITIONS = ["Mom and Me", "Dad and Me", "Ramp Walk", "Talent Hunt", "Sr. Citizen Rockerz"];
+    const ATTRACTIONS = [
+      "Scrumptious Food", "Rides", "Nail Art", "Tattoo", "Astrotalk by Kiama",
+      "Console/PC Games", "Band Presentation", "Lucky Draw", "Attractive Stalls", "Flash Mob"
+    ];
 
     const SB_BASE = SUPABASE_URL.trim().replace(/\/rest\/v1\/?$/i, '').replace(/\/+$/, '');
     const HAS_CLOUD = Boolean(SB_BASE && SUPABASE_ANON_KEY.trim());
@@ -2567,9 +2880,52 @@
     }
 
     /* =========================================================
-       2. UI SETUP, FILTERS, PLANNER & INTERACTIONS
+       2. METRICS TRACKING HELPER
+       ========================================================= */
+    let metricsMap = Store.get('rsp_metrics_cache', {});
+
+    async function trackMetric(metricKey) {
+      metricsMap[metricKey] = (Number(metricsMap[metricKey]) || 0) + 1;
+      Store.set('rsp_metrics_cache', metricsMap);
+      if (HAS_CLOUD) {
+        try {
+          const res = await fetch(`${SB_BASE}/rest/v1/rpc/increment_metric`, {
+            method: 'POST',
+            headers: sbHeaders({ 'Content-Type': 'application/json' }),
+            body: JSON.stringify({ metric_key: metricKey })
+          });
+          if (res.ok) {
+            const val = await res.json();
+            metricsMap[metricKey] = Number(val) || metricsMap[metricKey];
+            Store.set('rsp_metrics_cache', metricsMap);
+          }
+        } catch {}
+      }
+      if (metricKey === 'hype_cheers') {
+        document.getElementById('hype-count').textContent = Number(metricsMap.hype_cheers || 0).toLocaleString('en-IN');
+      }
+    }
+
+    async function fetchAllMetrics() {
+      if (HAS_CLOUD) {
+        try {
+          const res = await fetch(`${SB_BASE}/rest/v1/carnival_metrics?select=*`, { headers: sbHeaders() });
+          if (res.ok) {
+            const rows = await res.json();
+            rows.forEach(r => { metricsMap[r.key] = Number(r.count) || 0; });
+            Store.set('rsp_metrics_cache', metricsMap);
+          }
+        } catch {}
+      }
+      document.getElementById('hype-count').textContent = Number(metricsMap.hype_cheers || 0).toLocaleString('en-IN');
+    }
+
+    /* =========================================================
+       3. UI SETUP, FILTERS, PLANNER & INTERACTIONS
        ========================================================= */
     let savedPlan = Store.get('rsp_plan', []);
+    let trackedAttrs = Store.get('rsp_tracked_attrs', []);
+    let trackedComps = Store.get('rsp_tracked_comps', []);
 
     const entryQrBox = document.getElementById('entry-qr-box');
     if (PAYMENT_QR_URL) {
@@ -2598,13 +2954,26 @@
       showToast('✨ Resplendence 2026 — Designed by Yaksh & Akshat (XI Lily)');
     });
 
+    /* Interactive Hype Cheer Button */
+    let cheersThisSession = 0;
+    document.getElementById('hype-btn').addEventListener('click', async () => {
+      launchConfetti();
+      if (cheersThisSession < 3) {
+        cheersThisSession++;
+        await trackMetric('hype_cheers');
+        showToast('🔥 Cheer counted! Can\'t wait for Dec 19!');
+      } else {
+        showToast('🎉 Thanks for the mega festive energy!');
+      }
+    });
+
     const toastEl = document.getElementById('toast');
     let toastTimer;
     function showToast(msg) {
       toastEl.textContent = msg;
       toastEl.classList.add('show');
       clearTimeout(toastTimer);
-      toastTimer = setTimeout(() => toastEl.classList.remove('show'), 3600);
+      toastTimer = setTimeout(() => toastEl.classList.remove('show'), 3400);
     }
 
     const progressEl = document.getElementById('scroll-progress');
@@ -2693,6 +3062,22 @@
     });
     searchInput.addEventListener('input', applyAttractionFilters);
 
+    /* Surprise Me Attraction Roulette */
+    document.getElementById('surprise-me-btn').addEventListener('click', () => {
+      document.querySelectorAll('.filter-pill').forEach(b => b.classList.toggle('active', b.dataset.filter === 'all'));
+      activeCat = 'all';
+      searchInput.value = '';
+      applyAttractionFilters();
+
+      spotCards.forEach(c => c.classList.remove('spotlight-pick'));
+      const pick = spotCards[Math.floor(Math.random() * spotCards.length)];
+      pick.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      setTimeout(() => {
+        pick.classList.add('spotlight-pick');
+        showToast(`🎲 Must Try: ${pick.dataset.name}!`);
+      }, 250);
+    });
+
     document.getElementById('share-btn').addEventListener('click', async () => {
       const shareData = {
         title: 'RESPLENDENCE 2026 — Winter Carnival',
@@ -2770,6 +3155,11 @@
         } else {
           savedPlan.push({ name, done: false });
           showToast(`✨ Added "${name}" to My Plan!`);
+          if (!trackedAttrs.includes(name)) {
+            trackedAttrs.push(name);
+            Store.set('rsp_tracked_attrs', trackedAttrs);
+            trackMetric('attr_' + name);
+          }
         }
         Store.set('rsp_plan', savedPlan);
         syncUI();
@@ -2806,7 +3196,128 @@
     syncUI();
 
     /* =========================================================
-       3. LIVE FLOATING ANNOUNCEMENT CARD
+       4. LIVE CONFIG (OPEN/CLOSED SWITCHES + WINNERS SPOTLIGHT)
+       ========================================================= */
+    let carnivalConfig = Store.get('rsp_carnival_config', {
+      comp_status: {},
+      winners: []
+    });
+
+    /* Store original form URLs on load */
+    document.querySelectorAll('.comp-btn[data-comp]').forEach(btn => {
+      btn.dataset.formUrl = btn.getAttribute('href');
+      btn.addEventListener('click', e => {
+        const comp = btn.dataset.comp;
+        const isClosed = carnivalConfig.comp_status && carnivalConfig.comp_status[comp] === false;
+        if (isClosed) {
+          e.preventDefault();
+          showToast(`⚠️ Registrations for ${comp} are currently closed.`);
+          return;
+        }
+        if (!trackedComps.includes(comp)) {
+          trackedComps.push(comp);
+          Store.set('rsp_tracked_comps', trackedComps);
+          trackMetric('comp_' + comp);
+        }
+      });
+    });
+
+    function applyCompStatuses() {
+      const statuses = carnivalConfig.comp_status || {};
+      document.querySelectorAll('.comp-btn[data-comp]').forEach(btn => {
+        const comp = btn.dataset.comp;
+        const isClosed = statuses[comp] === false;
+        if (isClosed) {
+          btn.classList.add('closed-btn');
+          btn.textContent = 'Registrations Closed';
+          btn.removeAttribute('target');
+          btn.setAttribute('href', 'javascript:void(0)');
+        } else {
+          btn.classList.remove('closed-btn');
+          btn.textContent = 'Register via Google Form →';
+          btn.setAttribute('target', '_blank');
+          btn.setAttribute('href', btn.dataset.formUrl);
+        }
+      });
+    }
+
+    function renderWinnersSection() {
+      const sec = document.getElementById('winners-section');
+      const grid = document.getElementById('winners-grid');
+      const winners = carnivalConfig.winners || [];
+      if (!winners.length) {
+        sec.classList.remove('active');
+        grid.innerHTML = '';
+        return;
+      }
+      sec.classList.add('active');
+      grid.innerHTML = winners.map(w => `
+        <div class="winner-card">
+          <div class="winner-trophy">🏆</div>
+          <div class="winner-event">${escapeHtml(w.event)}</div>
+          <div class="winner-name">${escapeHtml(w.name)}</div>
+          <div class="winner-meta">${escapeHtml(w.detail)}</div>
+        </div>
+      `).join('');
+    }
+
+    async function loadCarnivalConfig() {
+      if (HAS_CLOUD) {
+        try {
+          const res = await fetch(`${SB_BASE}/rest/v1/carnival_config?id=eq.1&select=*`, { headers: sbHeaders() });
+          if (res.ok) {
+            const rows = await res.json();
+            if (rows && rows[0]) {
+              carnivalConfig = {
+                comp_status: rows[0].comp_status || {},
+                winners: rows[0].winners || []
+              };
+              Store.set('rsp_carnival_config', carnivalConfig);
+            }
+          }
+        } catch {}
+      }
+      applyCompStatuses();
+      renderWinnersSection();
+      if (isAdminPageOpen && isAdminLoggedIn) {
+        renderAdminSwitches();
+        renderAdminWinners();
+      }
+    }
+
+    async function saveCarnivalConfig() {
+      Store.set('rsp_carnival_config', carnivalConfig);
+      applyCompStatuses();
+      renderWinnersSection();
+      if (HAS_CLOUD) {
+        try {
+          const res = await fetch(`${SB_BASE}/rest/v1/carnival_config?on_conflict=id`, {
+            method: 'POST',
+            headers: sbHeaders({
+              'Content-Type': 'application/json',
+              'Prefer': 'resolution=merge-duplicates'
+            }),
+            body: JSON.stringify({
+              id: 1,
+              comp_status: carnivalConfig.comp_status || {},
+              winners: carnivalConfig.winners || [],
+              updated_at: new Date().toISOString()
+            })
+          });
+          if (!res.ok) {
+            showToast('⚠️ Saved locally! Run the new Supabase SQL for multi-device sync.');
+            return false;
+          }
+        } catch {
+          showToast('⚠️ Cloud error — saved locally.');
+          return false;
+        }
+      }
+      return true;
+    }
+
+    /* =========================================================
+       5. LIVE FLOATING ANNOUNCEMENT CARD
        ========================================================= */
     const liveNoticeCard = document.getElementById('live-notice-card');
     const liveNoticeText = document.getElementById('live-notice-text');
@@ -2840,6 +3351,7 @@
 
       if (!msg) {
         activeNoticeMsg = '';
+        dismissedNoticeMsg = '';
         liveNoticeCard.classList.remove('show');
         isFirstNoticeCheck = false;
         return;
@@ -2873,16 +3385,27 @@
         dismissedNoticeMsg = '';
         loadLiveNotice(false);
       }
+      if (e.key === 'rsp_carnival_config') {
+        carnivalConfig = Store.get('rsp_carnival_config', { comp_status: {}, winners: [] });
+        applyCompStatuses();
+        renderWinnersSection();
+      }
     });
 
+    /* Gentle 15s polling for live updates without hitting Supabase quotas */
     setInterval(() => {
-      if (!isAdminPageOpen) loadLiveNotice(false);
-    }, 5000);
+      if (!isAdminPageOpen) {
+        loadLiveNotice(false);
+        loadCarnivalConfig();
+      }
+    }, 15000);
 
     loadLiveNotice(true);
+    loadCarnivalConfig();
+    fetchAllMetrics();
 
     /* =========================================================
-       4. FULL-PAGE ADMIN PORTAL (LIVE NOTICE & STATS)
+       6. FULL-PAGE ADMIN COMMAND CENTER
        ========================================================= */
     const publicSite = document.getElementById('public-site');
     const adminPage = document.getElementById('admin-page');
@@ -2913,22 +3436,139 @@
       adminLogoutBtn.style.display = isAdminLoggedIn ? 'inline-flex' : 'none';
     }
 
-    async function refreshAdminStats() {
-      if (!HAS_CLOUD) {
-        adminVisitorStat.textContent = Number(Store.get('rsp_local_visits', 0)).toLocaleString('en-IN');
+    function renderAdminSwitches() {
+      const container = document.getElementById('admin-comp-switches');
+      const statuses = carnivalConfig.comp_status || {};
+      const openCount = COMPETITIONS.filter(c => statuses[c] !== false).length;
+      document.getElementById('admin-open-comps-stat').textContent = `${openCount} / ${COMPETITIONS.length}`;
+
+      container.innerHTML = COMPETITIONS.map(c => {
+        const isOpen = statuses[c] !== false;
+        return `
+          <div class="switch-row">
+            <span style="font-weight:600; font-size:0.9rem;">${escapeHtml(c)}</span>
+            <button type="button" class="toggle-pill ${isOpen ? 'open' : 'closed'}" data-switch-comp="${escapeHtml(c)}">
+              ${isOpen ? '🟢 OPEN' : '🔴 CLOSED'}
+            </button>
+          </div>
+        `;
+      }).join('');
+    }
+
+    document.getElementById('admin-comp-switches').addEventListener('click', async e => {
+      const btn = e.target.closest('button[data-switch-comp]');
+      if (!btn) return;
+      const comp = btn.dataset.switchComp;
+      const current = carnivalConfig.comp_status[comp] !== false;
+      carnivalConfig.comp_status[comp] = !current;
+      renderAdminSwitches();
+      const ok = await saveCarnivalConfig();
+      if (ok) showToast(`${comp} is now ${!current ? 'OPEN' : 'CLOSED'}`);
+    });
+
+    function renderAdminWinners() {
+      const list = document.getElementById('admin-winners-list');
+      const winners = carnivalConfig.winners || [];
+      if (!winners.length) {
+        list.innerHTML = `<p style="font-size:0.82rem; color:#94a3b8; text-align:center; padding-top:6px;">No winners posted yet.</p>`;
         return;
       }
-      try {
-        const res = await fetch(`${SB_BASE}/rest/v1/site_stats?id=eq.1&select=visitors`, {
-          headers: sbHeaders()
-        });
-        if (res.ok) {
-          const rows = await res.json();
-          if (rows && rows[0]) {
-            adminVisitorStat.textContent = Number(rows[0].visitors || 0).toLocaleString('en-IN');
+      list.innerHTML = winners.map((w, i) => `
+        <div class="saved-item" style="margin-bottom:0; padding:10px 12px;">
+          <div>
+            <strong style="color:var(--gold); font-size:0.86rem;">🏆 ${escapeHtml(w.event)} — ${escapeHtml(w.name)}</strong>
+            <small style="display:block; color:#cbd5e1; font-size:0.76rem;">${escapeHtml(w.detail)}</small>
+          </div>
+          <button type="button" class="mini-btn" data-del-winner="${i}">🗑️</button>
+        </div>
+      `).join('');
+    }
+
+    document.getElementById('admin-winner-form').addEventListener('submit', async e => {
+      e.preventDefault();
+      const winObj = {
+        event: document.getElementById('win-event').value,
+        name: document.getElementById('win-name').value.trim(),
+        detail: document.getElementById('win-detail').value.trim()
+      };
+      carnivalConfig.winners = [winObj, ...(carnivalConfig.winners || [])];
+      e.target.reset();
+      renderAdminWinners();
+      const ok = await saveCarnivalConfig();
+      if (ok) showToast(`🏆 Published winner: ${winObj.name}!`);
+    });
+
+    document.getElementById('admin-winners-list').addEventListener('click', async e => {
+      const btn = e.target.closest('button[data-del-winner]');
+      if (!btn) return;
+      const idx = Number(btn.dataset.delWinner);
+      carnivalConfig.winners.splice(idx, 1);
+      renderAdminWinners();
+      await saveCarnivalConfig();
+      showToast('Winner removed');
+    });
+
+    function renderAdminAnalytics() {
+      /* 1. Attractions Popularity */
+      const attrData = ATTRACTIONS.map(name => ({
+        name,
+        count: Number(metricsMap['attr_' + name]) || 0
+      })).sort((a, b) => b.count - a.count);
+
+      const maxAttr = Math.max(1, ...attrData.map(d => d.count));
+      document.getElementById('analytics-attractions-bars').innerHTML = attrData.map(d => `
+        <div>
+          <div class="bar-item-head">
+            <span>${escapeHtml(d.name)}</span>
+            <strong style="color:var(--gold);">${d.count}</strong>
+          </div>
+          <div class="bar-track"><div class="bar-fill" style="width:${(d.count / maxAttr) * 100}%"></div></div>
+        </div>
+      `).join('');
+
+      /* 2. Competition Form Clicks */
+      const compData = COMPETITIONS.map(name => ({
+        name,
+        count: Number(metricsMap['comp_' + name]) || 0
+      })).sort((a, b) => b.count - a.count);
+
+      const totalClicks = compData.reduce((s, d) => s + d.count, 0);
+      document.getElementById('admin-form-clicks-stat').textContent = totalClicks.toLocaleString('en-IN');
+      document.getElementById('admin-cheers-stat').textContent = Number(metricsMap.hype_cheers || 0).toLocaleString('en-IN');
+
+      const maxComp = Math.max(1, ...compData.map(d => d.count));
+      document.getElementById('analytics-comps-bars').innerHTML = compData.map(d => `
+        <div>
+          <div class="bar-item-head">
+            <span>${escapeHtml(d.name)}</span>
+            <strong style="color:#86efac;">${d.count} clicks</strong>
+          </div>
+          <div class="bar-track"><div class="bar-fill" style="width:${(d.count / maxComp) * 100}%; background:linear-gradient(90deg,#16a34a,#ffd147);"></div></div>
+        </div>
+      `).join('');
+    }
+
+    async function refreshAdminStats() {
+      if (HAS_CLOUD) {
+        try {
+          const res = await fetch(`${SB_BASE}/rest/v1/site_stats?id=eq.1&select=visitors`, {
+            headers: sbHeaders()
+          });
+          if (res.ok) {
+            const rows = await res.json();
+            if (rows && rows[0]) {
+              adminVisitorStat.textContent = Number(rows[0].visitors || 0).toLocaleString('en-IN');
+            }
           }
-        }
-      } catch {}
+        } catch {}
+      } else {
+        adminVisitorStat.textContent = Number(Store.get('rsp_local_visits', 0)).toLocaleString('en-IN');
+      }
+      await fetchAllMetrics();
+      await loadCarnivalConfig();
+      renderAdminSwitches();
+      renderAdminWinners();
+      renderAdminAnalytics();
     }
 
     async function openAdminPage() {
@@ -2963,6 +3603,7 @@
         history.replaceState(null, '', window.location.pathname + window.location.search);
       }
       loadLiveNotice(true);
+      loadCarnivalConfig();
       window.scrollTo(0, 0);
     }
 
@@ -3011,7 +3652,7 @@
         updateAdminNav();
         await loadLiveNotice(true);
         await refreshAdminStats();
-        showToast('🔓 Admin Portal Unlocked');
+        showToast('🔓 Command Center Unlocked');
       } else {
         authError.style.display = 'block';
       }
@@ -3029,7 +3670,7 @@
     document.getElementById('admin-refresh-btn').addEventListener('click', async () => {
       await refreshAdminStats();
       await loadLiveNotice(true);
-      showToast('↻ Stats refreshed');
+      showToast('↻ All stats & analytics refreshed');
     });
 
     async function saveLiveNotice(msg) {
@@ -3047,12 +3688,12 @@
           });
           if (!res.ok) {
             await loadLiveNotice(true);
-            showToast('⚠️ Saved on this PC! Check announcements table permissions in Supabase.');
+            showToast('⚠️ Saved locally! Check announcements table permissions in Supabase.');
             return false;
           }
         } catch {
           await loadLiveNotice(true);
-          showToast('⚠️ Cloud error — saved on this PC only.');
+          showToast('⚠️ Cloud error — saved locally.');
           return false;
         }
       }
@@ -3064,7 +3705,7 @@
       const val = document.getElementById('admin-notice-input').value.trim();
       if (!val) { showToast('Type a message first or click Clear Notice.'); return; }
       const ok = await saveLiveNotice(val);
-      if (ok) showToast('📢 Live Notice published! Visitors see it automatically.');
+      if (ok) showToast('📢 Live Notice published!');
     });
 
     document.getElementById('clear-notice-btn').addEventListener('click', async () => {
@@ -3073,8 +3714,18 @@
       showToast('Live Notice cleared');
     });
 
+    /* 1-Click Announcement Presets */
+    document.querySelectorAll('.preset-chip').forEach(chip => {
+      chip.addEventListener('click', async () => {
+        const msg = chip.dataset.preset;
+        document.getElementById('admin-notice-input').value = msg;
+        const ok = await saveLiveNotice(msg);
+        if (ok) showToast('⚡ Broadcasted live!');
+      });
+    });
+
     /* =========================================================
-       5. SCROLL REVEAL, SNOW & CONFETTI
+       7. SCROLL REVEAL, SNOW & CONFETTI
        ========================================================= */
     const revealObs = new IntersectionObserver(entries => {
       entries.forEach(en => { if (en.isIntersecting) en.target.classList.add('visible'); });
@@ -3159,7 +3810,7 @@
     })();
 
     /* =========================================================
-       6. LIVE VISITOR COUNTER
+       8. LIVE VISITOR COUNTER
        ========================================================= */
     const visitorCountEl = document.getElementById('visitor-count');
 
@@ -3217,7 +3868,7 @@
           })
           .catch(() => {});
       }
-    }, 15000);
+    }, 25000);
   </script>
 </body>
 </html>
