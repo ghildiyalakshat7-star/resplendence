@@ -367,6 +367,121 @@
     .winner-name { font-family: 'Cinzel Decorative', serif; font-size: 1.25rem; color: #fff; margin-bottom: 4px; }
     .winner-meta { font-size: 0.86rem; color: #a7f3d0; }
 
+    /* LIVE CARNIVAL GALLERY (MAX 4 PHOTOS) */
+    .live-gallery-sec {
+      display: none;
+      background: radial-gradient(circle at 50% 15%, rgba(200, 30, 55, 0.16), transparent 52%), linear-gradient(180deg, #0b0e18 0%, #071913 55%, #0b0e18 100%);
+    }
+    .live-gallery-sec.active { display: block; }
+    .live-gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+      max-width: 1120px;
+      margin: 0 auto;
+    }
+    .live-photo-card {
+      position: relative;
+      background: linear-gradient(155deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02));
+      border: 1.5px solid rgba(255, 209, 71, 0.42);
+      border-radius: 20px;
+      overflow: hidden;
+      cursor: pointer;
+      box-shadow: 0 16px 38px rgba(0, 0, 0, 0.5);
+      transition: transform 0.28s ease, border-color 0.28s ease, box-shadow 0.28s ease;
+      animation: popIn 0.35s ease;
+    }
+    .live-photo-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--gold);
+      box-shadow: 0 22px 46px rgba(0, 0, 0, 0.65), 0 0 26px rgba(255, 209, 71, 0.22);
+    }
+    .live-photo-thumb {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      display: block;
+      background: #0d1622;
+    }
+    .live-photo-badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: 50px;
+      background: rgba(110, 10, 24, 0.88);
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      font-size: 0.68rem;
+      font-weight: 800;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      backdrop-filter: blur(6px);
+    }
+    .live-photo-badge::before {
+      content: '';
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #4ade80;
+      box-shadow: 0 0 8px #4ade80;
+    }
+    .live-photo-info {
+      padding: 13px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+    }
+    .live-photo-cap {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: #fff;
+      line-height: 1.35;
+    }
+    .live-photo-time {
+      font-size: 0.72rem;
+      color: #94a3b8;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    /* ADMIN PHOTO UPLOADER GRID */
+    .upload-disabled { opacity: 0.55; pointer-events: none; }
+    .admin-photos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(175px, 1fr));
+      gap: 12px;
+      margin-top: 14px;
+    }
+    .admin-photo-item {
+      background: rgba(0, 0, 0, 0.35);
+      border: 1px solid rgba(255, 209, 71, 0.3);
+      border-radius: 14px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .admin-photo-item img {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      display: block;
+    }
+    .admin-photo-foot {
+      padding: 8px 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 6px;
+      font-size: 0.76rem;
+      color: #e2e8f0;
+    }
+
     /* ENTRY FEE */
     .entry-info-sec { background: radial-gradient(circle at center 45%, rgba(136, 13, 30, 0.34), #0b0e18 75%); }
     .entry-two-col { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; max-width: 1120px; margin: 0 auto; align-items: stretch; }
@@ -929,6 +1044,21 @@
       </div>
     </section>
 
+    <!-- LIVE CARNIVAL GALLERY (HIDDEN UNTIL ADMIN UPLOADS PHOTOS - MAX 4) -->
+    <section class="live-gallery-sec" id="live-gallery-section">
+      <div class="container">
+        <div class="sec-head">
+          <div class="sec-eyebrow">📸 Live From The Ground</div>
+          <h2 class="sec-title">Live Carnival <span>Moments</span></h2>
+          <p class="sec-sub">Real-time snapshots straight from Resplendence 2026! Tap any photo to view full screen.</p>
+        </div>
+        <div class="live-gallery-grid" id="live-gallery-grid"></div>
+      </div>
+      <div class="section-wave">
+        <svg viewBox="0 0 1440 70" preserveAspectRatio="none" style="width:100%; height:44px;"><path fill="#0b0e18" d="M0,38 C420,0 980,72 1440,22 L1440,70 L0,70 Z"></path></svg>
+      </div>
+    </section>
+
     <!-- CARNIVAL ENTRY FEE -->
     <section class="entry-info-sec" id="entry-info">
       <div class="container">
@@ -1101,7 +1231,7 @@
       <div class="admin-login-card">
         <h2>🔐 Organizer Login</h2>
         <p style="font-size:0.88rem; color:#cbd5e1; margin-bottom:20px;">
-          Sign in to access Live Notices, Lucky Draw Picker, Event Mode, Zone Status &amp; Analytics.
+          Sign in to access Live Notices, Live Photos, Lucky Draw Picker, Event Mode &amp; Analytics.
         </p>
         <div class="auth-error" id="auth-error">Invalid username or password.</div>
         <form id="admin-login-form">
@@ -1128,6 +1258,34 @@
         <div class="stat-box"><span>Open Competitions</span><strong id="admin-open-comps-stat">5 / 5</strong></div>
       </div>
 
+      <!-- LIVE CARNIVAL PHOTO UPLOADER (CHOOSE FILE -> DIRECT UPLOAD, MAX 4) -->
+      <div class="admin-panel-card" style="margin-bottom:22px;">
+        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; margin-bottom:6px;">
+          <h3>📸 Live Carnival Photos (Max 4)</h3>
+          <span class="admin-badge-pill cloud" id="admin-photo-count-badge">0 / 4 Live</span>
+        </div>
+        <p style="font-size:0.84rem; color:#cbd5e1; margin-bottom:14px;">
+          Choose a picture from your phone or PC to upload it directly onto the public website's <strong>Live Carnival Moments</strong> section.
+        </p>
+
+        <div class="field" style="max-width:520px;">
+          <label for="admin-photo-caption">Photo Caption (Optional — type before choosing picture)</label>
+          <input type="text" id="admin-photo-caption" placeholder="e.g., Crowd going wild during the Flash Mob!" maxlength="70" />
+        </div>
+
+        <label class="upload-drop-label" id="admin-photo-upload-label" for="admin-photo-file" style="max-width:520px; margin-bottom:6px;">
+          <span>📁 Choose File &amp; Upload Live Photo</span>
+          <input type="file" id="admin-photo-file" accept="image/*" style="display:none;" />
+        </label>
+
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-top:10px;">
+          <span style="font-size:0.78rem; color:#94a3b8;">Auto-compressed for fast mobile loading.</span>
+          <button type="button" class="mini-btn" id="admin-photos-clear-btn" style="display:none;">🗑️ Clear All Photos</button>
+        </div>
+
+        <div class="admin-photos-grid" id="admin-photos-grid"></div>
+      </div>
+
       <div class="admin-grid-2">
         <div class="admin-panel-card">
           <h3>🎛️ Event Mode Master Switch</h3>
@@ -1142,7 +1300,7 @@
 
           <h3>💳 Live QR &amp; WhatsApp Updater</h3>
           <p style="font-size:0.82rem; color:#cbd5e1; margin-bottom:10px;">Swap QR image URL or WhatsApp link anytime without editing HTML.</p>
-          <div class="field"><label for="admin-qr-input">₹100 Payment QR Image Path / URL</label><input type="text" id="admin-qr-input" placeholder="e.g., qr.png or https://..." /></div>
+          <div class="field"><label for="admin-qr-input">₹100 Payment QR Image Path / URL</label><input type="text" id="admin-qr-input" placeholder="e.g., qr-code.png or https://..." /></div>
           <div class="field"><label for="admin-wa-input">WhatsApp Group Invite Link</label><input type="text" id="admin-wa-input" placeholder="https://chat.whatsapp.com/..." /></div>
           <button type="button" class="btn btn-gold" id="save-links-btn" style="width:100%; padding:10px;">Save Live Links 💾</button>
         </div>
@@ -1273,6 +1431,16 @@
     </div>
   </div>
 
+  <!-- LIVE PHOTO LIGHTBOX MODAL -->
+  <div class="modal-backdrop" id="photo-lightbox-modal">
+    <div class="modal-card" style="max-width:740px; padding:18px; text-align:center;">
+      <button class="modal-close" id="close-lightbox-modal">&times;</button>
+      <img id="lightbox-img" alt="Live Carnival Moment" style="width:100%; max-height:72vh; object-fit:contain; border-radius:14px; background:#050a11; margin-top:8px;" />
+      <p id="lightbox-caption" style="color:var(--gold); font-weight:700; font-size:1rem; margin-top:12px;"></p>
+      <p id="lightbox-time" style="color:#94a3b8; font-size:0.78rem; margin-top:2px;"></p>
+    </div>
+  </div>
+
   <!-- INSTANT WEBSITE QR MODAL (IN ADMIN) -->
   <div class="modal-backdrop" id="site-qr-modal">
     <div class="modal-card" style="text-align:center; max-width:380px;">
@@ -1297,6 +1465,7 @@
     const ADMIN_USER = "resplendence";
     const ADMIN_PASS = "wergoats";
 
+    const MAX_LIVE_PHOTOS = 4;
     const COMPETITIONS = ["Mom and Me", "Dad and Me", "Ramp Walk", "Talent Hunt", "Sr. Citizen Rockerz"];
     const ATTRACTIONS = [
       "Scrumptious Food", "Rides", "Nail Art", "Tattoo", "Astrotalk by Kiama",
@@ -1651,17 +1820,20 @@
     });
 
     /* =========================================================
-       5. LIVE CONFIG (EVENT MODE, LINKS, ZONE STATUS, SWITCHES, WINNERS)
+       5. LIVE CONFIG (EVENT MODE, LINKS, ZONE STATUS, SWITCHES, WINNERS, LIVE PHOTOS)
        ========================================================= */
     let carnivalConfig = Store.get('rsp_carnival_config', {
-      comp_status: { _meta: { eventMode: 'upcoming', zoneStatus: {}, qrUrl: '', waUrl: '', drawnTickets: [] } },
+      comp_status: { _meta: { eventMode: 'upcoming', zoneStatus: {}, qrUrl: '', waUrl: '', drawnTickets: [], livePhotos: [] } },
       winners: []
     });
 
     function getMeta() {
       if (!carnivalConfig.comp_status) carnivalConfig.comp_status = {};
       if (!carnivalConfig.comp_status._meta) {
-        carnivalConfig.comp_status._meta = { eventMode: 'upcoming', zoneStatus: {}, qrUrl: '', waUrl: '', drawnTickets: [] };
+        carnivalConfig.comp_status._meta = { eventMode: 'upcoming', zoneStatus: {}, qrUrl: '', waUrl: '', drawnTickets: [], livePhotos: [] };
+      }
+      if (!Array.isArray(carnivalConfig.comp_status._meta.livePhotos)) {
+        carnivalConfig.comp_status._meta.livePhotos = [];
       }
       return carnivalConfig.comp_status._meta;
     }
@@ -1753,12 +1925,60 @@
       `).join('');
     }
 
+    /* LIVE GALLERY (PUBLIC + LIGHTBOX) */
+    const lightboxModal = document.getElementById('photo-lightbox-modal');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const lightboxCap = document.getElementById('lightbox-caption');
+    const lightboxTime = document.getElementById('lightbox-time');
+    const liveGalleryGrid = document.getElementById('live-gallery-grid');
+
+    function isSafeImageSrc(src) {
+      return typeof src === 'string' && (src.startsWith('data:image/') || src.startsWith('https://'));
+    }
+
+    function renderLiveGallerySection() {
+      const sec = document.getElementById('live-gallery-section');
+      const photos = (getMeta().livePhotos || []).filter(p => p && isSafeImageSrc(p.src));
+      if (!photos.length) {
+        sec.classList.remove('active');
+        liveGalleryGrid.innerHTML = '';
+        return;
+      }
+      sec.classList.add('active');
+      liveGalleryGrid.innerHTML = photos.map((p, idx) => `
+        <div class="live-photo-card" data-photo-idx="${idx}">
+          <span class="live-photo-badge">Live</span>
+          <img class="live-photo-thumb" src="${escapeHtml(p.src)}" alt="${escapeHtml(p.caption || 'Resplendence Live Moment')}" loading="lazy" />
+          <div class="live-photo-info">
+            <span class="live-photo-cap">${escapeHtml(p.caption || 'Resplendence 2026 Live!')}</span>
+            <span class="live-photo-time">${escapeHtml(p.time || '')}</span>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    liveGalleryGrid.addEventListener('click', e => {
+      const card = e.target.closest('.live-photo-card[data-photo-idx]');
+      if (!card) return;
+      const photos = (getMeta().livePhotos || []).filter(p => p && isSafeImageSrc(p.src));
+      const photo = photos[Number(card.dataset.photoIdx)];
+      if (!photo) return;
+      lightboxImg.src = photo.src;
+      lightboxCap.textContent = photo.caption || 'Resplendence 2026 Live!';
+      lightboxTime.textContent = photo.time ? `Uploaded at ${photo.time}` : '';
+      lightboxModal.classList.add('open');
+    });
+
+    document.getElementById('close-lightbox-modal').addEventListener('click', () => lightboxModal.classList.remove('open'));
+    lightboxModal.addEventListener('click', e => { if (e.target === lightboxModal) lightboxModal.classList.remove('open'); });
+
     function applyAllPublicConfig() {
       applyDynamicLinks();
       applyEventMode();
       applyZoneStatuses();
       applyCompStatuses();
       renderWinnersSection();
+      renderLiveGallerySection();
     }
 
     async function loadCarnivalConfig() {
@@ -1788,13 +2008,12 @@
             headers: sbHeaders({ 'Content-Type': 'application/json', 'Prefer': 'resolution=merge-duplicates' }),
             body: JSON.stringify({ id: 1, comp_status: carnivalConfig.comp_status || {}, winners: carnivalConfig.winners || [], updated_at: new Date().toISOString() })
           });
-          if (!res.ok) { showToast('⚠️ Saved locally! Run the Supabase SQL for multi-device sync.'); return false; }
+          if (!res.ok) { showToast('⚠️ Saved locally! Check carnival_config permissions in Supabase.'); return false; }
         } catch { showToast('⚠️ Cloud error — saved locally.'); return false; }
       }
       return true;
     }
 
-    /* Render cached config synchronously at 0ms, then sync cloud */
     applyAllPublicConfig();
 
     /* =========================================================
@@ -1871,10 +2090,121 @@
       const qrInp = document.getElementById('admin-qr-input'), waInp = document.getElementById('admin-wa-input');
       if (document.activeElement !== qrInp) qrInp.value = meta.qrUrl || DEFAULT_PAYMENT_QR_URL;
       if (document.activeElement !== waInp) waInp.value = meta.waUrl || DEFAULT_WHATSAPP_GROUP_URL;
+      renderAdminPhotos();
       renderAdminSwitches();
       renderAdminZoneStatuses();
       renderAdminWinners();
     }
+
+    /* ADMIN LIVE CARNIVAL PHOTO UPLOADER (MAX 4) */
+    const adminPhotoFile = document.getElementById('admin-photo-file');
+    const adminPhotoCaption = document.getElementById('admin-photo-caption');
+    const adminPhotoUploadLabel = document.getElementById('admin-photo-upload-label');
+    const adminPhotosGrid = document.getElementById('admin-photos-grid');
+    const adminPhotoCountBadge = document.getElementById('admin-photo-count-badge');
+    const adminPhotosClearBtn = document.getElementById('admin-photos-clear-btn');
+
+    function compressPhotoForCloud(file, maxDim = 900, quality = 0.72) {
+      return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onerror = () => reject(new Error('Could not read file'));
+        reader.onload = ev => {
+          const img = new Image();
+          img.onerror = () => reject(new Error('Unsupported image format'));
+          img.onload = () => {
+            let w = img.width, h = img.height;
+            if (w > maxDim || h > maxDim) {
+              if (w >= h) { h = Math.round((h * maxDim) / w); w = maxDim; }
+              else { w = Math.round((w * maxDim) / h); h = maxDim; }
+            }
+            const canvas = document.createElement('canvas');
+            canvas.width = w;
+            canvas.height = h;
+            canvas.getContext('2d').drawImage(img, 0, 0, w, h);
+            resolve(canvas.toDataURL('image/jpeg', quality));
+          };
+          img.src = ev.target.result;
+        };
+        reader.readAsDataURL(file);
+      });
+    }
+
+    function renderAdminPhotos() {
+      const photos = (getMeta().livePhotos || []).filter(p => p && isSafeImageSrc(p.src));
+      adminPhotoCountBadge.textContent = `${photos.length} / ${MAX_LIVE_PHOTOS} Live`;
+      adminPhotoUploadLabel.classList.toggle('upload-disabled', photos.length >= MAX_LIVE_PHOTOS);
+      adminPhotoUploadLabel.querySelector('span').textContent = photos.length >= MAX_LIVE_PHOTOS
+        ? `✅ Max ${MAX_LIVE_PHOTOS} Photos Reached (Delete one to upload another)`
+        : '📁 Choose File & Upload Live Photo';
+      adminPhotosClearBtn.style.display = photos.length ? 'inline-block' : 'none';
+
+      if (!photos.length) {
+        adminPhotosGrid.innerHTML = `<p style="font-size:0.82rem; color:#94a3b8; grid-column:1/-1; padding-top:4px;">No live photos uploaded yet. Choose a picture above to publish it on Carnival Day!</p>`;
+        return;
+      }
+
+      adminPhotosGrid.innerHTML = photos.map((p, i) => `
+        <div class="admin-photo-item">
+          <img src="${escapeHtml(p.src)}" alt="${escapeHtml(p.caption || 'Live Photo')}" />
+          <div class="admin-photo-foot">
+            <span style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap;" title="${escapeHtml(p.caption || '')}">
+              ${escapeHtml(p.caption || `Photo #${i + 1}`)}
+            </span>
+            <button type="button" class="mini-btn" data-del-photo="${i}" title="Delete photo">🗑️</button>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    adminPhotoFile.addEventListener('change', async e => {
+      const file = e.target.files && e.target.files[0];
+      adminPhotoFile.value = '';
+      if (!file) return;
+
+      const meta = getMeta();
+      const photos = meta.livePhotos || [];
+      if (photos.length >= MAX_LIVE_PHOTOS) {
+        showToast(`⚠️ Maximum ${MAX_LIVE_PHOTOS} live photos allowed! Delete one first.`);
+        return;
+      }
+
+      const labelSpan = adminPhotoUploadLabel.querySelector('span');
+      const prevText = labelSpan.textContent;
+      labelSpan.textContent = '⏳ Compressing & Uploading...';
+
+      try {
+        const compressedSrc = await compressPhotoForCloud(file);
+        const cap = adminPhotoCaption.value.trim() || 'Live at Resplendence 2026!';
+        const timeStr = new Date().toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit' });
+        meta.livePhotos = [{ src: compressedSrc, caption: cap, time: timeStr }, ...photos].slice(0, MAX_LIVE_PHOTOS);
+        adminPhotoCaption.value = '';
+        renderAdminPhotos();
+        if (await saveCarnivalConfig()) {
+          showToast(`📸 Live photo uploaded! (${meta.livePhotos.length}/${MAX_LIVE_PHOTOS})`);
+        }
+      } catch {
+        showToast('⚠️ Could not process that image. Please choose a JPG or PNG.');
+        labelSpan.textContent = prevText;
+      }
+    });
+
+    adminPhotosGrid.addEventListener('click', async e => {
+      const btn = e.target.closest('button[data-del-photo]');
+      if (!btn) return;
+      const meta = getMeta();
+      meta.livePhotos.splice(Number(btn.dataset.delPhoto), 1);
+      renderAdminPhotos();
+      await saveCarnivalConfig();
+      showToast('🗑️ Live photo removed');
+    });
+
+    adminPhotosClearBtn.addEventListener('click', async () => {
+      if (!confirm('Remove all live carnival photos from the website?')) return;
+      getMeta().livePhotos = [];
+      renderAdminPhotos();
+      await saveCarnivalConfig();
+      showToast('All live photos cleared');
+    });
 
     document.getElementById('admin-event-mode-btns').addEventListener('click', async e => {
       const btn = e.target.closest('.mode-btn[data-mode]'); if (!btn) return;
@@ -2069,7 +2399,7 @@
     document.getElementById('back-to-site-btn').addEventListener('click', closeAdminPage);
     document.addEventListener('keydown', e => {
       if (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === 'a') { e.preventDefault(); openAdminPage(); }
-      if (e.key === 'Escape') { hubModal.classList.remove('open'); posterModal.classList.remove('open'); siteQrModal.classList.remove('open'); navLinks.classList.remove('open'); }
+      if (e.key === 'Escape') { hubModal.classList.remove('open'); posterModal.classList.remove('open'); siteQrModal.classList.remove('open'); lightboxModal.classList.remove('open'); navLinks.classList.remove('open'); }
     });
 
     let secretClicks = 0, secretClickTimer;
